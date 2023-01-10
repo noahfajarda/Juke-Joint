@@ -3,17 +3,48 @@ const express = require("express");
 const app = express();
 const PORT = 3001;
 require("dotenv").config();
-app.use(express.static("public"));
+const path = require("path");
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // handlebars stuff & middleware
-const exphbs = require("express-handlebars");
-const hbs = exphbs.create({});
+const exphbs = require("express-handlebars-hotreload");
+// BUG: why isn't this working
+// exphbs.hotreload();
+const hbs = exphbs.create({ hotreload: true });
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 // routes linking to 'controllers'
 const router = require("./controllers/spotifyRoutes.js");
 app.use(router);
+
+const sequelize = require("./config");
+const session = require("express-session");
+
+//connect-session-sequelize sets up a session store table in the database, to replace in-memory storage
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
+
+//session configuration object, refer to express-session documentation to modify configs
+const sess = {
+    secret: "Super secret secret",
+    cookie: {
+        maxAge: 300000,
+        httpOnly: true,
+        secure: false,
+        sameSite: "strict",
+    },
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize,
+    }),
+};
+
+//apply session middleware
+app.use(session(sess));
+
+
+
 
 // acccess token
 // prettier-ignore
