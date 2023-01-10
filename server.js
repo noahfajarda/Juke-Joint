@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // handlebars stuff & middleware
 const exphbs = require("express-handlebars-hotreload");
-// BUG: why isn't this working
+// BUG: why is this not working
 // exphbs.hotreload();
 const hbs = exphbs.create({ hotreload: true });
 app.engine("handlebars", hbs.engine);
@@ -18,7 +18,9 @@ app.set("view engine", "handlebars");
 const router = require("./controllers/spotifyRoutes.js");
 app.use(router);
 
-const sequelize = require("./config");
+const sequelize = require("./config/connection");
+// BUG: why is this not working
+// const {User, Comment, Post} = require("./models/index.js")
 const session = require("express-session");
 
 //connect-session-sequelize sets up a session store table in the database, to replace in-memory storage
@@ -100,6 +102,8 @@ async function main() {
 
 main();
 
-app.listen(PORT, () =>
-    console.log(`App listening at http://localhost:${PORT} 🚀`)
-);
+sequelize.sync().then(() => {
+    app.listen(PORT, () =>
+        console.log(`App listening at http://localhost:${PORT} 🚀`)
+    );
+})
