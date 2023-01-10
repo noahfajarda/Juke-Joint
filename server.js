@@ -20,7 +20,10 @@ app.use(router);
 
 const sequelize = require("./config/connection");
 // BUG: why is this not working
-// const {User, Comment, Post} = require("./models/index.js")
+// import sequel models
+const User = require("./models/User");
+const Comment = require("./models/Comment");
+const Post = require("./models/Post");
 const session = require("express-session");
 
 //connect-session-sequelize sets up a session store table in the database, to replace in-memory storage
@@ -44,9 +47,6 @@ const sess = {
 
 //apply session middleware
 app.use(session(sess));
-
-
-
 
 // acccess token
 // prettier-ignore
@@ -102,8 +102,9 @@ async function main() {
 
 main();
 
-sequelize.sync().then(() => {
+// change to { force: false } once we figure out our database strucutre
+sequelize.sync({ force: true }).then(() => {
     app.listen(PORT, () =>
         console.log(`App listening at http://localhost:${PORT} 🚀`)
     );
-})
+});
