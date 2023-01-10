@@ -82,9 +82,12 @@ router.get("/artist", async (req, res) => {
             accessToken,
             testData[0].artist
         );
-        res.json(constantArtist);
-    } catch {
+        constantArtist.title = "Artist";
+        res.render("artist", constantArtist);
+    } catch (err) {
         accessTokenExpired();
+        console.log(err);
+        res.status(500).json(err);
     }
 });
 
@@ -97,9 +100,12 @@ router.get("/artist/:artist", async (req, res) => {
             accessToken,
             req.params.artist
         );
-        res.json(specificArtist);
-    } catch {
+        specificArtist.title = "Artist";
+        res.render("artist", specificArtist);
+    } catch (err) {
         accessTokenExpired();
+        console.log(err);
+        res.status(500).json(err);
     }
 });
 
@@ -107,14 +113,16 @@ router.get("/artist/:artist", async (req, res) => {
 router.get("/album", async (req, res) => {
     const accessToken = await getAccessToken();
     try {
-        const constantArtist = await fetch_album_data(
+        const constantAlbum = await fetch_album_data(
             accessToken,
             testData[1].album
         );
-        constantArtist.title = "Album";
-        res.json(constantArtist);
-    } catch {
+        constantAlbum.title = "Album";
+        res.render("album", constantAlbum);
+    } catch (err) {
         accessTokenExpired();
+        console.log(err);
+        res.status(500).json(err);
     }
 });
 
@@ -122,17 +130,51 @@ router.get("/album", async (req, res) => {
 router.get("/album/:album", async (req, res) => {
     const accessToken = await getAccessToken();
     try {
-        const constantArtist = await fetch_album_data(
+        const specificAlbum = await fetch_album_data(
             accessToken,
             req.params.album
         );
-        constantArtist.title = "Album";
-        res.json(constantArtist);
-    } catch {
+        specificAlbum.title = "Album";
+        res.render("album", specificAlbum);
+    } catch (err) {
         accessTokenExpired();
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+// constant track route
+router.get("/track", async (req, res) => {
+    const accessToken = await getAccessToken();
+    try {
+        const constantArtist = await fetch_track_data(
+            accessToken,
+            testData[2].track
+        );
+        constantArtist.title = "Track";
+        res.render("track", constantArtist);
+    } catch (err) {
+        accessTokenExpired();
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+// variable track route
+router.get("/track/:track", async (req, res) => {
+    const accessToken = await getAccessToken();
+    try {
+        const specificArtist = await fetch_track_data(
+            accessToken,
+            req.params.track
+        );
+        specificArtist.title = "Track";
+        res.render("track", specificArtist);
+    } catch (err) {
+        accessTokenExpired();
+        console.log(err);
+        res.status(500).json(err);
     }
 });
 
 module.exports = router;
-
-// DOESN'T WORK RIGHT NOW
