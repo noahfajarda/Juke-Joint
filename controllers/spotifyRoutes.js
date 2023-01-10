@@ -13,8 +13,7 @@ const testData = [
 
 // main route
 router.get("/", async (req, res) => {
-    // res.render("all");
-    res.json("test");
+    res.render("homepage");
 });
 
 async function fetch_artist_data(accessToken, artist) {
