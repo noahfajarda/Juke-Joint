@@ -3,7 +3,7 @@
 // import terminal colors
 const { colors } = require("./fetch-API-data-&-colors");
 // use req.session somehow
-var session = require("express-session");
+const session = require("express-session");
 require("dotenv").config();
 // set spotify API credentials
 const client_id = process.env.CLIENT_ID; // Spotify Client_ID

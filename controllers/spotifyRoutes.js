@@ -170,10 +170,20 @@ router.get("/track/:track", async (req, res) => {
             req.params.track
         );
         specificTrack.title = "Track";
+
+        // array of duplicates
+        const test = await SearchedSong.findAll({ raw: true });
+        console.log("THISSSSS:", test);
+
+        // TODO: don't add duplicates
+        // if (test[0].trackName != specificTrack.trackName) {
+        // }
+
         // BUG: why does this initially insert twice?
         // Insert song into table in DB
         SearchedSong.create(specificTrack).then(console.log("Created!"));
         console.log(specificTrack);
+
         res.render("track", specificTrack);
     } catch (err) {
         accessTokenExpired();
