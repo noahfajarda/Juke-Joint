@@ -1,5 +1,7 @@
-<h1>Welcome! Go to the routes to view data!</h1>
-
+<h1>Welcome! {{username}} Go to the routes to view data!</h1>
+{{#if loggedIn}}
+    <button id="logout-btn">Log out</button>
+{{/if}}
 <form name="new-post" id="track-post">
     <input type="text" name="track_search" id="track_search" />
     {{! <textarea name="body" id="body" cols="30" rows="10"></textarea> }}

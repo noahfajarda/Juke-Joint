@@ -52,3 +52,12 @@ document.querySelector("#album-post").addEventListener("submit", async (e) => {
     }
 });
 
+const handleLogout = async () => {
+    const response = await fetch("/api/user/logout", {
+        method: "POST",
+    });
+
+    response.ok && document.location.replace("/login");
+};
+
+document.querySelector("#logout-btn").addEventListener("click", handleLogout);

@@ -15,7 +15,12 @@ const testData = [
 
 // main route
 router.get("/", async (req, res) => {
-    res.render("homepage");
+    //if they not logged in, go to login page
+    if (!req.session.userId) {
+        return res.redirect("/login");
+    }
+
+    res.render("homepage", { ...req.session });
 });
 
 async function fetch_artist_data(accessToken, artist) {

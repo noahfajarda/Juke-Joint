@@ -38,7 +38,6 @@ User.init(
                     newUserData.password,
                     10
                 );
-                newUserData.email = newUserData.email.toLowerCase();
                 return newUserData;
             },
             beforeUpdate: async (updatedUserData) => {
@@ -46,7 +45,6 @@ User.init(
                     updatedUserData.password,
                     10
                 );
-                updatedUserData.email = updatedUserData.email.toLowerCase();
                 return updatedUserData;
             },
         },
