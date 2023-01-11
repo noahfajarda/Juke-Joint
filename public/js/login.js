@@ -20,12 +20,12 @@ const loginFormHandler = async function (event) {
         document.location.replace("/");
     } else {
         // alert("Failed to login");
-        invalidUserInput();
+        invalidUserLogin();
     }
 };
 
 // display message for user input error
-function invalidUserInput() {
+function invalidUserLogin() {
     var timeLeft = 2;
     failedLoginEl.textContent = "Failed to log in please try again.";
     var timeInterval = setInterval(function () {
