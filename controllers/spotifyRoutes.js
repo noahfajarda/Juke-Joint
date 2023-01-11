@@ -13,6 +13,15 @@ const testData = [
     { track: "i kendrick lamar", endpoint: "http://localhost:3001/track" },
 ];
 
+// middleware check for log in
+function checkIfLoggedInReroute(req, res, next) {
+    //if they not logged in, go to login page
+    if (!req.session.userId) {
+        return res.redirect("/login");
+    }
+    next();
+}
+
 // main route
 router.get("/", async (req, res) => {
     //if they not logged in, go to login page
@@ -80,7 +89,7 @@ async function fetch_track_data(accessToken, track) {
 }
 
 // constant artist route
-router.get("/artist", async (req, res) => {
+router.get("/artist", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     console.log(accessToken);
     try {
@@ -98,7 +107,7 @@ router.get("/artist", async (req, res) => {
 });
 
 // variable artist route
-router.get("/artist/:artist", async (req, res) => {
+router.get("/artist/:artist", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
         // fetch artist from req.params & res.json()
