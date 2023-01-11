@@ -3,6 +3,8 @@ const router = require("express").Router();
 const {getAccessToken, accessTokenExpired} = require("../utils/retrieve-authorization-token.js");
 // prettier-ignore
 const {search_for_track, search_for_album, search_for_artist, retrieve_lyrics, colors} = require("../utils/fetch-API-data-&-colors");
+// Import models
+const SearchedSong = require("../models/SearchedSong");
 
 // testing keys: edit the titles for 'artist', 'album', & 'track'
 const testData = [
@@ -146,12 +148,12 @@ router.get("/album/:album", async (req, res) => {
 router.get("/track", async (req, res) => {
     const accessToken = await getAccessToken();
     try {
-        const constantArtist = await fetch_track_data(
+        const constantTrack = await fetch_track_data(
             accessToken,
             testData[2].track
         );
-        constantArtist.title = "Track";
-        res.render("track", constantArtist);
+        constantTrack.title = "Track";
+        res.render("track", constantTrack);
     } catch (err) {
         accessTokenExpired();
         console.log(err);
@@ -163,12 +165,16 @@ router.get("/track", async (req, res) => {
 router.get("/track/:track", async (req, res) => {
     const accessToken = await getAccessToken();
     try {
-        const specificArtist = await fetch_track_data(
+        const specificTrack = await fetch_track_data(
             accessToken,
             req.params.track
         );
-        specificArtist.title = "Track";
-        res.render("track", specificArtist);
+        specificTrack.title = "Track";
+        // BUG: why does this initially insert twice?
+        // Insert song into table in DB
+        SearchedSong.create(specificTrack).then(console.log("Created!"));
+        console.log(specificTrack);
+        res.render("track", specificTrack);
     } catch (err) {
         accessTokenExpired();
         console.log(err);

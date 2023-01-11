@@ -19,11 +19,12 @@ const router = require("./controllers/spotifyRoutes.js");
 app.use(router);
 
 const sequelize = require("./config/connection");
-// BUG: why is this not working
+// BUG: why is this not working, why can't I do object destructure
 // import sequel models
 const User = require("./models/User");
 const Comment = require("./models/Comment");
 const Post = require("./models/Post");
+const SearchedSong = require("./models/SearchedSong");
 const session = require("express-session");
 
 //connect-session-sequelize sets up a session store table in the database, to replace in-memory storage
@@ -103,6 +104,7 @@ async function main() {
 main();
 
 // change to { force: false } once we figure out our database strucutre
+// { force: true } used for development and testing database structure
 sequelize.sync({ force: true }).then(() => {
     app.listen(PORT, () =>
         console.log(`App listening at http://localhost:${PORT} 🚀`)
