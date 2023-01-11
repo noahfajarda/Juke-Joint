@@ -1,3 +1,5 @@
+const failedLoginEl = document.querySelector("#failed-login");
+
 // Frontend JS for login page, this is loaded via the script tag in the login.handlebars file
 const loginFormHandler = async function (event) {
     event.preventDefault();
@@ -17,9 +19,24 @@ const loginFormHandler = async function (event) {
     if (response.ok) {
         document.location.replace("/");
     } else {
-        alert("Failed to login");
+        // alert("Failed to login");
+        invalidUserInput();
     }
 };
+
+// display message for user input error
+function invalidUserInput() {
+    var timeLeft = 2;
+    failedLoginEl.textContent = "Failed to log in please try again.";
+    var timeInterval = setInterval(function () {
+        timeLeft--;
+        if (timeLeft === -1) {
+            clearInterval(timeInterval);
+            failedLoginEl.textContent = "";
+        }
+        return;
+    }, 1000);
+}
 
 document
     .querySelector("#login-form")
