@@ -110,3 +110,5 @@ sequelize.sync({ force: true }).then(() => {
         console.log(`App listening at http://localhost:${PORT} 🚀`)
     );
 });
+
+//Comment for testing
