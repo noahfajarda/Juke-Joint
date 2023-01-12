@@ -90,6 +90,8 @@ async function main() {
         );
         const trackData = await trackRes.json();
         // extract necessary track data
+        // const trackArt = trackData.tracks.items[0].album.images[3].url;
+        const trackArt = trackData.tracks.items[0].album.images[2].url;
         const trackName = trackData.tracks.items[0].name;
         const trackArtist = trackData.tracks.items[0].artists[0].name;
         const trackId = trackData.tracks.items[0].id;

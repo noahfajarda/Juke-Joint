@@ -25,6 +25,10 @@ SearchedSong.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        trackArt: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
     },
     {
         sequelize,

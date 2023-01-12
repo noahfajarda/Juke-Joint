@@ -3,6 +3,7 @@
 const User = require("./User");
 const Post = require("./Post");
 const Comment = require("./Comment");
+const SearchedSong = require("./SearchedSong");
 
 //Posts will have a userId field connecting to user table's id column
 //if a user gets deleted, all posts made by the user get deleted
@@ -30,4 +31,5 @@ module.exports = {
     User,
     Comment,
     Post,
+    SearchedSong,
 };

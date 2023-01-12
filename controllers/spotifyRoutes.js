@@ -72,19 +72,21 @@ async function fetch_track_data(accessToken, track) {
     const trackRes = await search_for_track(accessToken, track);
     const trackData = await trackRes.json();
     // extract necessary track data
+    const trackArt = trackData.tracks.items[0].album.images[2].url;
     const trackName = trackData.tracks.items[0].name;
     const trackArtist = trackData.tracks.items[0].artists[0].name;
     const trackId = trackData.tracks.items[0].id;
     // log extracted data
     console.log(
         `\nTrack Name: ${trackName} {by: ${trackArtist}}\nTrack ID
-        : ${trackId}`
+        : ${trackId}\nTrack Art: ${trackArt}`
     );
 
     return {
         trackName,
         trackArtist,
         trackId,
+        trackArt,
     };
 }
 
