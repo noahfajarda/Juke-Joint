@@ -4,6 +4,7 @@ document.querySelector("#track-post").addEventListener("submit", async (e) => {
     trackEl.value = trackEl.value.trim();
     console.log(trackEl.value);
 
+    // this is the reason the data populates twice
     const response = await fetch(`/track/${trackEl.value}`, {
         method: "GET",
         // headers: { "Content-Type": "application/json" },
