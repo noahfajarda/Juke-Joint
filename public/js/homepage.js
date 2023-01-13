@@ -5,16 +5,17 @@ document.querySelector("#track-post").addEventListener("submit", async (e) => {
     console.log(trackEl.value);
 
     // this is the reason the data populates twice
-    const response = await fetch(`/track/${trackEl.value}`, {
-        method: "GET",
-        // headers: { "Content-Type": "application/json" },
-    });
-
-    if (response.ok) {
-        document.location.replace(`/track/${trackEl.value}`);
-    } else {
-        alert("Failed to fetch data");
-    }
+    // const response = await fetch(`/track/${trackEl.value}`, {
+    //     method: "GET",
+    //     headers: { "Content-Type": "application/json" },
+    // });
+    location.replace(`/track/${trackEl.value}`);
+    // // console.log(response);
+    // if (response.ok) {
+    //     document.location.replace(`/track/${trackEl.value}`);
+    // } else {
+    //     alert("Failed to fetch data");
+    // }
 });
 
 document.querySelector("#artist-post").addEventListener("submit", async (e) => {

@@ -107,7 +107,7 @@ main();
 
 // change to { force: false } once we figure out our database strucutre
 // { force: true } used for development and testing database structure
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () =>
         console.log(`App listening at http://localhost:${PORT} 🚀`)
     );

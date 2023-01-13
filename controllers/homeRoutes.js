@@ -18,6 +18,8 @@ router.get("/signup", async (req, res) => {
     res.render("signup");
 });
 
+router.get("/search", (req, res) => res.render("auto"));
+
 router.get("/:anything", checkIfLoggedInReroute, async (req, res) => {
     res.redirect("login");
 });

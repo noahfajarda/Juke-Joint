@@ -100,7 +100,6 @@ router.get("/artist", checkIfLoggedInReroute, async (req, res) => {
             testData[0].artist
         );
         constantArtist.title = "Artist";
-        console.log(constantArtist);
         res.render("artist", constantArtist);
     } catch (err) {
         accessTokenExpired();
@@ -119,6 +118,7 @@ router.get("/artist/:artist", checkIfLoggedInReroute, async (req, res) => {
             req.params.artist
         );
         specificArtist.title = "Artist";
+        console.log(specificArtist);
         res.render("artist", specificArtist);
     } catch (err) {
         accessTokenExpired();
@@ -207,7 +207,9 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
     } catch (err) {
         accessTokenExpired();
         console.log(err);
-        res.status(500).json(err);
+
+        //instead of sending raw error, show can'tt find song/artists page
+        res.redirect("/");
     }
 });
 
