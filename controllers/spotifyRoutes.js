@@ -100,6 +100,7 @@ router.get("/artist", checkIfLoggedInReroute, async (req, res) => {
             testData[0].artist
         );
         constantArtist.title = "Artist";
+        console.log(constantArtist);
         res.render("artist", constantArtist);
     } catch (err) {
         accessTokenExpired();
@@ -127,7 +128,7 @@ router.get("/artist/:artist", checkIfLoggedInReroute, async (req, res) => {
 });
 
 // constant album route
-router.get("/album", async (req, res) => {
+router.get("/album", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
         const constantAlbum = await fetch_album_data(
@@ -144,7 +145,7 @@ router.get("/album", async (req, res) => {
 });
 
 // variable album route
-router.get("/album/:album", async (req, res) => {
+router.get("/album/:album", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
         const specificAlbum = await fetch_album_data(
@@ -161,7 +162,7 @@ router.get("/album/:album", async (req, res) => {
 });
 
 // constant track route
-router.get("/track", async (req, res) => {
+router.get("/track", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
         const constantTrack = await fetch_track_data(
@@ -178,7 +179,7 @@ router.get("/track", async (req, res) => {
 });
 
 // variable track route
-router.get("/track/:track", async (req, res) => {
+router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
         const specificTrack = await fetch_track_data(
@@ -198,7 +199,9 @@ router.get("/track/:track", async (req, res) => {
         // BUG: why does this initially insert twice?
         // Insert song into table in DB
         SearchedSong.create(specificTrack).then(console.log("Created!"));
+
         console.log(specificTrack);
+        console.log(req.session.loggedIn);
 
         res.render("track", specificTrack);
     } catch (err) {

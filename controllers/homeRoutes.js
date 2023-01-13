@@ -19,7 +19,7 @@ router.get("/signup", async (req, res) => {
 });
 
 router.get("/:anything", checkIfLoggedInReroute, async (req, res) => {
-    res.render("login");
+    res.redirect("login");
 });
 
 module.exports = router;
