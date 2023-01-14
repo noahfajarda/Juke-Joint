@@ -4,7 +4,7 @@ const {getAccessToken, accessTokenExpired} = require("../utils/retrieve-authoriz
 // prettier-ignore
 const {search_for_track, search_for_album, search_for_artist, retrieve_lyrics, colors} = require("../utils/fetch-API-data-&-colors");
 // Import models
-const SearchedSong = require("../models/SearchedSong");
+const { User, Comment, Post, SearchedSong, Artists } = require("../models");
 
 // testing keys: edit the titles for 'artist', 'album', & 'track'
 const testData = [
@@ -170,6 +170,7 @@ router.get("/track", checkIfLoggedInReroute, async (req, res) => {
             testData[2].track
         );
         constantTrack.title = "Track";
+
         res.render("track", constantTrack);
     } catch (err) {
         accessTokenExpired();
@@ -192,16 +193,25 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
         const test = await SearchedSong.findAll({ raw: true });
         console.log("THISSSSS:", test);
 
+        // retrieve comments for associated song
+        const comments = await Comment.findAll({
+            where: {
+                searchedItem: req.params.track,
+            },
+            raw: true,
+        });
+        console.log("Comments", comments);
+        specificTrack.comments = comments;
+
         // TODO: don't add duplicates
         // if (test[0].trackName != specificTrack.trackName) {
         // }
-
-        // BUG: why does this initially insert twice?
-        // Insert song into table in DB
         SearchedSong.create(specificTrack).then(console.log("Created!"));
 
-        console.log(specificTrack);
         console.log(req.session.loggedIn);
+        console.log(req.session.userId);
+        specificTrack.userId = req.session.userId;
+        console.log(specificTrack);
 
         res.render("track", specificTrack);
     } catch (err) {

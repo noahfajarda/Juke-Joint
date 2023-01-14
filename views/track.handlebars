@@ -2,7 +2,7 @@
 
 <!-- album -->
 <h1>Track:</h1>
-<h1>{{trackName}}</h1>
+<h1 id="track-name">{{trackName}}</h1>
 <h1>{{trackArtist}}</h1>
 <iframe
     style="border-radius: 12px"
@@ -17,4 +17,27 @@
 <h1>track ID used: {{trackId}}</h1>
 <h1>{{trackLyrics}}</h1>
 
+<h1 style="color: red;">Add a comment about the song!:</h1>
+<h2>User Id:</h2>
+<h2 id="user-Id">{{userId}}</h2>
+<textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>
+<button id="add-comment">Add Comment</button>
+
+{{#each comments}}
+    {{id}}
+    <br />
+    {{searchedItem}}
+    <br />
+    {{body}}
+    <br />
+    Post ID:
+    {{postId}}
+    <br />
+    User ID:
+    {{userId}}
+    <br />
+    <br />
+{{/each}}
+
 <script src="/js/back-to-home.js"></script>
+<script src="/js/add-comment-page.js"></script>

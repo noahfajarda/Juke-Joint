@@ -4,10 +4,14 @@ const sequelize = require("../config/connection");
 class Comment extends Model {}
 Comment.init(
     {
-        comment_id: {
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
+        },
+        searchedItem: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         body: {
             type: DataTypes.STRING,
