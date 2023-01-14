@@ -201,7 +201,7 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
             raw: true,
         });
         console.log("Comments", comments);
-        specificTrack.comments = comments;
+        specificTrack.comments = comments.reverse();
 
         // TODO: don't add duplicates
         // if (test[0].trackName != specificTrack.trackName) {

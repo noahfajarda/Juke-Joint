@@ -24,16 +24,7 @@ document.querySelector("#artist-post").addEventListener("submit", async (e) => {
     artistEl.value = artistEl.value.trim();
     console.log(artistEl.value);
 
-    const response = await fetch(`/artist/${artistEl.value}`, {
-        method: "GET",
-        // headers: { "Content-Type": "application/json" },
-    });
-
-    if (response.ok) {
-        document.location.replace(`/artist/${artistEl.value}`);
-    } else {
-        alert("Failed to fetch data");
-    }
+    location.replace(`/artist/${artistEl.value}`);
 });
 
 document.querySelector("#album-post").addEventListener("submit", async (e) => {
@@ -42,16 +33,7 @@ document.querySelector("#album-post").addEventListener("submit", async (e) => {
     albumEl.value = albumEl.value.trim();
     console.log(albumEl.value);
 
-    const response = await fetch(`/album/${albumEl.value}`, {
-        method: "GET",
-        // headers: { "Content-Type": "application/json" },
-    });
-
-    if (response.ok) {
-        document.location.replace(`/album/${albumEl.value}`);
-    } else {
-        alert("Failed to fetch data");
-    }
+    location.replace(`/album/${albumEl.value}`);
 });
 
 const handleLogout = async () => {
