@@ -4,16 +4,18 @@ document.querySelector("#track-post").addEventListener("submit", async (e) => {
     trackEl.value = trackEl.value.trim();
     console.log(trackEl.value);
 
-    const response = await fetch(`/track/${trackEl.value}`, {
-        method: "GET",
-        // headers: { "Content-Type": "application/json" },
-    });
-
-    if (response.ok) {
-        document.location.replace(`/track/${trackEl.value}`);
-    } else {
-        alert("Failed to fetch data");
-    }
+    // this is the reason the data populates twice
+    // const response = await fetch(`/track/${trackEl.value}`, {
+    //     method: "GET",
+    //     headers: { "Content-Type": "application/json" },
+    // });
+    location.replace(`/track/${trackEl.value}`);
+    // // console.log(response);
+    // if (response.ok) {
+    //     document.location.replace(`/track/${trackEl.value}`);
+    // } else {
+    //     alert("Failed to fetch data");
+    // }
 });
 
 document.querySelector("#artist-post").addEventListener("submit", async (e) => {
@@ -52,3 +54,12 @@ document.querySelector("#album-post").addEventListener("submit", async (e) => {
     }
 });
 
+const handleLogout = async () => {
+    const response = await fetch("/api/user/logout", {
+        method: "POST",
+    });
+
+    response.ok && document.location.replace("/login");
+};
+
+document.querySelector("#logout-btn").addEventListener("click", handleLogout);

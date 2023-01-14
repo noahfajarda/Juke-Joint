@@ -18,6 +18,14 @@ User.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        firstname: {
+            type: DataTypes.STRING,
+            // allowNull: false,
+        },
+        lastname: {
+            type: DataTypes.STRING,
+            // allowNull: false,
+        },
         username: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -38,7 +46,6 @@ User.init(
                     newUserData.password,
                     10
                 );
-                newUserData.email = newUserData.email.toLowerCase();
                 return newUserData;
             },
             beforeUpdate: async (updatedUserData) => {
@@ -46,7 +53,6 @@ User.init(
                     updatedUserData.password,
                     10
                 );
-                updatedUserData.email = updatedUserData.email.toLowerCase();
                 return updatedUserData;
             },
         },

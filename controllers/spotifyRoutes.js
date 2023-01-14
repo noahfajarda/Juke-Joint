@@ -13,9 +13,23 @@ const testData = [
     { track: "i kendrick lamar", endpoint: "http://localhost:3001/track" },
 ];
 
+// middleware check for log in
+function checkIfLoggedInReroute(req, res, next) {
+    //if they not logged in, go to login page
+    if (!req.session.userId) {
+        return res.redirect("/login");
+    }
+    next();
+}
+
 // main route
 router.get("/", async (req, res) => {
-    res.render("homepage");
+    //if they not logged in, go to login page
+    if (!req.session.userId) {
+        return res.redirect("/login");
+    }
+
+    res.render("homepage", { ...req.session });
 });
 
 async function fetch_artist_data(accessToken, artist) {
@@ -58,24 +72,26 @@ async function fetch_track_data(accessToken, track) {
     const trackRes = await search_for_track(accessToken, track);
     const trackData = await trackRes.json();
     // extract necessary track data
+    const trackArt = trackData.tracks.items[0].album.images[2].url;
     const trackName = trackData.tracks.items[0].name;
     const trackArtist = trackData.tracks.items[0].artists[0].name;
     const trackId = trackData.tracks.items[0].id;
     // log extracted data
     console.log(
         `\nTrack Name: ${trackName} {by: ${trackArtist}}\nTrack ID
-        : ${trackId}`
+        : ${trackId}\nTrack Art: ${trackArt}`
     );
 
     return {
         trackName,
         trackArtist,
         trackId,
+        trackArt,
     };
 }
 
 // constant artist route
-router.get("/artist", async (req, res) => {
+router.get("/artist", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     console.log(accessToken);
     try {
@@ -93,7 +109,7 @@ router.get("/artist", async (req, res) => {
 });
 
 // variable artist route
-router.get("/artist/:artist", async (req, res) => {
+router.get("/artist/:artist", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
         // fetch artist from req.params & res.json()
@@ -102,6 +118,7 @@ router.get("/artist/:artist", async (req, res) => {
             req.params.artist
         );
         specificArtist.title = "Artist";
+        console.log(specificArtist);
         res.render("artist", specificArtist);
     } catch (err) {
         accessTokenExpired();
@@ -111,7 +128,7 @@ router.get("/artist/:artist", async (req, res) => {
 });
 
 // constant album route
-router.get("/album", async (req, res) => {
+router.get("/album", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
         const constantAlbum = await fetch_album_data(
@@ -128,7 +145,7 @@ router.get("/album", async (req, res) => {
 });
 
 // variable album route
-router.get("/album/:album", async (req, res) => {
+router.get("/album/:album", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
         const specificAlbum = await fetch_album_data(
@@ -145,7 +162,7 @@ router.get("/album/:album", async (req, res) => {
 });
 
 // constant track route
-router.get("/track", async (req, res) => {
+router.get("/track", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
         const constantTrack = await fetch_track_data(
@@ -162,7 +179,7 @@ router.get("/track", async (req, res) => {
 });
 
 // variable track route
-router.get("/track/:track", async (req, res) => {
+router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
         const specificTrack = await fetch_track_data(
@@ -182,13 +199,17 @@ router.get("/track/:track", async (req, res) => {
         // BUG: why does this initially insert twice?
         // Insert song into table in DB
         SearchedSong.create(specificTrack).then(console.log("Created!"));
+
         console.log(specificTrack);
+        console.log(req.session.loggedIn);
 
         res.render("track", specificTrack);
     } catch (err) {
         accessTokenExpired();
         console.log(err);
-        res.status(500).json(err);
+
+        //instead of sending raw error, show can'tt find song/artists page
+        res.redirect("/");
     }
 });
 

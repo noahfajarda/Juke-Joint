@@ -1,0 +1,7 @@
+Screenshots are listed here
+
+1st-commit: able to retrieve/filter artist, album, and track data
+2nd-commit: display a spotify music widget to the specified route for each
+3rd-commit: created a homepage leading to different routes
+4th-commit: implemented login/signup
+5th-commit: hard to work with autocomplete from a csv file, so, with Chad's help, we were able to seed artist names into a table in our database, and create an autocomplete using those values with links to each artist
