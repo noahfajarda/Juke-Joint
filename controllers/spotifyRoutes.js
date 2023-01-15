@@ -191,16 +191,20 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
 
         // array of duplicates
         const test = await SearchedSong.findAll({ raw: true });
-        console.log("THISSSSS:", test);
+        // console.log("THISSSSS:", test);
 
         // retrieve comments for associated song
         const comments = await Comment.findAll({
             where: {
                 searchedItem: req.params.track,
             },
+            include: [
+                {
+                    model: User,
+                },
+            ],
             raw: true,
         });
-        console.log("Comments", comments);
         specificTrack.comments = comments.reverse();
 
         // TODO: don't add duplicates

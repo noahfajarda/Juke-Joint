@@ -23,21 +23,36 @@
 <textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>
 <button id="add-comment">Add Comment</button>
 
-{{#each comments}}
-    {{id}}
-    <br />
-    {{searchedItem}}
-    <br />
-    {{body}}
-    <br />
-    Post ID:
-    {{postId}}
-    <br />
-    User ID:
-    {{userId}}
-    <br />
-    <br />
-{{/each}}
+{{#if comments}}
+    <h1>Comment Section:</h1>
+    <section class="d-flex flex-column align-items-center">
+        {{#each comments}}
+            <section
+                style="box-shadow: 10px 5px 5px red; outline-style: solid; width: 500px; padding: 20px; border-radius: 10px;"
+            >
+                {{id}}
+                <br />
+                {{searchedItem}}
+                <br />
+                {{body}}
+                <br />
+                Post ID:
+                {{postId}}
+                <br />
+                User ID:
+                {{userId}}
+                <br />
+                {{"user.firstname"}}
+                <br />
+                {{"user.lastname"}}
+                <br />
+                {{"user.username"}}
+            </section>
+            <br />
+            <br />
+        {{/each}}
+    </section>
+{{/if}}
 
 <script src="/js/back-to-home.js"></script>
 <script src="/js/add-comment-page.js"></script>
