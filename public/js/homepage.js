@@ -54,6 +54,18 @@ document.querySelector("#album-post").addEventListener("submit", async (e) => {
     }
 });
 
+
+document.querySelector("#search-artist").addEventListener("click", async (e) => {
+    e.preventDefault();
+    const response = await fetch(`/search/`, {
+        method: "GET",
+    });
+
+    if (response) {
+        document.location.replace(`/search/`);
+    }
+});
+
 const handleLogout = async () => {
     const response = await fetch("/api/user/logout", {
         method: "POST",
