@@ -7,10 +7,10 @@ const path = require("path");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// handlebars stuff & middleware
+// handlebars & middleware
 const exphbs = require("express-handlebars-hotreload");
-// BUG: why is this not working
-// exphbs.hotreload();
+// hotreload
+exphbs.hotreload();
 const hbs = exphbs.create({ hotreload: true });
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
@@ -18,12 +18,6 @@ app.set("view engine", "handlebars");
 const router = require("./controllers");
 
 const sequelize = require("./config/connection");
-// BUG: why is this not working, why can't I do object destructure
-// import sequel models
-const User = require("./models/User");
-const Comment = require("./models/Comment");
-const Post = require("./models/Post");
-const SearchedSong = require("./models/SearchedSong");
 const session = require("express-session");
 
 //connect-session-sequelize sets up a session store table in the database, to replace in-memory storage
@@ -33,7 +27,7 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const sess = {
     secret: "Super secret secret",
     cookie: {
-        maxAge: 60 * 60 * 1000, //this is 1 hour, adjust if you need to
+        maxAge: 60 * 60 * 1000, // user session reload time is 1 hour, adjust if you need to
         httpOnly: true,
         secure: false,
         sameSite: "strict",
