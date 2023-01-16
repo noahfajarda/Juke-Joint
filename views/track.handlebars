@@ -37,8 +37,9 @@
             data-bs-parent="#accordionExample"
         >
             <div class="accordion-body">
-                <h1>{{trackLyrics}}</h1>
-                Lyrics Placeholder
+                {{#each lyrics}}
+                    {{this}}<br />
+                {{/each}}
             </div>
         </div>
     </div>
