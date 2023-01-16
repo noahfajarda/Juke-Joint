@@ -15,7 +15,34 @@
     loading="lazy"
 ></iframe>
 <h1>track ID used: {{trackId}}</h1>
-<h1>{{trackLyrics}}</h1>
+
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+            >
+                Lyrics
+            </button>
+        </h2>
+        <div
+            id="collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample"
+        >
+            <div class="accordion-body">
+                <h1>{{trackLyrics}}</h1>
+                Lyrics Placeholder
+            </div>
+        </div>
+    </div>
+</div>
 
 <h1 style="color: red;">Add a comment about the song!:</h1>
 <h2>User Id:</h2>
@@ -52,6 +79,14 @@
         {{/each}}
     </section>
 {{/if}}
+
+{{! test from genius lyrics api }}
+<img
+    src="https://images.genius.com/3b02f41397586e2b3c8bd3fbbc586928.1000x1000x1.png"
+    height="100px"
+    width="100px"
+    alt="test"
+/>
 
 <script src="/js/back-to-home.js"></script>
 <script src="/js/add-comment-page.js"></script>
