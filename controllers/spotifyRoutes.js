@@ -79,11 +79,6 @@ async function fetch_track_data(accessToken, track) {
     const trackName = trackData.tracks.items[0].name;
     const trackArtist = trackData.tracks.items[0].artists[0].name;
     const trackId = trackData.tracks.items[0].id;
-    // log extracted data
-    console.log(
-        `\nTrack Name: ${trackName} {by: ${trackArtist}}\nTrack ID
-        : ${trackId}\nTrack Art: ${trackArt}`
-    );
 
     return {
         trackName,
@@ -211,7 +206,9 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
         });
         specificTrack.comments = comments.reverse();
 
-        SearchedSong.create(specificTrack).then(console.log("Created!"));
+        SearchedSong.create(specificTrack).then(
+            console.log("Added to the 'Searched Song' table in the DB!")
+        );
 
         console.log(req.session.loggedIn);
         console.log(req.session.userId);

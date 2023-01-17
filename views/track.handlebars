@@ -18,7 +18,7 @@
     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
     loading="lazy"
 ></iframe>
-<h1>track ID used: {{trackId}}</h1>
+<h1 style="display:none">track ID used: {{trackId}}</h1>
 
 <div class="accordion accordion" id="accordionExample">
     <div class="accordion-item">
@@ -50,47 +50,17 @@
 </div>
 
 <h1 style="color: red;">Add a comment about the song!:</h1>
-<h2>User Id:</h2>
-<h2 id="user-Id">{{userId}}</h2>
+<div id="user-Id-container" style="display:none">
+    <h2>User Id:</h2>
+    <h2 id="user-Id">{{userId}}</h2>
+</div>
 <textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>
 <button id="add-comment">Add Comment</button>
 
-{{!-- {{#if comments}}
-    <h1>Comment Section:</h1>
-    <section class="d-flex flex-column align-items-center">
-        {{#each comments}}
-            <section
-                style="box-shadow: 10px 5px 5px red; outline-style: solid; width: 500px; padding: 20px; border-radius: 10px;"
-            >
-                {{id}}
-                <br />
-                {{"user.firstname"}}
-                {{"user.lastname"}}
-                <br />
-                @{{"user.username"}}
-                <br />
-                {{searchedItem}}
-                <br />
-                {{body}}
-                <br />
-                Post ID:
-                {{postId}}
-                <br />
-                User ID:
-                {{userId}}
-            </section>
-            <br />
-            <br />
-        {{/each}}
-    </section>
-{{/if}} --}}
-
 {{#if comments}}
     <h1>Comment Section:</h1>
-
     <div class="container justify-content-center mt-5 border-left border-right">
         {{#each comments}}
-
             <div class="d-flex justify-content-center py-2">
                 <div class="second py-2 px-2">
                     <span class="text1">{{body}}</span>
@@ -111,7 +81,6 @@
                 </div>
             </div>
         {{/each}}
-
     </div>
 {{/if}}
 
