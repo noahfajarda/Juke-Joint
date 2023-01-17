@@ -1,4 +1,8 @@
 <button id="go-back-home">Homepage</button>
+{{! All properties that can be accessed: }}
+{{! trackName, trackArtist, trackId, trackArt, title, userId, lyrics }}
+{{! comments }}
+{{! FOR EACH-------- id, searchedItem, body, postId, userId, "user.firstname", "user.lastname", "user.username", "user.password" }}
 
 <!-- album -->
 <h1>Track:</h1>
@@ -16,25 +20,25 @@
 ></iframe>
 <h1>track ID used: {{trackId}}</h1>
 
-<div class="accordion" id="accordionExample">
+<div class="accordion accordion" id="accordionExample">
     <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
+        <h2 class="accordion-header" id="flush-headingOne">
             <button
-                class="accordion-button"
+                class="accordion-button collapsed"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
+                data-bs-target="#flush-collapseOne"
+                aria-expanded="false"
+                aria-controls="flush-collapseOne"
             >
                 Lyrics
             </button>
         </h2>
         <div
-            id="collapseOne"
-            class="accordion-collapse collapse show"
-            aria-labelledby="headingOne"
-            data-bs-parent="#accordionExample"
+            id="flush-collapseOne"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample"
         >
             <div class="accordion-body">
                 {{#each lyrics}}
@@ -51,7 +55,7 @@
 <textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>
 <button id="add-comment">Add Comment</button>
 
-{{#if comments}}
+{{!-- {{#if comments}}
     <h1>Comment Section:</h1>
     <section class="d-flex flex-column align-items-center">
         {{#each comments}}
@@ -79,7 +83,39 @@
             <br />
         {{/each}}
     </section>
+{{/if}} --}}
+
+{{#if comments}}
+    <h1>Comment Section:</h1>
+
+    <div class="container justify-content-center mt-5 border-left border-right">
+        {{#each comments}}
+
+            <div class="d-flex justify-content-center py-2">
+                <div class="second py-2 px-2">
+                    <span class="text1">{{body}}</span>
+                    <div class="d-flex justify-content-between py-1 pt-2">
+                        <div><img
+                                src="https://i.imgur.com/AgAC1Is.jpg"
+                                width="18"
+                            /><span class="text2">{{"user.firstname"}}
+                                {{"user.lastname"}}</span><span
+                                class="text2"
+                            >@{{"user.username"}}</span></div>
+                        <div><span class="text3">Upvote?</span><span
+                                class="thumbup"
+                            ><i class="fa fa-thumbs-o-up"></i></span><span
+                                class="text4"
+                            >3</span></div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+
+    </div>
 {{/if}}
+
+<link rel="stylesheet" href="/css/track.css" />
 
 {{! test from genius lyrics api }}
 <img

@@ -186,6 +186,7 @@ router.get("/track", checkIfLoggedInReroute, async (req, res) => {
 router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
+        // TODO: find a way to integrate "promise.all()"
         const specificTrack = await fetch_track_data(
             accessToken,
             req.params.track
@@ -210,9 +211,6 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
         });
         specificTrack.comments = comments.reverse();
 
-        // TODO: don't add duplicates
-        // if (test[0].trackName != specificTrack.trackName) {
-        // }
         SearchedSong.create(specificTrack).then(console.log("Created!"));
 
         console.log(req.session.loggedIn);
@@ -230,6 +228,7 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
         // lyrics is a string
         const lyrics = await getLyrics(songURL);
         specificTrack.lyrics = lyrics.split("\n");
+        console.log(specificTrack);
 
         res.render("track", specificTrack);
     } catch (err) {
