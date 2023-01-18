@@ -1,8 +1,9 @@
 <button id="go-back-home">Homepage</button>
+{{! artistName, artistId, title, userId }}
 
 <!-- artist -->
 <h1>Artist:</h1>
-<h1>{{artistName}}</h1>
+<h1 id="artist-name">{{artistName}}</h1>
 <iframe
     style="border-radius: 12px"
     src="https://open.spotify.com/embed/artist/{{artistId}}?utm_source=generator"
@@ -14,10 +15,43 @@
     loading="lazy"
 ></iframe>
 <h1>artist ID used: {{artistId}}</h1>
+<div id="user-Id-container" style="display:none">
+    <h2>User Id:</h2>
+    <h2 id="user-Id">{{userId}}</h2>
+</div>
 
 <h1 style="color: red;">Add a comment about the artist!:</h1>
 <textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>
-<button id="add-comment">Add Comment</button>
+<button id="add-artist-comment">Add Comment</button>
+
+{{#if comments}}
+    <h1>Comment Section:</h1>
+    <div class="container justify-content-center mt-5 border-left border-right">
+        {{#each comments}}
+            <div class="d-flex justify-content-center py-2">
+                <div class="second py-2 px-2">
+                    <span class="text1">{{body}}</span>
+                    <div class="d-flex justify-content-between py-1 pt-2">
+                        <div><img
+                                src="https://i.imgur.com/AgAC1Is.jpg"
+                                width="18"
+                            /><span class="text2">{{"user.firstname"}}
+                                {{"user.lastname"}}</span><span
+                                class="text2"
+                            >@{{"user.username"}}</span></div>
+                        <div><span class="text3">Upvote?</span><span
+                                class="thumbup"
+                            ><i class="fa fa-thumbs-o-up"></i></span><span
+                                class="text4"
+                            >3</span></div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+{{/if}}
+
+<link rel="stylesheet" href="/css/comment.css" />
 
 <script src="/js/back-to-home.js"></script>
-<script src="/js/add-comment-page.js"></script>
+<script src="/js/comment/add-artist-comment-page.js"></script>

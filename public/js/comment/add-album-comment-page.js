@@ -1,5 +1,4 @@
 const addAlbumCommentEl = document.querySelector("#add-album-comment");
-console.log("test album");
 
 async function addAlbumComment(event) {
     event.preventDefault();

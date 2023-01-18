@@ -1,28 +1,28 @@
-const addTrackCommentEl = document.querySelector("#add-track-comment");
-console.log("test");
+const addArtistCommentEl = document.querySelector("#add-artist-comment");
 
-async function addTrackComment(event) {
+async function addArtistComment(event) {
     event.preventDefault();
     const commentText = document.querySelector("#comment-box").value;
     const userId = document.querySelector("#user-Id").textContent;
-    const trackName = document.querySelector("#track-name").textContent;
-    const trackArtist = document.querySelector("#track-artist").textContent;
+    const artistName = document.querySelector("#artist-name").textContent;
 
     if (commentText == "") {
         console.log("there's nothing in here!!");
         return;
     }
 
-    const searchedItem = `${trackName} ${trackArtist}`;
+    console.log(commentText);
+    console.log(userId);
+    console.log(artistName);
 
     // POST to "/api/post"
     const response = await fetch("/api/comment/", {
         method: "POST",
         body: JSON.stringify({
+            searchedItem: artistName,
             body: commentText,
-            searchedItem,
             userId,
-            type: "Track",
+            type: "Artist",
         }),
         headers: {
             "Content-Type": "application/json",
@@ -30,12 +30,10 @@ async function addTrackComment(event) {
     });
 
     if (response.ok) {
-        document.location.replace(`/track/${searchedItem}`);
+        document.location.replace(`/artist/${artistName}`);
     } else {
         alert(response.statusText);
     }
 }
 
-addTrackCommentEl.addEventListener("click", addTrackComment);
-
-// try automatic fetch for the spotify widget
+addArtistCommentEl.addEventListener("click", addArtistComment);
