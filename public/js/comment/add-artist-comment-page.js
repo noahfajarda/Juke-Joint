@@ -11,10 +11,6 @@ async function addArtistComment(event) {
         return;
     }
 
-    console.log(commentText);
-    console.log(userId);
-    console.log(artistName);
-
     // POST to "/api/post"
     const response = await fetch("/api/comment/", {
         method: "POST",

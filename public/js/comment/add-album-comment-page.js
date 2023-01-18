@@ -12,13 +12,7 @@ async function addAlbumComment(event) {
         return;
     }
 
-    console.log(commentText);
-    console.log(userId);
-    console.log(albumName);
-    console.log(albumArtist);
-
     const searchedItem = `${albumName} ${albumArtist}`;
-    console.log(searchedItem);
 
     // POST to "/api/post"
     const response = await fetch("/api/comment/", {
