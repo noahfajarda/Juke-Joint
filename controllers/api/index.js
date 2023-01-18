@@ -3,7 +3,11 @@ const { Artists } = require("../../models");
 const { Op } = require("sequelize");
 
 const userRoutes = require("./userRoutes");
+
+const playlistRoutes = require("./playlistRoutes");
+
 router.use("/user", userRoutes);
+router.use("/playlist", playlistRoutes);
 
 router.post("/search", async (req, res) => {
     console.log(req.body.keyword);

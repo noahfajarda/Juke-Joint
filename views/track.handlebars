@@ -1,9 +1,12 @@
 <button id="go-back-home">Homepage</button>
-
+<button id="addToPlaylist">Add to Playlist</button>
 <!-- album -->
 <h1>Track:</h1>
-<h1>{{trackName}}</h1>
-<h1>{{trackArtist}}</h1>
+<h1 id="trackName">{{trackName}}</h1>
+<h1 id="trackArtist">{{trackArtist}}</h1>
+
+<div id="trackId" style="display: none">{{trackId}}</div>
+
 <iframe
     style="border-radius: 12px"
     src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
@@ -14,7 +17,8 @@
     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
     loading="lazy"
 ></iframe>
-<h1>track ID used: {{trackId}}</h1>
-<h1>{{trackLyrics}}</h1>
+<h1 id="trackId">track ID used: {{trackId}}</h1>
+<h1 id="trackLyrics">{{trackLyrics}}</h1>
 
 <script src="/js/back-to-home.js"></script>
+<script src="/js/addtoplaylist.js"></script>

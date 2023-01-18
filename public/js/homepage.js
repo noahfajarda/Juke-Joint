@@ -55,6 +55,22 @@ document.querySelector("#album-post").addEventListener("submit", async (e) => {
 });
 
 
+document.querySelector("#viewPlaylist").addEventListener("click", async (e) => {
+    e.preventDefault();
+    console.log('ANYTHING TEST LOG')
+    const response = await fetch(`/api/playlist/playlist/`, {
+        method: "GET",
+    });
+
+    if (response) {
+        console.log('RESPONSE NOT LOGGED')
+        document.location.replace(`/api/playlist/playlist/`);
+        // document.location.replace(`/playlist/`);
+    }
+})
+
+
+
 document.querySelector("#search-artist").addEventListener("click", async (e) => {
     e.preventDefault();
     const response = await fetch(`/search/`, {

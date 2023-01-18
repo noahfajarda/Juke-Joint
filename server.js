@@ -24,6 +24,7 @@ const User = require("./models/User");
 const Comment = require("./models/Comment");
 const Post = require("./models/Post");
 const SearchedSong = require("./models/SearchedSong");
+const Playlist = require("./models/Playlist");
 const session = require("express-session");
 
 //connect-session-sequelize sets up a session store table in the database, to replace in-memory storage
