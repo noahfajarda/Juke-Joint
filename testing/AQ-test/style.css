@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900");
+@import url("https://fonts.googleapis.com/css?family=Rajdhani:300&display=swap");
 :root {
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
@@ -19,7 +19,7 @@ body {
   background-color: rgba(151, 98, 19, 0.253);
 
   margin: auto;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Cardo", sans-serif;
   overflow: auto;
   background: linear-gradient(
     315deg,
@@ -110,10 +110,11 @@ p {
 
 .page-content {
   display: grid;
+  grid-template-rows: 1fr auto;
   grid-gap: 1rem;
   padding: 1rem;
   max-width: 1024px;
-  margin: 0 auto;
+  margin: -400 auto;
   font-family: var(--font-sans);
 }
 @media (min-width: 600px) {
@@ -195,12 +196,16 @@ p {
 }
 .card:nth-child(2):before {
   background-image: url(https://www.sleek-mag.com/wp-content/uploads/2016/08/AlbumCovers_Blonde.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .card:nth-child(3):before {
-  background-image: url(https://i.etsystatic.com/34132510/r/il/eb4b4c/3788899014/il_fullxfull.3788899014_gbt4.jpg);
+  background-image: url(https://i.etsystatic.com/34132510/r/il/c9793b/3836493837/il_fullxfull.3836493837_mq8f.jpg);
 }
 .card:nth-child(4):before {
-  background-image: url(https://i.ytimg.com/vi/Oru7dYjEem0/maxresdefault.jpg);
+  background-image: url(https://render.fineartamerica.com/images/rendered/default/flat/blanket/images/artworkimages/medium/1/the-beatles-abbey-road-paul-meijering.jpg?&targetx=-1&targety=-111&imagewidth=952&imageheight=950&modelwidth=952&modelheight=800&backgroundcolor=6E4E36&orientation=1&producttype=blanket-coral-50-60);
+  background-position: center -10px;
+  background-repeat: no-repeat;
 }
 
 .content {
@@ -225,7 +230,10 @@ p {
   font-weight: bold;
   line-height: 1.2;
 }
-
+.title-container {
+  display: grid;
+  justify-content: center; /* align the items to the center */
+}
 .copy {
   font-family: var(--font-serif);
   font-size: 1.125rem;
