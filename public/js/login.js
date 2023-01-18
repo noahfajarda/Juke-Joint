@@ -37,6 +37,7 @@ function invalidUserLogin() {
         return;
     }, 1000);
 }
+console.log(document.querySelector("#login-form"));
 
 document
     .querySelector("#login-form")
