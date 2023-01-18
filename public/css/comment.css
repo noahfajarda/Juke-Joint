@@ -55,3 +55,10 @@
 .thumbupo {
     color: #17a2b8;
 }
+.content-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+}
