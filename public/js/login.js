@@ -16,10 +16,17 @@ const loginFormHandler = async function (event) {
         headers: { "Content-Type": "application/json" },
     });
 
+    document.querySelector("#main").style.transform = "scale(0)";
+    document.querySelector("#main").style.transition =
+        "transform 0.5s ease-in-out";
+    setTimeout(() => {
+        document.querySelector("#main").style.transform = "scale(1)";
+    }, 0);
+
     if (response.ok) {
         document.location.replace("/");
     } else {
-        // alert("Failed to login");
+        alert("Failed to login");
         invalidUserLogin();
     }
 };
