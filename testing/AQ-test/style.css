@@ -18,12 +18,11 @@ body {
   display: grid;
   place-items: center;
   background-color: rgba(151, 98, 19, 0.253);
-
   margin: auto;
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   padding: 10% 0 0 40%;
-  overflow: auto;
+  overflow: hidden;
   background: linear-gradient(
     315deg,
     #153b94 13%,
@@ -117,7 +116,8 @@ p {
   grid-gap: 1rem;
   padding: 1rem;
   max-width: 1024px;
-  margin: -400 auto;
+  margin: auto;
+  height: 100vh;
   font-family: var(--font-sans);
 }
 @media (min-width: 600px) {
