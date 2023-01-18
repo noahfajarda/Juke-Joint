@@ -151,6 +151,27 @@ router.get("/album/:album", checkIfLoggedInReroute, async (req, res) => {
             req.params.album
         );
         specificAlbum.title = "Album";
+
+        // retrieve comments for associated song
+        const comments = await Comment.findAll({
+            where: {
+                searchedItem: req.params.album,
+                type: "Album",
+            },
+            include: [
+                {
+                    model: User,
+                },
+            ],
+            raw: true,
+        });
+        specificAlbum.comments = comments.reverse();
+
+        console.log(req.session.loggedIn);
+        console.log(req.session.userId);
+        specificAlbum.userId = req.session.userId;
+        console.log(specificAlbum);
+
         res.render("album", specificAlbum);
     } catch (err) {
         accessTokenExpired();
@@ -188,14 +209,14 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
         );
         specificTrack.title = "Track";
 
-        // array of duplicates
+        // array of duplicates, should be duplicated to feed suggestions
         const test = await SearchedSong.findAll({ raw: true });
-        // console.log("THISSSSS:", test);
 
         // retrieve comments for associated song
         const comments = await Comment.findAll({
             where: {
                 searchedItem: req.params.track,
+                type: "Track",
             },
             include: [
                 {
@@ -220,12 +241,12 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
             specificTrack.trackArtist,
             "pwUpWRQwegLyPxG9hbfzkmhpGCYexXSF4LxV_8r2dxGSss6ThUkHNNdOMV4E0ZpI"
         );
-
-        const songURL = song_get[0].url;
-        // lyrics is a string
-        const lyrics = await getLyrics(songURL);
-        specificTrack.lyrics = lyrics.split("\n");
-        console.log(specificTrack);
+        if (song_get.length > 0) {
+            const songURL = song_get[0].url;
+            // lyrics is a string
+            const lyrics = await getLyrics(songURL);
+            specificTrack.lyrics = lyrics.split("\n");
+        }
 
         res.render("track", specificTrack);
     } catch (err) {

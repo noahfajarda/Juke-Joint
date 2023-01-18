@@ -9,6 +9,7 @@ router.post("/", async (req, res) => {
             searchedItem: req.body.searchedItem,
             body: req.body.body,
             userId: req.session.userId,
+            type: req.body.type,
         })
             .then((commentData) => {
                 res.json(commentData);

@@ -2,7 +2,7 @@
 {{! All properties that can be accessed: }}
 {{! trackName, trackArtist, trackId, trackArt, title, userId, lyrics }}
 {{! comments }}
-{{! FOR EACH-------- id, searchedItem, body, postId, userId, "user.firstname", "user.lastname", "user.username", "user.password" }}
+{{! FOR EACH-------- id, searchedItem, body, type, postId, userId, "user.firstname", "user.lastname", "user.username", "user.password" }}
 
 <!-- album -->
 <h1>Track:</h1>
@@ -20,6 +20,7 @@
 ></iframe>
 <h1 style="display:none">track ID used: {{trackId}}</h1>
 
+{{! Lyrics }}
 <div class="accordion accordion" id="accordionExample">
     <div class="accordion-item">
         <h2 class="accordion-header" id="flush-headingOne">
@@ -41,21 +42,28 @@
             data-bs-parent="#accordionFlushExample"
         >
             <div class="accordion-body">
-                {{#each lyrics}}
-                    {{this}}<br />
-                {{/each}}
+                {{#if lyrics}}
+                    {{#each lyrics}}
+                        {{this}}<br />
+                    {{/each}}
+                {{else}}
+                    <p id="no-lyrics" style="color: blue;">
+                        No lyrics are provided for this track
+                    </p>
+                {{/if}}
             </div>
         </div>
     </div>
 </div>
 
+{{! comment }}
 <h1 style="color: red;">Add a comment about the song!:</h1>
 <div id="user-Id-container" style="display:none">
     <h2>User Id:</h2>
     <h2 id="user-Id">{{userId}}</h2>
 </div>
 <textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>
-<button id="add-comment">Add Comment</button>
+<button id="add-track-comment">Add Comment</button>
 
 {{#if comments}}
     <h1>Comment Section:</h1>
@@ -84,7 +92,7 @@
     </div>
 {{/if}}
 
-<link rel="stylesheet" href="/css/track.css" />
+<link rel="stylesheet" href="/css/comment.css" />
 
 {{! test from genius lyrics api }}
 <img
@@ -95,4 +103,4 @@
 />
 
 <script src="/js/back-to-home.js"></script>
-<script src="/js/add-comment-page.js"></script>
+<script src="/js//comment/add-track-comment-page.js"></script>
