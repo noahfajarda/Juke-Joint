@@ -22,6 +22,7 @@ router.get("/signup", async (req, res) => {
 router.get("/search", checkIfLoggedInReroute, (req, res) => {
     // .redirect == change the url back to 'login' AND reroute the page
     // .render == just change the page
+    console.log("search route hit")
     res.render("auto");
 });
 

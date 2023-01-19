@@ -6,7 +6,13 @@ const userRoutes = require("./userRoutes");
 const commentRoutes = require("./commentRoutes");
 const lyricsRoutes = require("./lyricsRoutes");
 
+
+const playlistRoutes = require("./playlistRoutes");
+const likesRoutes = require("./likesRoutes");
+
 router.use("/user", userRoutes);
+router.use("/playlist", playlistRoutes);
+router.use("/likes", likesRoutes);
 router.use("/comment", commentRoutes);
 router.use("/lyrics", lyricsRoutes);
 

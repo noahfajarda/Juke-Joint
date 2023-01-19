@@ -1,7 +1,4 @@
-<h1>Welcome {{firstname}} {{lastname}}!</h1>
-{{#if loggedIn}}
-    <button id="logout-btn">Log out</button>
-{{/if}}
+<h1>Welcome {{firstname}} {{lastname}}! Go to the routes to view data!</h1>
 <form name="new-post" id="track-post">
     <input type="text" name="track_search" id="track_search" />
     {{! <textarea name="body" id="body" cols="30" rows="10"></textarea> }}
@@ -17,5 +14,21 @@
     {{! <textarea name="body" id="body" cols="30" rows="10"></textarea> }}
     <button type="submit" id="submit">Search Album</button>
 </form>
+
+<button type="button" id="viewPlaylist">
+    View your playlist!
+</button>
+
+<button type="button" id="viewLikes">
+    View your likes!
+</button>
+
+<button type="button" id="search-artist">
+    Click here to find a new artist!
+</button>
+
+{{#if loggedIn}}
+    <button id="logout-btn">Log out</button>
+{{/if}}
 
 <script src="./js/homepage.js"></script>
