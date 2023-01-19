@@ -18,10 +18,27 @@ async function getSongData(song, artist) {
         }
     );
     let songData = await data.json();
+    // console.log(songData);
+    // console.log(song);
+    // console.log(artist);
     songData = songData.response.hits.map((val) => {
         // destructure to retrieve specific variables
-        const { full_title, song_art_image_url, id, url } = val.result;
-        return { id, title: full_title, albumArt: song_art_image_url, url };
+        const {
+            full_title,
+            title,
+            title_with_featured,
+            song_art_image_url,
+            id,
+            url,
+        } = val.result;
+        return {
+            id,
+            full_title,
+            title,
+            title_with_featured,
+            albumArt: song_art_image_url,
+            url,
+        };
     });
     return songData;
 }

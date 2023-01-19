@@ -1,5 +1,4 @@
 const addTrackCommentEl = document.querySelector("#add-track-comment");
-console.log("test");
 
 async function addTrackComment(event) {
     event.preventDefault();

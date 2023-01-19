@@ -43,16 +43,10 @@
                 aria-labelledby="flush-headingOne"
                 data-bs-parent="#accordionFlushExample"
             >
-                <div class="accordion-body">
-                    {{#if lyrics}}
-                        {{#each lyrics}}
-                            {{this}}<br />
-                        {{/each}}
-                    {{else}}
-                        <p id="no-lyrics" style="color: blue;">
-                            No lyrics are provided for this track
-                        </p>
-                    {{/if}}
+                <div class="accordion-body" id="lyrics">
+                    {{! <p id="no-lyrics" style="color: blue;">
+                        No lyrics are provided for this track
+                    </p> }}
                 </div>
             </div>
         </div>
@@ -114,4 +108,5 @@
 />
 
 <script src="/js/back-to-home.js"></script>
+<script src="/js/render-lyrics.js"></script>
 <script src="/js//comment/add-track-comment-page.js"></script>

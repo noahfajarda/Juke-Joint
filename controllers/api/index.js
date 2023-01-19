@@ -4,9 +4,11 @@ const { Op } = require("sequelize");
 
 const userRoutes = require("./userRoutes");
 const commentRoutes = require("./commentRoutes");
+const lyricsRoutes = require("./lyricsRoutes");
 
 router.use("/user", userRoutes);
 router.use("/comment", commentRoutes);
+router.use("/lyrics", lyricsRoutes);
 
 router.post("/search", async (req, res) => {
     console.log(req.body.keyword);
