@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Rajdhani:300&display=swap");
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+/* @import url(https://fonts.googleapis.com/css?family=Khula:700); */
+
 :root {
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
@@ -22,6 +25,7 @@ body {
   font-family: "Playfair Display", serif;
   -webkit-font-smoothing: antialiased;
   padding: 10% 0 0 40%;
+  cursor: none;
   overflow: hidden;
   background: linear-gradient(
     315deg,
@@ -41,7 +45,64 @@ p {
   color: #d8d4d4;
 }
 
+.hidden {
+  opacity: 0;
+}
+.console-container {
+  font-style: italic;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  height: 200px;
+  width: 600px;
+  display: block;
+  position: absolute;
+  color: white;
+  top: 700;
+  bottom: -25%;
+  left: 0;
+  right: 1200;
+  margin: auto;
+}
+.console-underscore {
+  display: inline-block;
+  position: relative;
+  top: -0.14em;
+  left: 10px;
+}
+.twelve h1 {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 160px;
+  text-align: center;
+  margin: auto;
+  white-space: nowrap;
+  padding-bottom: 13px;
+}
+.twelve h1:before {
+  background-color: #c50000;
+  content: "";
+  display: block;
+  height: 3px;
+  width: 75px;
+  margin-bottom: 5px;
+}
+.twelve h1:after {
+  background-color: #c50000;
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  width: 75px;
+  margin-bottom: 0.25em;
+}
 .search-bar {
+  cursor: none;
   font-size: 10px;
   padding: 8px 10px;
   margin: 2px 0;
@@ -116,13 +177,18 @@ p {
   height: 100vh;
 }
 .page-content {
+  opacity: 0.8;
+  position: fixed;
+  bottom: -30%;
+  right: 0%;
+  cursor: none;
   display: grid;
   align-items: center;
   justify-content: center;
   grid-template-rows: 1fr auto;
   grid-gap: 1rem;
   padding: 1rem;
-  max-width: 1024px;
+  max-width: 1240px;
   margin: auto;
   height: 100vh;
   font-family: var(--font-sans);
@@ -159,6 +225,7 @@ p {
   }
 }
 .card:before {
+  /* cursor: none; */
   content: "";
   position: absolute;
   top: 0;
@@ -171,6 +238,7 @@ p {
   pointer-events: none;
 }
 .card:after {
+  /* cursor: none; */
   content: "";
   display: block;
   position: absolute;
@@ -275,7 +343,7 @@ h1 {
   transform: translate(-50%, -50%);
   text-align: center;
 } */
-#tagline {
+/* #tagline {
   width: 300px;
   font-size: 36px;
   line-height: 40px;
@@ -306,24 +374,28 @@ h1 {
   animation-name: opacity;
   animation-duration: 10s;
   animation-delay: 0s;
-  animation-iteration-count: 2;
+  animation-iteration-count: infinite;
 }
 .visible {
   display: inline-block;
   font-weight: 600;
   overflow: hidden;
-  height: 40px;
+  height: 120px;
 }
 .visible ul {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   margin: 0;
   padding: 0;
   list-style: none;
   animation-name: change;
   animation-duration: 10s;
   animation-delay: 0s;
-  animation-iteration-count: 2;
+  animation-iteration-count: infinite;
 }
 .visible ul li {
+  animation-name: change;
   line-height: 40px;
   margin: 0;
 }
@@ -441,6 +513,7 @@ h1 {
     opacity: 1;
   }
 }
+
 @-webkit-keyframes change {
   0% {
     margin-top: 0;
@@ -498,10 +571,10 @@ h1 {
   100% {
     margin-top: 0;
   }
-}
+} */
 
 .btn {
-  cursor: pointer;
+  cursor: none;
   margin-top: 1.5rem;
   padding: 0.75rem 1.5rem;
   font-size: 0.65rem;
@@ -513,9 +586,11 @@ h1 {
   border: 2px solid transparent;
 }
 .btn:hover {
+  cursor: none;
   background-color: rgba(255, 255, 255, 0.1);
 }
 .btn:focus {
+  cursor: none;
   outline: 1px dashed yellow;
   outline-offset: 3px;
 }
@@ -606,12 +681,12 @@ a {
   letter-spacing: 0.02em;
 }
 a:hover {
-  cursor: pointer;
+  cursor: none;
 }
-.container {
+/* .container {
   position: relative;
-}
-#side-nav {
+} */
+/* #side-nav {
   width: 216px;
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
@@ -708,10 +783,10 @@ ul li ul li a {
 ul li ul li a:hover {
   color: #3ed8b5;
   transition: color 0.2s;
-}
+} */
 
 #logo {
-  height: 48px;
+  height: 28px;
   background: #333;
   display: block;
   width: 100%;
@@ -790,4 +865,173 @@ ul li ul li a:hover {
 @-webkit-keyframes rotate {
 }
 @keyframes rotate {
+}
+
+.cursor {
+  z-index: 999;
+  position: fixed;
+  background: #2696e8;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 20px #2696e8, 0 0 60px #2696e8, 0 0 100px #2696e8;
+  animation: colors 5s infinite;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+@keyframes colors {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.cursor:before {
+  content: "";
+  position: absolute;
+  background: #2696e8;
+  width: 50px;
+  height: 50px;
+  opacity: 0.2;
+  transform: translate(-30%, -30%);
+  border-radius: 50%;
+}
+.rela-block {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+}
+.side-bar {
+  cursor: none;
+  z-index: 100;
+  position: fixed;
+  width: 80px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  box-shadow: 4px 0px 25px -1px rgba(0, 0, 0, 0.5);
+  font-family: "Raleway";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: 0.33s ease;
+}
+.side-bar:hover {
+  width: 250px;
+}
+.side-bar:hover .side-button::before {
+  left: 6%;
+  transition: 0.33s ease, left 0.25s 0.15s ease;
+}
+.side-bar:hover .hover-svg {
+  height: 130px;
+  width: 130px;
+}
+.side-container {
+  cursor: none;
+  position: absolute;
+  width: 100%;
+}
+.side-container.top {
+  height: 20%;
+  top: 1%;
+}
+.side-container.middle {
+  padding-top: 10px;
+  height: 65%;
+  top: 55%;
+  transform: translateY(-50%);
+}
+.hover-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80px;
+  width: 80px;
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.5);
+  stroke-width: 2;
+  cursor: none;
+  transition: 0s ease, height 0.33s ease, width 0.33s ease;
+}
+.hover-svg:hover {
+  stroke: #000;
+}
+.side-button {
+  height: 15%;
+  margin: 5px 0;
+  background-color: transparent;
+  cursor: none;
+}
+.side-button:hover {
+  background-color: #78b4b4;
+}
+.side-button::before {
+  position: absolute;
+  top: 50%;
+  left: -250px;
+  transform: translateY(-50%);
+  transition: 0.33s ease;
+}
+.side-button::after {
+  content: "";
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background-size: cover !important;
+  transition: 0.33s ease;
+}
+.side-button.facebook::before {
+  content: "Playlists";
+}
+.side-button.facebook:after {
+  background: url("./2298406_doodle_melody_music_music\ note_musical_icon.png")
+    no-repeat center;
+}
+.side-button.twitter::before {
+  content: "Twitter";
+}
+.side-button.twitter:after {
+  background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_Twitter-07-128.png")
+    no-repeat center;
+}
+.side-button.instagram::before {
+  content: "Instagram";
+}
+.side-button.instagram:after {
+  background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_Instagram-128.png")
+    no-repeat center;
+}
+.side-button.soundcloud::before {
+  content: "Soundcloud";
+}
+.side-button.soundcloud:after {
+  background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_SoundCloud-128.png")
+    no-repeat center;
+}
+.side-button.linked-in::before {
+  content: "LinkedIn";
+}
+.side-button.linked-in:after {
+  background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_LinkedIn-128.png")
+    no-repeat center;
+}
+.side-button.pinterest::before {
+  content: "Pinterest";
+}
+.side-button.pinterest:after {
+  background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_Pinterest-23-128.png")
+    no-repeat center;
 }

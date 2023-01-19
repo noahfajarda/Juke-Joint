@@ -14,7 +14,57 @@
     <title>{{title}}</title>
   </head>
   <body>
-    <nav id="side-nav">
+    <div class="container">
+      <div class="card">
+        <h3 class="title"><i class="fas fa-music   fa-fw"></i> Playlist</h3>
+        <div class="bar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <div class="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <circle class="stroke" cx="60" cy="60" r="50"/>
+        </svg>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="title"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Likes</h3>
+        <div class="bar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <div class="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <circle class="stroke" cx="60" cy="60" r="50"/>
+        </svg>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="title"><i class="fa fa-share" aria-hidden="true"></i>Share</h3>
+        <div class="bar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <div class="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <circle class="stroke" cx="60" cy="60" r="50"/>
+        </svg>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="title"><i class="fa fa-comments" aria-hidden="true"></i>Comment</h3>
+        <div class="bar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <div class="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <circle class="stroke" cx="60" cy="60" r="50"/>
+        </svg>
+        </div>
+      </div>
+    </div>
+    <!-- <nav id="side-nav">
       <a id="logo" href="#">
         <i class="fa fa-codepen"></i></a>
       <ul>
@@ -47,13 +97,19 @@
       </ul>
       <a id="toggle">
         <i class="fa fa-chevron-circle-left"></i></a>
-    </nav>
+    </nav> -->
     <div class="header-container">
     <h1 class="copy bold">Project M</h1>
-    <!-- <p class="copy">Find your music.</p> -->
+    <p class="copy">Track name</p>
     <div class="gradient"></div>
     </header>
     <main>
+      <form>      
+  <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+  <input name="email" type="text" class="feedback-input" placeholder="Email" />
+  <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+  <input type="submit" value="SUBMIT"/>
+</form>
       <link rel="stylesheet" href="styles.css" />
       <script src="javascript.js"></script>
     </main>

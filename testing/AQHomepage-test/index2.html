@@ -14,7 +14,38 @@
     <title>{{title}}</title>
   </head>
   <body>
-    <nav id="side-nav">
+    <div class="twelve">
+      <h1>Social <i class="fa fa-spotify" aria-hidden="true"></i> Spotify</h1>
+    </div>
+    <div class="cursor"></div>
+
+    <script type="text/javascript">
+      const cursor = document.querySelector(".cursor");
+      var timeout;
+
+      //follow cursor on mousemove
+      document.addEventListener("mousemove", (e) => {
+        let x = e.pageX;
+        let y = e.pageY;
+
+        cursor.style.top = y + "px";
+        cursor.style.left = x + "px";
+        cursor.style.display = "block";
+
+        //cursor effects when mouse stopped
+        function mouseStopped() {
+          cursor.style.display = "none";
+        }
+        clearTimeout(timeout);
+        timeout = setTimeout(mouseStopped, 1000);
+      });
+
+      //cursor effects when mouseout
+      document.addEventListener("mouseout", () => {
+        cursor.style.display = "none";
+      });
+    </script>
+    <!-- <nav id="side-nav">
       <a id="logo" href="#">
         <i class="fa fa-codepen"></i></a>
       <ul>
@@ -47,20 +78,11 @@
       </ul>
       <a id="toggle">
         <i class="fa fa-chevron-circle-left"></i></a>
-    </nav>
+    </nav> -->
     <div class="header-container">
-    <h1 class="copy bold">Project M</h1>
+    <!-- <h1 class="copy bold">Project M</h1> -->
+    <div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
     <!-- <p class="copy">Find your music.</p> -->
-  </div>
-  <div id='tagline'>
-    <div class='visible'>
-      <ul>
-        <li>Taylor Swift</li>
-        <li>Kendrick Lamar</li>
-        <li>Pink Floyd</li>
-        <li>Arctic Monkeys</li>
-      </ul>
-    </div>
   </div>
     <div class="gradient"></div>
     </header>
@@ -77,7 +99,6 @@
 </form>
         </div>
       </div>
-      
       <div class="card">
         <div class="content">
           <h2 class="title">Search by Album</h2>
@@ -111,9 +132,29 @@
           <button class="btn">Anas Qazza</button>
         </div>
       </div>
+  
       <link rel="stylesheet" href="style.css" />
       <script src="javascript.js"></script>
-    </main>
+    </main>   
+     <div class="side-bar">
+        <div class="side-container top">
+            <svg viewbox="0 0 120 120" class="hover-svg">
+                <path D="M 60 25 L 20 95 L 100 95 Z"/>
+                <path D="M 36 67 L 53 95"/>
+                <path D="M 33 72 L 47 95"/>
+                <path D="M 30 78 L 41 95"/>
+                <path D="M 27 83 L 35 95"/>
+            </svg>
+        </div>
+        <div class="side-container middle">
+            <div class="rela-block side-button facebook"></div>
+            <div class="rela-block side-button twitter"></div>
+            <div class="rela-block side-button instagram"></div>
+            <div class="rela-block side-button soundcloud"></div>
+            <div class="rela-block side-button linked-in"></div>
+            <div class="rela-block side-button pinterest"></div>
+        </div>
+    </div>
     <div>
       <div class="wave"></div>
       <div class="wave"></div>
