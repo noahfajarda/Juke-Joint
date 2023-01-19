@@ -6,9 +6,6 @@ router.post('/', async (req,res) => {
         Likes.create({
             trackName: req.body.trackName,
             trackArtist: req.body.trackArtist,
-            trackId: req.session.trackId,
-            title: req.body.title,
-            trackArt: "test"
         })
             .then((likesData) => {
                 res.json(likesData);

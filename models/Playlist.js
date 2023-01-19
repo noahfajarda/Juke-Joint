@@ -17,18 +17,6 @@ Playlist.init(
             type: DataTypes.STRING,
             // allowNull: false,
         },
-        trackId: {
-            type: DataTypes.STRING,
-            // allowNull: false,
-        },
-        title: {
-            type: DataTypes.STRING,
-            // allowNull: false,
-        },
-        trackArt: {
-            type: DataTypes.STRING,
-            // allowNull: false,
-        },
     },
     {
         sequelize,

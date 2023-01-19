@@ -3,15 +3,12 @@ document.querySelector("#addToLikes").addEventListener("click", async (e) => {
     
     const trackName = document.querySelector("#trackName").textContent;
     const trackArtist = document.querySelector("#trackArtist").textContent;
-    const trackId = document.querySelector("#trackId").textContent;
 
     console.log("DEBUGGING PURPOSES FOR LIKES")
 
     const song = {
         trackName,
-        trackArtist,
-        trackId,
-        title: "FOR LIKES",
+        trackArtist
     }
     console.log(song);
     const response = await fetch('/api/likes/', {

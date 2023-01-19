@@ -6,9 +6,6 @@ router.post('/', async (req,res) => {
         Playlist.create({
             trackName: req.body.trackName,
             trackArtist: req.body.trackArtist,
-            trackId: req.session.trackId,
-            title: req.body.title,
-            trackArt: "test"
         })
             .then((playlistData) => {
                 res.json(playlistData);

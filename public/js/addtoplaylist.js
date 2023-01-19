@@ -3,15 +3,12 @@ document.querySelector("#addToPlaylist").addEventListener("click", async (e) => 
     
     const trackName = document.querySelector("#trackName").textContent;
     const trackArtist = document.querySelector("#trackArtist").textContent;
-    const trackId = document.querySelector("#trackId").textContent;
 
     console.log("DEBUGGING PURPOSES")
 
     const song = {
         trackName,
-        trackArtist,
-        trackId,
-        title: "Test Title",
+        trackArtist
     }
     console.log(song);
     const response = await fetch('/api/playlist', {
