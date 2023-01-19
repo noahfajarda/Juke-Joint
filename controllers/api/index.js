@@ -10,6 +10,12 @@ router.use("/user", userRoutes);
 router.use("/comment", commentRoutes);
 router.use("/lyrics", lyricsRoutes);
 
+const playlistRoutes = require("./playlistRoutes");
+const likesRoutes = require("./likesRoutes");
+
+router.use("/playlist", playlistRoutes);
+router.use("/likes", likesRoutes);
+
 router.post("/search", async (req, res) => {
     console.log(req.body.keyword);
     const matches = await Artists.findAll({
