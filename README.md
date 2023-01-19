@@ -13,8 +13,15 @@ Go to localhost:3001
 
 # Installation
 
-npm i
-npm i express
-npm i dotenv
-npm i express-session
-npm i express-handlebars-hotreload
+git clone our project
+go to the project directory
+create a .env file with all corresponding variables
+delete node_modules, then npm i
+
+npm i axios
+npm i cheerio
+
+# Database Instructions
+
+Initialize the database: sql --> SOURCE ./db/schema.sql
+Add Seeds: node ./seeds/seed.js

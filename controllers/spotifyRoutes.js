@@ -3,8 +3,11 @@ const router = require("express").Router();
 const {getAccessToken, accessTokenExpired} = require("../utils/retrieve-authorization-token.js");
 // prettier-ignore
 const {search_for_track, search_for_album, search_for_artist, retrieve_lyrics, colors} = require("../utils/fetch-API-data-&-colors");
+// prettier-ignore
+const {getSong, getLyrics} = require("../utils/retrieve-lyrics")
+
 // Import models
-const SearchedSong = require("../models/SearchedSong");
+const { User, Comment, Post, SearchedSong, Artists } = require("../models");
 
 // testing keys: edit the titles for 'artist', 'album', & 'track'
 const testData = [
@@ -40,7 +43,7 @@ async function fetch_artist_data(accessToken, artist) {
     const artistName = artistData.artists.items[0].name;
     const artistId = artistData.artists.items[0].id;
     // log extracted data
-    console.log(`\nArtist Name: ${artistName}\nArtist ID: ${artistId}`);
+    // console.log(`\nArtist Name: ${artistName}\nArtist ID: ${artistId}`);
 
     // store data in res.json() object
     return {
@@ -56,9 +59,9 @@ async function fetch_album_data(accessToken, album) {
     const albumArtist = albumData.albums.items[0].artists[0].name;
     const albumId = albumData.albums.items[0].id;
     // log extracted data
-    console.log(
-        `\nAlbum Name: ${albumName} {by: ${albumArtist}}\nAlbum ID: ${albumId}`
-    );
+    // console.log(
+    //     `\nAlbum Name: ${albumName} {by: ${albumArtist}}\nAlbum ID: ${albumId}`
+    // );
 
     // store data in res.json() object
     return {
@@ -72,19 +75,16 @@ async function fetch_track_data(accessToken, track) {
     const trackRes = await search_for_track(accessToken, track);
     const trackData = await trackRes.json();
     // extract necessary track data
+    const trackArt = trackData.tracks.items[0].album.images[2].url;
     const trackName = trackData.tracks.items[0].name;
     const trackArtist = trackData.tracks.items[0].artists[0].name;
     const trackId = trackData.tracks.items[0].id;
-    // log extracted data
-    console.log(
-        `\nTrack Name: ${trackName} {by: ${trackArtist}}\nTrack ID
-        : ${trackId}`
-    );
 
     return {
         trackName,
         trackArtist,
         trackId,
+        trackArt,
     };
 }
 
@@ -116,6 +116,25 @@ router.get("/artist/:artist", checkIfLoggedInReroute, async (req, res) => {
             req.params.artist
         );
         specificArtist.title = "Artist";
+        // console.log(specificArtist);
+
+        // retrieve comments for associated song
+        const comments = await Comment.findAll({
+            where: {
+                searchedItem: req.params.artist,
+                type: "Artist",
+            },
+            include: [
+                {
+                    model: User,
+                },
+            ],
+            raw: true,
+        });
+        specificArtist.comments = comments.reverse();
+        specificArtist.userId = req.session.userId;
+        console.log(specificArtist);
+
         res.render("artist", specificArtist);
     } catch (err) {
         accessTokenExpired();
@@ -125,7 +144,7 @@ router.get("/artist/:artist", checkIfLoggedInReroute, async (req, res) => {
 });
 
 // constant album route
-router.get("/album", async (req, res) => {
+router.get("/album", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
         const constantAlbum = await fetch_album_data(
@@ -142,7 +161,7 @@ router.get("/album", async (req, res) => {
 });
 
 // variable album route
-router.get("/album/:album", async (req, res) => {
+router.get("/album/:album", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
         const specificAlbum = await fetch_album_data(
@@ -150,6 +169,27 @@ router.get("/album/:album", async (req, res) => {
             req.params.album
         );
         specificAlbum.title = "Album";
+
+        // retrieve comments for associated song
+        const comments = await Comment.findAll({
+            where: {
+                searchedItem: req.params.album,
+                type: "Album",
+            },
+            include: [
+                {
+                    model: User,
+                },
+            ],
+            raw: true,
+        });
+        specificAlbum.comments = comments.reverse();
+
+        // console.log(req.session.loggedIn);
+        // console.log(req.session.userId);
+        specificAlbum.userId = req.session.userId;
+        // console.log(specificAlbum);
+
         res.render("album", specificAlbum);
     } catch (err) {
         accessTokenExpired();
@@ -159,7 +199,7 @@ router.get("/album/:album", async (req, res) => {
 });
 
 // constant track route
-router.get("/track", async (req, res) => {
+router.get("/track", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
         const constantTrack = await fetch_track_data(
@@ -167,6 +207,7 @@ router.get("/track", async (req, res) => {
             testData[2].track
         );
         constantTrack.title = "Track";
+
         res.render("track", constantTrack);
     } catch (err) {
         accessTokenExpired();
@@ -176,33 +217,66 @@ router.get("/track", async (req, res) => {
 });
 
 // variable track route
-router.get("/track/:track", async (req, res) => {
+router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
+        // TODO: find a way to integrate "promise.all()"
         const specificTrack = await fetch_track_data(
             accessToken,
             req.params.track
         );
         specificTrack.title = "Track";
 
-        // array of duplicates
+        // array of duplicates, should be duplicated to feed suggestions
         const test = await SearchedSong.findAll({ raw: true });
-        console.log("THISSSSS:", test);
 
-        // TODO: don't add duplicates
-        // if (test[0].trackName != specificTrack.trackName) {
-        // }
+        // retrieve comments for associated song
+        const comments = await Comment.findAll({
+            where: {
+                searchedItem: req.params.track,
+                type: "Track",
+            },
+            include: [
+                {
+                    model: User,
+                },
+            ],
+            raw: true,
+        });
+        specificTrack.comments = comments.reverse();
 
-        // BUG: why does this initially insert twice?
-        // Insert song into table in DB
-        SearchedSong.create(specificTrack).then(console.log("Created!"));
-        console.log(specificTrack);
+        SearchedSong.create(specificTrack).then(
+            console.log("Added to the 'Searched Song' table in the DB!")
+        );
+        // console.log(req.params.track);
+        // console.log(comments);
+
+        // console.log(req.session.loggedIn);
+        // console.log(req.session.userId);
+        specificTrack.userId = req.session.userId;
+
+        // LYRICS!!
+        const song_get = await getSong(
+            specificTrack.trackName,
+            specificTrack.trackArtist,
+            "pwUpWRQwegLyPxG9hbfzkmhpGCYexXSF4LxV_8r2dxGSss6ThUkHNNdOMV4E0ZpI"
+        );
+        if (song_get.length > 0) {
+            const songURL = song_get[0].url;
+            // lyrics is a string
+            const lyrics = await getLyrics(songURL);
+            specificTrack.lyrics = lyrics.split("\n");
+        }
+
+        // console.log(specificTrack);
 
         res.render("track", specificTrack);
     } catch (err) {
         accessTokenExpired();
         console.log(err);
-        res.status(500).json(err);
+
+        //instead of sending raw error, show can'tt find song/artists page
+        res.redirect("/");
     }
 });
 

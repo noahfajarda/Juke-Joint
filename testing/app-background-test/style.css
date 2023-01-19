@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #0e6cc4;
+}
+
+.waves {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.left-wave {
+    position: absolute;
+    top: 10%;
+    left: -40%;
+    width: 120vw;
+    height: 110vh;
+    margin-top: -2vh;
+    margin-left: -3vw;
+    transform-origin: 50% 48%;
+    border-radius: 47%;
+}
+
+.right-wave {
+    position: absolute;
+    top: 10%;
+    right: -40%;
+    width: 120vw;
+    height: 110vh;
+    margin-top: -2vh;
+    margin-left: -3vw;
+    transform-origin: 50% 48%;
+    border-radius: 47%;
+}
+
+.left-wave.wave--one {
+    animation: drift-left 18s infinite linear;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.left-wave.wave--two {
+    animation: drift-left 22s infinite linear;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.left-wave.wave--three {
+    animation: drift-left 26s infinite linear;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.right-wave.wave--one {
+    animation: drift-right 18s infinite linear;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.right-wave.wave--two {
+    animation: drift-right 22s infinite linear;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.right-wave.wave--three {
+    animation: drift-right 26s infinite linear;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes drift-left {
+    from {
+        transform: rotate(0deg);
+    }
+    from {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes drift-right {
+    from {
+        transform: rotate(0deg);
+    }
+    from {
+        transform: rotate(-360deg);
+    }
+}
