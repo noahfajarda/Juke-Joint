@@ -70,6 +70,19 @@ document.querySelector("#viewPlaylist").addEventListener("click", async (e) => {
 })
 
 
+document.querySelector("#viewLikes").addEventListener("click", async (e) => {
+    e.preventDefault();
+    console.log('LIKE TEST LOG')
+    const response = await fetch(`/api/likes/likes/`, {
+        method: "GET",
+    });
+
+    if (response) {
+        console.log('RESPONSE FOR LIKES')
+        document.location.replace(`/api/likes/likes/`);
+    }
+})
+
 
 document.querySelector("#search-artist").addEventListener("click", async (e) => {
     e.preventDefault();
