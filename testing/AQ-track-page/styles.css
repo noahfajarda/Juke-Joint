@@ -19,7 +19,7 @@ body {
   place-items: center;
   background-color: rgba(151, 98, 19, 0.253);
   margin: auto;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Playfair Display", serif;
   -webkit-font-smoothing: antialiased;
   padding: 10% 0 0 40%;
   overflow: hidden;
@@ -35,7 +35,13 @@ body {
   background-attachment: fixed;
 }
 h1 {
-  color: #d8d4d4;
+  color: #ffffff;
+  text-align: center;
+  position: absolute;
+  top: 10;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
 }
 p {
   color: #d8d4d4;
@@ -109,9 +115,16 @@ p {
     transform: translateX(1);
   }
 }
-
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
 .page-content {
   display: grid;
+  align-items: center;
+  justify-content: center;
   grid-template-rows: 1fr auto;
   grid-gap: 1rem;
   padding: 1rem;
@@ -209,39 +222,6 @@ p {
   background-image: url(https://render.fineartamerica.com/images/rendered/default/flat/blanket/images/artworkimages/medium/1/the-beatles-abbey-road-paul-meijering.jpg?&targetx=-1&targety=-111&imagewidth=952&imageheight=950&modelwidth=952&modelheight=800&backgroundcolor=6E4E36&orientation=1&producttype=blanket-coral-50-60);
   background-position: center -10px;
   background-repeat: no-repeat;
-}
-
-.content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 1rem;
-  transition: transform var(--d) var(--e);
-  z-index: 1;
-}
-.content > * + * {
-  margin-top: 1rem;
-}
-.bold {
-  font-weight: bold;
-}
-
-.title {
-  font-size: 1.3rem;
-  font-weight: bold;
-  line-height: 1.2;
-}
-.title-container {
-  display: grid;
-  justify-content: center; /* align the items to the center */
-}
-.copy {
-  font-family: var(--font-serif);
-  font-size: 1.125rem;
-  font-style: italic;
-  line-height: 1.35;
 }
 
 .btn {
