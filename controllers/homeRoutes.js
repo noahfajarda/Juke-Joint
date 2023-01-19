@@ -18,8 +18,15 @@ router.get("/signup", async (req, res) => {
     res.render("signup");
 });
 
+// route to test autocomplete
+router.get("/search", checkIfLoggedInReroute, (req, res) => {
+    // .redirect == change the url back to 'login' AND reroute the page
+    // .render == just change the page
+    res.render("auto");
+});
+
 router.get("/:anything", checkIfLoggedInReroute, async (req, res) => {
-    res.render("login");
+    res.redirect("login");
 });
 
 module.exports = router;
