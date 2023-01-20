@@ -17,7 +17,7 @@ async function getSongData(song, artist) {
         }
     );
     let songData = await data.json();
-    console.log(songData);
+    // console.log(songData);
     // console.log(song);
     // console.log(artist);
     songData = songData.response.hits.map((val) => {
