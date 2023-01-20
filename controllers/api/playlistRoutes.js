@@ -4,6 +4,7 @@ const Playlist = require("../../models/Playlist");
 router.post("/", async (req, res) => {
     try {
         Playlist.create({
+            trackId: req.body.trackId,
             trackName: req.body.trackName,
             trackArtist: req.body.trackArtist,
             trackArt: req.body.trackArt,

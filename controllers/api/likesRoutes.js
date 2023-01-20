@@ -4,6 +4,7 @@ const Likes = require("../../models/Likes");
 router.post("/", async (req, res) => {
     try {
         Likes.create({
+            trackId: req.body.trackId,
             trackName: req.body.trackName,
             trackArtist: req.body.trackArtist,
             trackArt: req.body.trackArt,

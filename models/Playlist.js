@@ -9,6 +9,10 @@ Playlist.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        trackId: {
+            type: DataTypes.STRING,
+            // allowNull: false,
+        },
         trackName: {
             type: DataTypes.STRING,
             // allowNull: false,
