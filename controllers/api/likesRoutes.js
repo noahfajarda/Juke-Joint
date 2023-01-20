@@ -1,11 +1,12 @@
 const router = require("express").Router();
 const Likes = require("../../models/Likes");
 
-router.post('/', async (req,res) => {
+router.post("/", async (req, res) => {
     try {
         Likes.create({
             trackName: req.body.trackName,
             trackArtist: req.body.trackArtist,
+            trackArt: req.body.trackArt,
         })
             .then((likesData) => {
                 res.json(likesData);
@@ -17,13 +18,12 @@ router.post('/', async (req,res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
 
-
-router.get('/likes', async (req,res) => {
-    console.log("GETTING PLAYLIST TEST")
+router.get("/likes", async (req, res) => {
+    console.log("GETTING PLAYLIST TEST");
     try {
-        console.log('TEST FOR TRY BLOVK')
+        console.log("TEST FOR TRY BLOVK");
         Likes.findAll({
             // where: {
             //     trackName: {
@@ -32,11 +32,13 @@ router.get('/likes', async (req,res) => {
             // },
         })
             .then((likesData) => {
-                const filteredLikesData = likesData.map((likes) => likes.get({ plain: true }));
+                const filteredLikesData = likesData.map((likes) =>
+                    likes.get({ plain: true })
+                );
 
-                console.log('TESTINGGGGG')
-                console.log(filteredLikesData)
-                res.render("likes", { filteredLikesData } );
+                console.log("TESTINGGGGG");
+                console.log(filteredLikesData);
+                res.render("likes", { filteredLikesData });
             })
             .catch((error) => {
                 console.log(error);
@@ -45,7 +47,6 @@ router.get('/likes', async (req,res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-
-})
+});
 
 module.exports = router;

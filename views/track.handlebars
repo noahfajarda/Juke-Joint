@@ -101,12 +101,12 @@
 </section>
 
 {{! test from genius lyrics api }}
-<img
-    src="https://images.genius.com/3b02f41397586e2b3c8bd3fbbc586928.1000x1000x1.png"
-    height="100px"
-    width="100px"
-    alt="test"
-/>
+{{#if trackArt}}
+    <img src="{{trackArt}}" height="100px" width="100px" alt="test" />
+    <div id="track-art" style="display: none">{{trackArt}}</div>
+{{else}}
+    No album art
+{{/if}}
 
 <script src="/js/back-to-home.js"></script>
 <script src="/js/render-lyrics.js"></script>

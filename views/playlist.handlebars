@@ -5,7 +5,10 @@
 <h1>{{trackArtist}}</h1>
 
 {{#each filteredData}}
-<a href="/track/{{trackName}} {{trackArtist}}">{{trackName}} By: {{trackArtist}}</a>
+    <img src="{{trackArt}}" height="200px" width="200px" alt="test" />
+    <a href="/track/{{trackName}} {{trackArtist}}">{{trackName}}
+        By:
+        {{trackArtist}}</a>
 {{/each}}
 
 {{!-- <iframe

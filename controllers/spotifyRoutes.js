@@ -68,7 +68,7 @@ async function fetch_track_data(accessToken, track) {
     const trackRes = await search_for_track(accessToken, track);
     const trackData = await trackRes.json();
     // extract necessary track data
-    const trackArt = trackData.tracks.items[0].album.images[2].url;
+    const trackArt = trackData.tracks.items[0].album.images[0].url;
     const trackName = trackData.tracks.items[0].name;
     const trackArtist = trackData.tracks.items[0].artists[0].name;
     const trackId = trackData.tracks.items[0].id;
@@ -261,7 +261,7 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
             specificTrack.lyrics = lyrics.split("\n");
         }
 
-        // console.log(specificTrack);
+        console.log(specificTrack);
 
         res.render("track", specificTrack);
     } catch (err) {

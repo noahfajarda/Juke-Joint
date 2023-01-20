@@ -3,9 +3,12 @@ document.querySelector("#addToLikes").addEventListener("click", async (e) => {
 
     const trackName = document.querySelector("#track-name").textContent;
     const trackArtist = document.querySelector("#track-artist").textContent;
+    const trackArt = document.querySelector("#track-art").textContent;
+
     const song = {
         trackName,
         trackArtist,
+        trackArt,
     };
     const response = await fetch("/api/likes/", {
         method: "POST",

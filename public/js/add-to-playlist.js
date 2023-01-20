@@ -5,10 +5,12 @@ document
 
         const trackName = document.querySelector("#track-name").textContent;
         const trackArtist = document.querySelector("#track-artist").textContent;
+        const trackArt = document.querySelector("#track-art").textContent;
 
         const song = {
             trackName,
             trackArtist,
+            trackArt,
         };
         const response = await fetch("/api/playlist", {
             method: "POST",
