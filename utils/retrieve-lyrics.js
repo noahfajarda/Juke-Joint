@@ -1,4 +1,3 @@
-// apiKey: "pwUpWRQwegLyPxG9hbfzkmhpGCYexXSF4LxV_8r2dxGSss6ThUkHNNdOMV4E0ZpI",
 //     // retrieve apiKey from here: https://genius.com/api-clients
 //     optimizeQuery: true,
 const song = "homecoming";
@@ -18,7 +17,7 @@ async function getSongData(song, artist) {
         }
     );
     let songData = await data.json();
-    // console.log(songData);
+    console.log(songData);
     // console.log(song);
     // console.log(artist);
     songData = songData.response.hits.map((val) => {
