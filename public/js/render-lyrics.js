@@ -17,17 +17,23 @@ fetch("/api/lyrics/", {
         let lyrics = "";
         let count = 0;
         data.forEach((lyric) => {
+            // if there's no lyrics found, change the color
             if (lyric == "No lyrics found") {
                 lyricsEl.style.color = "blue";
             }
+            // add a new line after each element in lyrics array
             lyric = lyric + "<br />";
+            // add another line after the 3rd instance of '[' in lyrics array
+            // because the formatting for the retrieved data is weird
             if (lyric[0] == "[") {
                 if (count == 2) {
                     lyric = "<br />" + lyric;
                 }
                 count++;
             }
+            // append the lyric to 'lyrics'
             lyrics += lyric;
         });
+        // set the text of the lyrics container to 'lyrics'
         lyricsEl.innerHTML = lyrics;
     });

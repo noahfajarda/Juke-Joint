@@ -1,6 +1,8 @@
-<<<<<<< HEAD
 <section class="content-section">
     <button id="go-back-home">Homepage</button>
+    <button id="addToPlaylist">Add to Playlist</button>
+    <button id="addToLikes">Like</button>
+
     {{! All properties that can be accessed: }}
     {{! trackName, trackArtist, trackId, trackArt, title, userId, lyrics }}
     {{! comments }}
@@ -21,6 +23,7 @@
         loading="lazy"
     ></iframe>
     <h1 style="display:none">track ID used: {{trackId}}</h1>
+    <div id="trackId" style="display: none">{{trackId}}</div>
 
     {{! Lyrics }}
     <div class="accordion accordion" id="accordionExample">
@@ -35,7 +38,6 @@
                     aria-controls="flush-collapseOne"
                 >
                     Lyrics
-                    {{! redirect }}
                 </button>
             </h2>
             <div
@@ -45,9 +47,6 @@
                 data-bs-parent="#accordionFlushExample"
             >
                 <div class="accordion-body" id="lyrics">
-                    {{! <p id="no-lyrics" style="color: blue;">
-                        No lyrics are provided for this track
-                    </p> }}
                 </div>
             </div>
         </div>
@@ -111,32 +110,5 @@
 <script src="/js/back-to-home.js"></script>
 <script src="/js/render-lyrics.js"></script>
 <script src="/js//comment/add-track-comment-page.js"></script>
-=======
-<button id="go-back-home">Homepage</button>
-<button id="addToPlaylist">Add to Playlist</button>
-<button id="addToLikes">Like</button>
-
-<!-- album -->
-<h1>Track:</h1>
-<h1 id="trackName">{{trackName}}</h1>
-<h1 id="trackArtist">{{trackArtist}}</h1>
-
-<div id="trackId" style="display: none">{{trackId}}</div>
-
-<iframe
-    style="border-radius: 12px"
-    src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
-    width="100%"
-    height="380"
-    frameborder="0"
-    allowfullscreen=""
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-    loading="lazy"
-></iframe>
-<h1 id="trackId">track ID used: {{trackId}}</h1>
-<h1 id="trackLyrics">{{trackLyrics}}</h1>
-
-<script src="/js/back-to-home.js"></script>
-<script src="/js/addtoplaylist.js"></script>
-<script src="/js/addtolikes.js"></script>
->>>>>>> origin/amr-branch
+<script src="/js/add-to-playlist.js"></script>
+<script src="/js/add-to-likes.js"></script>

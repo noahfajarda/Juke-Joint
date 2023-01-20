@@ -4,18 +4,7 @@ document.querySelector("#track-post").addEventListener("submit", async (e) => {
     trackEl.value = trackEl.value.trim();
     console.log(trackEl.value);
 
-    // this is the reason the data populates twice
-    // const response = await fetch(`/track/${trackEl.value}`, {
-    //     method: "GET",
-    //     headers: { "Content-Type": "application/json" },
-    // });
     location.replace(`/track/${trackEl.value}`);
-    // // console.log(response);
-    // if (response.ok) {
-    //     document.location.replace(`/track/${trackEl.value}`);
-    // } else {
-    //     alert("Failed to fetch data");
-    // }
 });
 
 document.querySelector("#artist-post").addEventListener("submit", async (e) => {
@@ -36,46 +25,45 @@ document.querySelector("#album-post").addEventListener("submit", async (e) => {
     location.replace(`/album/${albumEl.value}`);
 });
 
-
 document.querySelector("#viewPlaylist").addEventListener("click", async (e) => {
     e.preventDefault();
-    console.log('ANYTHING TEST LOG')
+    console.log("ANYTHING TEST LOG");
     const response = await fetch(`/api/playlist/playlist/`, {
         method: "GET",
     });
 
     if (response) {
-        console.log('RESPONSE NOT LOGGED')
+        console.log("RESPONSE NOT LOGGED");
         document.location.replace(`/api/playlist/playlist/`);
         // document.location.replace(`/playlist/`);
     }
-})
-
+});
 
 document.querySelector("#viewLikes").addEventListener("click", async (e) => {
     e.preventDefault();
-    console.log('LIKE TEST LOG')
+    console.log("LIKE TEST LOG");
     const response = await fetch(`/api/likes/likes/`, {
         method: "GET",
     });
 
     if (response) {
-        console.log('RESPONSE FOR LIKES')
+        console.log("RESPONSE FOR LIKES");
         document.location.replace(`/api/likes/likes/`);
     }
-})
-
-
-document.querySelector("#search-artist").addEventListener("click", async (e) => {
-    e.preventDefault();
-    const response = await fetch(`/search/`, {
-        method: "GET",
-    });
-
-    if (response) {
-        document.location.replace(`/search/`);
-    }
 });
+
+document
+    .querySelector("#search-artist")
+    .addEventListener("click", async (e) => {
+        e.preventDefault();
+        const response = await fetch(`/search/`, {
+            method: "GET",
+        });
+
+        if (response) {
+            document.location.replace(`/search/`);
+        }
+    });
 
 const handleLogout = async () => {
     const response = await fetch("/api/user/logout", {
