@@ -55,12 +55,13 @@ document.querySelector("#viewLikes").addEventListener("click", async (e) => {
 document
     .querySelector("#search-artist")
     .addEventListener("click", async (e) => {
+        console.log("blah blah blah");
         e.preventDefault();
-        const response = await fetch(`/search/`, {
-            method: "GET",
-        });
+        // const response = await fetch(`/search/`, {
+        //     method: "GET",
+        // });
 
-        if (response) {
+        if (true) {
             document.location.replace(`/search/`);
         }
     });

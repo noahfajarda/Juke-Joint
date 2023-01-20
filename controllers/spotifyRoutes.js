@@ -16,14 +16,7 @@ const testData = [
     { track: "i kendrick lamar", endpoint: "http://localhost:3001/track" },
 ];
 
-// middleware check for log in
-function checkIfLoggedInReroute(req, res, next) {
-    //if they not logged in, go to login page
-    if (!req.session.userId) {
-        return res.redirect("/login");
-    }
-    next();
-}
+const checkIfLoggedInReroute = require("../utils/checkIfLoggedInReroute");
 
 // main route
 router.get("/", async (req, res) => {
