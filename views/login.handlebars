@@ -1,7 +1,17 @@
 {{! ALL ELEMENTS THAT MUST BE IN HERE TO PREVENT FROM BREAKING! }}
 {{! #failed-login, #username-input-login, #password-input-login, #login-form }}
+<link rel="stylesheet" href="/css/test-login.css" />
 
-<h1 id="failed-login"></h1>
+
+<div class="container1">
+    <div class="loader"><span></span></div>
+    <div class="loader"><span></span></div>
+    <div class="loader"><i></i></div>
+    <div class="loader"><i></i></div>
+</div>
+
+<h1 id="failed-login"></h1><br><br><br>
+
 
 <div class="main" id="main">
     <input type="checkbox" id="chk" aria-hidden="true" />
@@ -69,24 +79,3 @@
 <link rel="stylesheet" href="/css/login.css" />
 <script src="/js/login.js"></script>
 <script src="/js/signup.js"></script>
-
-{{! 
-<h2>Login</h2>
-
-<form id="login-form" class="card-body">
-    <div>
-        <label for="username-input-login">Username</label>
-        <input type="text" id="username-input-login" />
-    </div>
-    <div>
-        <label for="password-input-login" class="form-label">Password</label>
-        <input type="password" id="password-input-login" />
-    </div>
-    <button type="submit">Login!</button>
-    <a type="button" href="/signup">Sign up instead</a>
-    login for now: user = nickgraffis pass = 1234
-</form>
-
-<h1 id="failed-login"></h1>
-
-<script src="/js/login.js"></script> }}

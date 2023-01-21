@@ -16,18 +16,10 @@ body {
 body {
     display: grid;
     place-items: center;
-    background-color: rgba(151, 98, 19, 0.253);
 
     margin: auto;
     font-family: "Rajdhani", sans-serif;
     overflow: auto;
-    background: linear-gradient(
-        315deg,
-        #3b0909a6 13%,
-        #394b47 38%,
-        #1b3c5f 68%,
-        #2c0606 98%
-    );
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
     background-attachment: fixed;
@@ -350,17 +342,18 @@ h1.signup-title {
 
 label {
     color: rgba(255, 255, 255, 0.664);
-    font-size: 2.3em;
+    font-size: 4em;
     justify-content: center;
     display: flex;
-    margin: 60px;
+    margin: 20px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.5s ease-in-out;
 }
 input {
     width: 60%;
-    height: 20px;
+    height: 25px;
+    font-size: 25px;
     background: #e0dede;
     justify-content: center;
     display: flex;
@@ -391,6 +384,8 @@ button:hover {
     background: #5879c786;
 }
 .login {
+    position: relative;
+    top: 52px;
     height: 460px;
     background: rgb(255, 255, 255);
     border-radius: 60% / 10%;

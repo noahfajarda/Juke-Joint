@@ -26,14 +26,16 @@ const loginFormHandler = async function (event) {
     if (response.ok) {
         document.location.replace("/");
     } else {
-        alert("Failed to login");
         invalidUserLogin();
+        usernameEl.value = "";
+        passwordEl.value = "";
     }
 };
 
 // display message for user input error
 function invalidUserLogin() {
     var timeLeft = 2;
+    failedLoginEl.style.color = "white";
     failedLoginEl.textContent = "Failed to log in please try again.";
     var timeInterval = setInterval(function () {
         timeLeft--;
