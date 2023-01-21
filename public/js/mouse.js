@@ -15,7 +15,7 @@ const cursor = document.querySelector(".cursor");
           cursor.style.display = "none";
         }
         clearTimeout(timeout);
-        timeout = setTimeout(mouseStopped, 500);
+        timeout = setTimeout(mouseStopped, 2000);
       });
 
       //cursor effects when mouseout

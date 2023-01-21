@@ -106,7 +106,7 @@ main {
   .twelve h1 {
     color: white;
     font-family: "Playfair Display", serif;
-    font-size: 100px;
+    font-size: 80px;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -136,10 +136,12 @@ main {
   .first_line,
   .second_line {
     white-space: nowrap; 
+    display: flex;
+    flex-wrap:wrap;
     overflow: hidden;
     margin: 0.5rem auto;
     font-family: "Major Mono Display", monospace;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
   }
 
@@ -174,7 +176,7 @@ main {
       width: 0;
     }
     to {
-      width: 60rem;
+      width: 45rem;
     }
   }
   @keyframes typewriter_2 {
@@ -182,7 +184,7 @@ main {
       width: 0;
     }
     to {
-      width: 28rem;
+      width: 20.8rem;
     }
   }
   @keyframes first_cursor {
@@ -450,7 +452,6 @@ h1.signup-title {
 }
 
 label {
-    color: rgba(255, 255, 255, 0.664);
     font-size: 4em;
     justify-content: center;
     display: flex;
@@ -501,13 +502,23 @@ button:hover {
     transform: translateY(-180px);
     transition: 0.8s ease-in-out;
 }
+#signup-submit:hover, #login-submit:hover {
+    cursor:none;
+}
+.login:hover, .login label:hover, #login-form {
+    cursor:none;
+    font-weight: 200px;
+}
 .login label {
     color: #d35f5f;
     transform: scale(0.6);
 }
+#signupLabel {
+    cursor: none;
+}
 
 #chk:checked ~ .login {
-    transform: translateY(-500px);
+    transform: translateY(-481px);
 }
 #chk:checked ~ .login label {
     transform: scale(1);

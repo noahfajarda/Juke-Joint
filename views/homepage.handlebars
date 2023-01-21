@@ -1,22 +1,85 @@
-<h1>Welcome {{firstname}} {{lastname}}!</h1>
+<link rel="stylesheet" href="/css/homepage.css" />
+<h1 id="welcome-text">Welcome <span id="user-name">{{firstname}} {{lastname}}</span>!</h1>
 {{#if loggedIn}}
     <button id="logout-btn">Log out</button>
 {{/if}}
-<form name="new-post" id="track-post">
-    <input type="text" name="track_search" id="track_search" />
-    {{! <textarea name="body" id="body" cols="30" rows="10"></textarea> }}
-    <button type="submit" id="submit">Search Track</button>
-</form>
-<form name="new-post" id="artist-post">
-    <input type="text" name="artist_search" id="artist_search" />
-    {{! <textarea name="body" id="body" cols="30" rows="10"></textarea> }}
-    <button type="submit" id="submit">Search Artist</button>
-</form>
-<form name="new-post" id="album-post">
-    <input type="text" name="album_search" id="album_search" />
-    {{! <textarea name="body" id="body" cols="30" rows="10"></textarea> }}
-    <button type="submit" id="submit">Search Album</button>
-</form>
+
+<section id="search-container" class="d-flex justify-content-around">
+    <div class="card">
+        <div class="content">
+            <h2 class="title">Search by Artist</h2>
+            <p class="copy">
+                This list contains the most-streamed artists on the
+                audio streaming platform Spotify.
+            </p>
+            <form name="new-post" id="artist-post">
+                <input class="search-bar" type="text" name="artist_search" id="artist_search" placeholder="The Weeknd" />
+                <button type="submit" id="submit">Search Artist</button>
+            </form>
+            
+        </div>
+    </div>
+    <div class="card">
+        <div class="content">
+            <h2 class="title">Search by Album</h2>
+            <p class="copy">
+                Finding albums from your favorite artists is very
+                simple.
+            </p>
+            <form name="new-post" id="album-post">
+                <input class="search-bar" type="text" name="album_search" id="album_search" placeholder="Blonde" />
+                <button type="submit" id="submit">Search Album</button>
+            </form>
+            
+        </div>
+    </div>
+    <div class="card">
+        <div class="content">
+            <h2 class="title">Search by Track</h2>
+            <p class="copy">
+                Discover over 80 million tracks for music with fine
+                sound quality and experience.
+            </p>
+            <form name="new-post" id="track-post">
+                <input class="search-bar" type="text" name="track_search" id="track_search" placeholder="La La Lost You" />
+                <button type="submit" id="submit">Search Track</button>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div class="content">
+            <h2 class="title">Meet the Team</h2>
+            <button class="btn">Ranjit Saini</button>
+            <button class="btn">Noah Fajarda</button>
+            <button class="btn">Amr Moubasher</button>
+            <button class="btn">Anas Qazza</button>
+        </div>
+    </div>
+</section>
+<div class="side-bar">
+            <div class="side-container top">
+                <svg viewbox="0 0 120 120" class="hover-svg">
+                    <path D="M 60 25 L 20 95 L 100 95 Z" />
+                    <path D="M 36 67 L 53 95" />
+                    <path D="M 33 72 L 47 95" />
+                    <path D="M 30 78 L 41 95" />
+                    <path D="M 27 83 L 35 95" />
+                </svg>
+            </div>
+            <div class="side-container middle">
+                <div class="rela-block side-button facebook"></div>
+                <div class="rela-block side-button twitter"></div>
+                <div class="rela-block side-button instagram"></div>
+                <div class="rela-block side-button soundcloud"></div>
+                <div class="rela-block side-button linked-in"></div>
+                <div class="rela-block side-button pinterest"></div>
+            </div>
+        </div>
+<div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+</div>
 
 <button type="button" id="viewPlaylist">
     View your playlist!
