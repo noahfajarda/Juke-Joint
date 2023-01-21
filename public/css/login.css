@@ -93,6 +93,115 @@ body {
     }
 }
 
+main {
+    padding-bottom: 50px;
+  }
+  .main-title {
+    display: flex;
+    justify-content: center;
+  }
+  .twelve {
+    padding-top: 50px;
+  }
+  .twelve h1 {
+    color: white;
+    font-family: "Playfair Display", serif;
+    font-size: 100px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: auto;
+    white-space: nowrap;
+    padding-bottom: 13px;
+  }
+  .twelve h1:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    width: 75px;
+    margin-bottom: 0.25em;
+  }
+
+  @media (max-width: 998px) {
+    .twelve h1 {
+      font-size: 10vw;
+      width: 2px;
+    }
+  }
+
+  .first_line,
+  .second_line {
+    white-space: nowrap; 
+    overflow: hidden;
+    margin: 0.5rem auto;
+    font-family: "Major Mono Display", monospace;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+
+  .first_line {
+    color: white;
+    animation: typewriter_1 3s steps(33) 1s 1 normal both,
+      first_cursor 900ms steps(33) 8;
+  }
+  .second_line {
+    color: white;
+    animation: typewriter_2 2s steps(31) 1s 1 normal both,
+      second_cursor 900ms steps(31) infinite;
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+  }
+
+  @media (max-width: 1000px) {
+    .first_line, .second_line {
+      font-size: 3vw;
+    }
+    .typewriter {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100vw;
+    }
+  }
+
+  @keyframes typewriter_1 {
+    from {
+      width: 0;
+    }
+    to {
+      width: 60rem;
+    }
+  }
+  @keyframes typewriter_2 {
+    from {
+      width: 0;
+    }
+    to {
+      width: 28rem;
+    }
+  }
+  @keyframes first_cursor {
+    from {
+      border-right-color: rgba(17, 17, 17, 0.9);
+    }
+    to {
+      border-right-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+  @keyframes second_cursor{
+    from {
+      border-right-color: rgba(17, 17, 17, 0.9);
+    }
+    to {
+      border-right-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
 .page-content {
     display: grid;
     grid-gap: 1rem;

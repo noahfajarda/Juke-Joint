@@ -103,43 +103,6 @@ body {
     transform: translateX(1);
   }
 }
-main {
-  padding-bottom: 50px;
-}
-.main-title {
-  display: flex;
-  justify-content: center;
-}
-.twelve {
-  padding-top: 50px;
-}
-.twelve h1 {
-  color: white;
-  font-family: "Playfair Display", serif;
-  font-size: 100px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-align: center;
-  margin: auto;
-  white-space: nowrap;
-  padding-bottom: 13px;
-}
-.twelve h1:after {
-  content: "";
-  display: block;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  height: 3px;
-  width: 75px;
-  margin-bottom: 0.25em;
-}
-@media (max-width: 998px) {
-  .twelve h1 {
-    font-size: 10vw;
-  }
-}
 .page-content {
   display: grid;
   grid-gap: 1rem;
