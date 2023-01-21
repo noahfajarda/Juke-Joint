@@ -103,19 +103,23 @@ body {
     transform: translateX(1);
   }
 }
+main {
+  padding-bottom: 50px;
+}
 .main-title {
   display: flex;
   justify-content: center;
 }
+.twelve {
+  padding-top: 50px;
+}
 .twelve h1 {
   color: white;
-  height: 20px;
   font-family: "Playfair Display", serif;
   font-size: 100px;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  width: 160px;
   text-align: center;
   margin: auto;
   white-space: nowrap;
@@ -130,6 +134,11 @@ body {
   height: 3px;
   width: 75px;
   margin-bottom: 0.25em;
+}
+@media (max-width: 998px) {
+  .twelve h1 {
+    font-size: 10vw;
+  }
 }
 .page-content {
   display: grid;
@@ -320,6 +329,10 @@ body {
   }
 }
 
+main {
+  height:100%;
+}
+
 .main {
   width: 350px;
   height: 500px;
@@ -492,7 +505,12 @@ button:hover {
   z-index: 1;
   animation: background-transition 10s infinite;
 }
-
+@media (max-height: 998px) {
+  .container1 .loader {
+    width: 20vh;
+    height: 20vh;
+  }
+}
 .cursor {
   z-index: 999;
   position: fixed;
