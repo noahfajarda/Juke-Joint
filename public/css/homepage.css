@@ -335,6 +335,7 @@ main {
 }
 #search-container {
   width: 80%;
+  margin: 60px;
 }
 .card {
   position: relative;
@@ -401,21 +402,53 @@ main {
   transition: transform calc(var(--d) * 2) var(--e);
 }
 .card:nth-child(1):before {
-  background-image: url(https://akns-images.eonline.com/eol_images/Entire_Site/2021330/rs_1200x1200-210430163406-1200-the-weeknd.jpg?fit=around%7C1200:1200&output-quality=90&crop=1200:1200;center,top);
+  /* as it was harry styles */
+  background-image: url(https://i.etsystatic.com/34132510/r/il/c9793b/3836493837/il_fullxfull.3836493837_mq8f.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+
 }
 .card:nth-child(2):before {
-  background-image: url(https://www.sleek-mag.com/wp-content/uploads/2016/08/AlbumCovers_Blonde.jpg);
+  /* childish gambino */
+  background-image: url(https://news.artnet.com/app/news-upload/2019/12/18167_IA_CG_HEADPHONES_0626_829_V1C-2-732x1024.jpg);
   background-position: center;
   background-repeat: no-repeat;
 }
 .card:nth-child(3):before {
-  background-image: url(https://i.etsystatic.com/34132510/r/il/c9793b/3836493837/il_fullxfull.3836493837_mq8f.jpg);
+  /* blond frank ocean */
+  background-image: url(https://www.sleek-mag.com/wp-content/uploads/2016/08/AlbumCovers_Blonde.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .card:nth-child(4):before {
-  background-image: url(https://render.fineartamerica.com/images/rendered/default/flat/blanket/images/artworkimages/medium/1/the-beatles-abbey-road-paul-meijering.jpg?&targetx=-1&targety=-111&imagewidth=952&imageheight=950&modelwidth=952&modelheight=800&backgroundcolor=6E4E36&orientation=1&producttype=blanket-coral-50-60);
-  background-position: center -10px;
+  background-image: url(https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/streams/2012/August/120813/401372-tdy-120810-tih-abbey-orig.jpg);
+  background-position: center -15px;
   background-repeat: no-repeat;
 } 
+#search-container {
+  display: flex;
+  justify-content: space-around;
+}
+@media (max-width: 1290px) {
+  .card {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px
+  }
+  #search-container {
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .side-container.top {
+    height: 190%;
+    width: 282%;
+    top: 1%;
+  }
+  .card:nth-child(4):before {
+    background-position: center -130px;
+  } 
+}
 
 
 
@@ -455,6 +488,17 @@ main {
 .card:focus-within .content > *:not(.title) {
   transition-duration: 0s;
 }}
+/* EDIT LATER */
+#submit {
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+.member {
+  color: white;
+  width: 100%;
+  font-size: 15px;
+}
 
 
 
@@ -748,6 +792,7 @@ a:hover {
 }
 .side-container {
   cursor: none;
+  color: white;
   position: absolute;
   width: 100%;
 }
@@ -804,10 +849,10 @@ a:hover {
   background-size: cover !important;
   transition: 0.33s ease;
 }
-.side-button.facebook::before {
+.side-button.playlist::before {
   content: "Playlists";
 }
-.side-button.facebook:after {
+.side-button.playlist:after {
   background: url("https://cdn3.iconfinder.com/data/icons/multimedia-ver-3-outline/32/playlist_music_player_video_list-128.png")
     no-repeat center;
 }

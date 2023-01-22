@@ -223,6 +223,7 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
         // array of duplicates, should be duplicated to feed suggestions
         const test = await SearchedSong.findAll({ raw: true });
 
+        console.log("maybe")
         // retrieve comments for associated song
         const comments = await Comment.findAll({
             where: {
@@ -241,21 +242,15 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
         SearchedSong.create(specificTrack).then(
             console.log("Added to the 'Searched Song' table in the DB!")
         );
-        // console.log(req.params.track);
-        // console.log(comments);
-
-        // console.log(req.session.loggedIn);
-        // console.log(req.session.userId);
         specificTrack.userId = req.session.userId;
 
         // extracted lyrics in separate route
-
         res.render("track", specificTrack);
     } catch (err) {
         accessTokenExpired();
         console.log(err);
 
-        //instead of sending raw error, show can'tt find song/artists page
+        //instead of sending raw error, show can't find song/artists page
         res.redirect("/");
     }
 });

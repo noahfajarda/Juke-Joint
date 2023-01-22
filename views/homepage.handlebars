@@ -4,7 +4,20 @@
     <button id="logout-btn">Log out</button>
 {{/if}}
 
-<section id="search-container" class="d-flex justify-content-around">
+<section id="search-container">
+    <div class="card">
+        <div class="content">
+            <h2 class="title">Search by Track</h2>
+            <p class="copy">
+                Discover over 80 million tracks for music with fine
+                sound quality and experience.
+            </p>
+            <form name="new-post" id="track-post">
+                <input class="search-bar" type="text" name="track_search" id="track_search" placeholder="La La Lost You" />
+                <button type="submit" id="submit">Search Track</button>
+            </form>
+        </div>
+    </div>
     <div class="card">
         <div class="content">
             <h2 class="title">Search by Artist</h2>
@@ -33,26 +46,14 @@
             
         </div>
     </div>
-    <div class="card">
-        <div class="content">
-            <h2 class="title">Search by Track</h2>
-            <p class="copy">
-                Discover over 80 million tracks for music with fine
-                sound quality and experience.
-            </p>
-            <form name="new-post" id="track-post">
-                <input class="search-bar" type="text" name="track_search" id="track_search" placeholder="La La Lost You" />
-                <button type="submit" id="submit">Search Track</button>
-            </form>
-        </div>
-    </div>
+    
     <div class="card">
         <div class="content">
             <h2 class="title">Meet the Team</h2>
-            <button class="btn">Ranjit Saini</button>
-            <button class="btn">Noah Fajarda</button>
-            <button class="btn">Amr Moubasher</button>
-            <button class="btn">Anas Qazza</button>
+            <button class="btn member">Ranjit Saini</button>
+            <button class="btn member">Noah Fajarda</button>
+            <button class="btn member">Amr Moubasher</button>
+            <button class="btn member">Anas Qazza</button>
         </div>
     </div>
 </section>
@@ -67,12 +68,12 @@
                 </svg>
             </div>
             <div class="side-container middle">
-                <div class="rela-block side-button facebook"></div>
+                <div id="viewPlaylist" class="rela-block side-button playlist"></div>
+                <div class="rela-block side-button pinterest"></div>
                 <div class="rela-block side-button twitter"></div>
                 <div class="rela-block side-button instagram"></div>
                 <div class="rela-block side-button soundcloud"></div>
                 <div class="rela-block side-button linked-in"></div>
-                <div class="rela-block side-button pinterest"></div>
             </div>
         </div>
 <div>

@@ -133,8 +133,6 @@ body {
     transform: translateY(1rem);
     transition: transform var(--d) var(--e), opacity var(--d) var(--e);
   }
-
-
 }
 
 main {

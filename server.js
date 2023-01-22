@@ -47,7 +47,7 @@ app.use(router);
 // { force: true } used for development and testing database structure
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () =>
-        console.log(`App listening at http://localhost:${PORT} 🚀`)
+        console.log(`App listening at 🚀🚀🚀 http://localhost:${PORT} 🚀🚀🚀`)
     );
 });
 

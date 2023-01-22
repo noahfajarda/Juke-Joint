@@ -93,9 +93,6 @@ body {
     }
 }
 
-main {
-    padding-bottom: 50px;
-  }
   .main-title {
     display: flex;
     justify-content: center;
@@ -425,6 +422,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 50px;
 }
 /* #failed-login {
     height: 20px;
