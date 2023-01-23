@@ -18,6 +18,8 @@ document.querySelector("#track-post").addEventListener("submit", async (e) => {
 
     // input == user inputted track
     // output == ACTUAL track name & artist
+    data1.trackName = data1.trackName.replace("/", " ")
+    data1.trackArtist = data1.trackArtist.replace("/", " ")
     location.replace(`/track/${data1.trackName} ${data1.trackArtist}`);
 });
 
@@ -86,9 +88,7 @@ document.querySelector("#viewLikes").addEventListener("click", async (e) => {
 document
     .querySelector("#search-artist")
     .addEventListener("click", async (e) => {
-        // e.preventDefault();
-
-
+        e.preventDefault();
         if (true) {
             document.location.replace(`/search/`);
         }
