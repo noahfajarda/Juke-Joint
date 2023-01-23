@@ -354,8 +354,8 @@ main {
 }
 @media (min-width: 600px) {
   .card {
-    height: 350px;
-    width: 230px;
+    height: 400px;
+    width: 15vw;
   }
 }
 .card:before {
@@ -495,12 +495,20 @@ main {
   margin-top: 20px;
 }
 .member {
+  cursor: none;
   color: white;
   width: 100%;
   font-size: 15px;
+  transition: 0.3s ease-in;
 }
-
-
+.submit:hover {
+  cursor:none;
+}
+.member:hover {
+  background-color: black;
+  border-radius: 10px;
+  cursor:none;
+}
 
 /*
 
@@ -849,19 +857,32 @@ a:hover {
   background-size: cover !important;
   transition: 0.33s ease;
 }
-.side-button.playlist::before {
+.side-button.home::before {
+  content: "Home";
+}
+.side-button.home:after {
+    background: url("../images/home-icon.png")
+    no-repeat center;
+    height: 46px;
+    width: 41px;
+} 
+.side-button.playlists::before {
   content: "Playlists";
 }
-.side-button.playlist:after {
-  background: url("https://cdn3.iconfinder.com/data/icons/multimedia-ver-3-outline/32/playlist_music_player_video_list-128.png")
+.side-button.playlists:after {
+    background: url("../images/playlist-icon.png")
     no-repeat center;
+    height: 46px;
+    width: 41px;
 }
-.side-button.twitter::before {
-  content: "Twitter";
+.side-button.likes::before {
+  content: "Likes";
 }
-.side-button.twitter:after {
-  background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_Twitter-07-128.png")
+.side-button.likes:after {
+    background: url("../images/heart-icon.png")
     no-repeat center;
+    height: 46px;
+    width: 41px;
 }
 .side-button.instagram::before {
   content: "Instagram";
@@ -884,30 +905,6 @@ a:hover {
   background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_LinkedIn-128.png")
     no-repeat center;
 }
-.side-button.pinterest::before {
-  content: "Pinterest";
-}
-.side-button.pinterest:after {
-  background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_Pinterest-23-128.png")
-    no-repeat center;
-} 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
