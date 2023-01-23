@@ -1,9 +1,24 @@
 document.querySelector("#track-post").addEventListener("submit", async (e) => {
     e.preventDefault();
     const trackEl = document.querySelector("#track_search");
+    // actual user input
     trackEl.value = trackEl.value.trim();
 
-    location.replace(`/track/${trackEl.value}`);
+    const data = await fetch(`/api/data/${trackEl.value}`, {
+        method: 'POST',
+        body: JSON.stringify({
+            type: "track"
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    // retrieved data input
+    const data1 = await data.json();
+
+    // input == user inputted track
+    // output == ACTUAL track name & artist
+    location.replace(`/track/${data1.trackName} ${data1.trackArtist}`);
 });
 
 document.querySelector("#artist-post").addEventListener("submit", async (e) => {
@@ -11,7 +26,19 @@ document.querySelector("#artist-post").addEventListener("submit", async (e) => {
     const artistEl = document.querySelector("#artist_search");
     artistEl.value = artistEl.value.trim();
 
-    location.replace(`/artist/${artistEl.value}`);
+    const data = await fetch(`/api/data/${artistEl.value}`, {
+        method: 'POST',
+        body: JSON.stringify({
+            type: "artist"
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    // retrieved data input
+    const data1 = await data.json();
+
+    location.replace(`/album/${data1.artistName}`);
 });
 
 document.querySelector("#album-post").addEventListener("submit", async (e) => {
@@ -19,7 +46,19 @@ document.querySelector("#album-post").addEventListener("submit", async (e) => {
     const albumEl = document.querySelector("#album_search");
     albumEl.value = albumEl.value.trim();
 
-    location.replace(`/album/${albumEl.value}`);
+    const data = await fetch(`/api/data/${albumEl.value}`, {
+        method: 'POST',
+        body: JSON.stringify({
+            type: "album"
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    // retrieved data input
+    const data1 = await data.json();
+
+    location.replace(`/album/${data1.albumName} ${data1.albumArtist}`);
 });
 
 document.querySelector("#viewPlaylist").addEventListener("click", async (e) => {
@@ -47,11 +86,8 @@ document.querySelector("#viewLikes").addEventListener("click", async (e) => {
 document
     .querySelector("#search-artist")
     .addEventListener("click", async (e) => {
-        console.log("blah blah blah");
-        e.preventDefault();
-        // const response = await fetch(`/search/`, {
-        //     method: "GET",
-        // });
+        // e.preventDefault();
+
 
         if (true) {
             document.location.replace(`/search/`);

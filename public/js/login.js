@@ -36,7 +36,7 @@ const loginFormHandler = async function (event) {
 function invalidUserLogin() {
     var timeLeft = 2;
     failedLoginEl.style.color = "white";
-    failedLoginEl.textContent = "Failed to log in please try again.";
+    failedLoginEl.textContent = "Failed To Log In Please Try Again";
     var timeInterval = setInterval(function () {
         timeLeft--;
         if (timeLeft === -1) {

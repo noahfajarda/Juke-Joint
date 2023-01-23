@@ -81,7 +81,7 @@ html {
   color: white;
 }
 #user-name {
-  color: red;
+  color: #ef7878;
 }
 #logout-btn {
   position: absolute;
@@ -498,6 +498,7 @@ main {
   cursor: none;
   color: white;
   width: 100%;
+  height: fit-content;
   font-size: 15px;
   transition: 0.3s ease-in;
 }
