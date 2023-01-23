@@ -5,6 +5,8 @@ const Post = require("./Post");
 const Comment = require("./Comment");
 const SearchedSong = require("./SearchedSong");
 const Artists = require("./Artists");
+const ListOfPlaylists = require("./ListOfPlaylists");
+const Playlist = require("./Playlist");
 
 //Posts will have a userId field connecting to user table's id column
 //if a user gets deleted, all posts made by the user get deleted
@@ -27,6 +29,31 @@ Comment.belongsTo(User, {
     onDelete: "CASCADE",
 });
 
+// Users can have many playlists
+User.hasMany(ListOfPlaylists, {
+    foreignKey: "userId",
+    onDelete: "CASCADE"
+});
+
+// ListOfPlaylists belongs to a user
+ListOfPlaylists.belongsTo(User, {
+    foreignKey: "userId",
+    onDelete: "CASCADE"
+});
+
+// ListOfPlaylists can have many playlists
+ListOfPlaylists.hasMany(Playlist, {
+    foreignKey: "playlistId",
+    onDelete: "CASCADE"
+});
+
+// Playlist belongs to a ListOfPlaylists
+Playlist.belongsTo(ListOfPlaylists, {
+    foreignKey: "playlistId",
+    onDelete: "CASCADE"
+});
+
+
 //exports all 3 models as a module
 module.exports = {
     User,
@@ -34,4 +61,6 @@ module.exports = {
     Post,
     SearchedSong,
     Artists,
+    ListOfPlaylists,
+    Playlist
 };
