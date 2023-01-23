@@ -223,7 +223,6 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
         // array of duplicates, should be duplicated to feed suggestions
         const test = await SearchedSong.findAll({ raw: true });
 
-        console.log("maybe")
         // retrieve comments for associated song
         const comments = await Comment.findAll({
             where: {

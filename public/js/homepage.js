@@ -40,7 +40,7 @@ document.querySelector("#artist-post").addEventListener("submit", async (e) => {
     // retrieved data input
     const data1 = await data.json();
 
-    location.replace(`/album/${data1.artistName}`);
+    location.replace(`/artist/${data1.artistName}`);
 });
 
 document.querySelector("#album-post").addEventListener("submit", async (e) => {
