@@ -16,18 +16,27 @@ const loginFormHandler = async function (event) {
         headers: { "Content-Type": "application/json" },
     });
 
+    document.querySelector("#main").style.transform = "scale(0)";
+    document.querySelector("#main").style.transition =
+        "transform 0.5s ease-in-out";
+    setTimeout(() => {
+        document.querySelector("#main").style.transform = "scale(1)";
+    }, 0);
+
     if (response.ok) {
         document.location.replace("/");
     } else {
-        // alert("Failed to login");
         invalidUserLogin();
+        usernameEl.value = "";
+        passwordEl.value = "";
     }
 };
 
 // display message for user input error
 function invalidUserLogin() {
     var timeLeft = 2;
-    failedLoginEl.textContent = "Failed to log in please try again.";
+    failedLoginEl.style.color = "white";
+    failedLoginEl.textContent = "Failed To Log In Please Try Again";
     var timeInterval = setInterval(function () {
         timeLeft--;
         if (timeLeft === -1) {
@@ -37,6 +46,7 @@ function invalidUserLogin() {
         return;
     }, 1000);
 }
+console.log(document.querySelector("#login-form"));
 
 document
     .querySelector("#login-form")
