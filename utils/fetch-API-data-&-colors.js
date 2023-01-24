@@ -4,6 +4,7 @@ function get_auth_header(token) {
         // FIGURE OUT THIS BEARER TOKEN
         // FOR NOW, JUST REPLACE THIS TOKEN WITH WHATEVER IS IN THE CONSOLE.LOG
         Authorization: `Bearer ${token}`,
+        //test
     };
 }
 
