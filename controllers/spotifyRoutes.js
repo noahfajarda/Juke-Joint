@@ -3,8 +3,11 @@ const router = require("express").Router();
 const {getAccessToken, accessTokenExpired} = require("../utils/retrieve-authorization-token.js");
 // prettier-ignore
 const {search_for_track, search_for_album, search_for_artist, retrieve_lyrics, colors} = require("../utils/fetch-API-data-&-colors");
+// prettier-ignore
+const {getSong, getLyrics} = require("../utils/retrieve-lyrics")
+
 // Import models
-const SearchedSong = require("../models/SearchedSong");
+const { User, Comment, Post, SearchedSong, Artists } = require("../models");
 
 // testing keys: edit the titles for 'artist', 'album', & 'track'
 const testData = [
@@ -13,14 +16,7 @@ const testData = [
     { track: "i kendrick lamar", endpoint: "http://localhost:3001/track" },
 ];
 
-// middleware check for log in
-function checkIfLoggedInReroute(req, res, next) {
-    //if they not logged in, go to login page
-    if (!req.session.userId) {
-        return res.redirect("/login");
-    }
-    next();
-}
+const checkIfLoggedInReroute = require("../utils/checkIfLoggedInReroute");
 
 // main route
 router.get("/", async (req, res) => {
@@ -40,7 +36,7 @@ async function fetch_artist_data(accessToken, artist) {
     const artistName = artistData.artists.items[0].name;
     const artistId = artistData.artists.items[0].id;
     // log extracted data
-    console.log(`\nArtist Name: ${artistName}\nArtist ID: ${artistId}`);
+    // console.log(`\nArtist Name: ${artistName}\nArtist ID: ${artistId}`);
 
     // store data in res.json() object
     return {
@@ -56,9 +52,9 @@ async function fetch_album_data(accessToken, album) {
     const albumArtist = albumData.albums.items[0].artists[0].name;
     const albumId = albumData.albums.items[0].id;
     // log extracted data
-    console.log(
-        `\nAlbum Name: ${albumName} {by: ${albumArtist}}\nAlbum ID: ${albumId}`
-    );
+    // console.log(
+    //     `\nAlbum Name: ${albumName} {by: ${albumArtist}}\nAlbum ID: ${albumId}`
+    // );
 
     // store data in res.json() object
     return {
@@ -72,15 +68,10 @@ async function fetch_track_data(accessToken, track) {
     const trackRes = await search_for_track(accessToken, track);
     const trackData = await trackRes.json();
     // extract necessary track data
-    const trackArt = trackData.tracks.items[0].album.images[2].url;
+    const trackArt = trackData.tracks.items[0].album.images[0].url;
     const trackName = trackData.tracks.items[0].name;
     const trackArtist = trackData.tracks.items[0].artists[0].name;
     const trackId = trackData.tracks.items[0].id;
-    // log extracted data
-    console.log(
-        `\nTrack Name: ${trackName} {by: ${trackArtist}}\nTrack ID
-        : ${trackId}\nTrack Art: ${trackArt}`
-    );
 
     return {
         trackName,
@@ -118,7 +109,25 @@ router.get("/artist/:artist", checkIfLoggedInReroute, async (req, res) => {
             req.params.artist
         );
         specificArtist.title = "Artist";
+        // console.log(specificArtist);
+
+        // retrieve comments for associated song
+        const comments = await Comment.findAll({
+            where: {
+                searchedItem: req.params.artist,
+                type: "Artist",
+            },
+            include: [
+                {
+                    model: User,
+                },
+            ],
+            raw: true,
+        });
+        specificArtist.comments = comments.reverse();
+        specificArtist.userId = req.session.userId;
         console.log(specificArtist);
+
         res.render("artist", specificArtist);
     } catch (err) {
         accessTokenExpired();
@@ -153,6 +162,27 @@ router.get("/album/:album", checkIfLoggedInReroute, async (req, res) => {
             req.params.album
         );
         specificAlbum.title = "Album";
+
+        // retrieve comments for associated song
+        const comments = await Comment.findAll({
+            where: {
+                searchedItem: req.params.album,
+                type: "Album",
+            },
+            include: [
+                {
+                    model: User,
+                },
+            ],
+            raw: true,
+        });
+        specificAlbum.comments = comments.reverse();
+
+        // console.log(req.session.loggedIn);
+        // console.log(req.session.userId);
+        specificAlbum.userId = req.session.userId;
+        // console.log(specificAlbum);
+
         res.render("album", specificAlbum);
     } catch (err) {
         accessTokenExpired();
@@ -170,6 +200,7 @@ router.get("/track", checkIfLoggedInReroute, async (req, res) => {
             testData[2].track
         );
         constantTrack.title = "Track";
+
         res.render("track", constantTrack);
     } catch (err) {
         accessTokenExpired();
@@ -182,33 +213,43 @@ router.get("/track", checkIfLoggedInReroute, async (req, res) => {
 router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
     const accessToken = await getAccessToken();
     try {
+        // TODO: find a way to integrate "promise.all()"
         const specificTrack = await fetch_track_data(
             accessToken,
             req.params.track
         );
         specificTrack.title = "Track";
 
-        // array of duplicates
+        // array of duplicates, should be duplicated to feed suggestions
         const test = await SearchedSong.findAll({ raw: true });
-        console.log("THISSSSS:", test);
 
-        // TODO: don't add duplicates
-        // if (test[0].trackName != specificTrack.trackName) {
-        // }
+        // retrieve comments for associated song
+        const comments = await Comment.findAll({
+            where: {
+                searchedItem: req.params.track,
+                type: "Track",
+            },
+            include: [
+                {
+                    model: User,
+                },
+            ],
+            raw: true,
+        });
+        specificTrack.comments = comments.reverse();
 
-        // BUG: why does this initially insert twice?
-        // Insert song into table in DB
-        SearchedSong.create(specificTrack).then(console.log("Created!"));
+        SearchedSong.create(specificTrack).then(
+            console.log("Added to the 'Searched Song' table in the DB!")
+        );
+        specificTrack.userId = req.session.userId;
 
-        console.log(specificTrack);
-        console.log(req.session.loggedIn);
-
+        // extracted lyrics in separate route
         res.render("track", specificTrack);
     } catch (err) {
         accessTokenExpired();
         console.log(err);
 
-        //instead of sending raw error, show can'tt find song/artists page
+        //instead of sending raw error, show can't find song/artists page
         res.redirect("/");
     }
 });
