@@ -63,28 +63,6 @@ document.querySelector("#album-post").addEventListener("submit", async (e) => {
     location.replace(`/album/${data1.albumName} ${data1.albumArtist}`);
 });
 
-document.querySelector("#viewPlaylist").addEventListener("click", async (e) => {
-    e.preventDefault();
-    const response = await fetch(`/api/playlist/playlist/`, {
-        method: "GET",
-    });
-
-    if (response) {
-        document.location.replace(`/api/playlist/playlist/`);
-    }
-});
-
-document.querySelector("#viewLikes").addEventListener("click", async (e) => {
-    e.preventDefault();
-    const response = await fetch(`/api/likes/likes/`, {
-        method: "GET",
-    });
-
-    if (response) {
-        document.location.replace(`/api/likes/likes/`);
-    }
-});
-
 document
     .querySelector("#search-artist")
     .addEventListener("click", async (e) => {

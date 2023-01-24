@@ -1,4 +1,4 @@
-document.querySelector("#addToLikes").addEventListener("click", async (e) => {
+async function addToLikes(e) {
     e.preventDefault();
 
     const trackName = document.querySelector("#track-name").textContent;
@@ -25,4 +25,18 @@ document.querySelector("#addToLikes").addEventListener("click", async (e) => {
     } else {
         console.log("Error adding song to likes!");
     }
-});
+}
+
+document.querySelector("#addToLikes").addEventListener("click", (e) => addToLikes(e))
+
+let bool = false;
+document.querySelector(".heart").addEventListener("click", (e) => {
+    if (!bool) {
+        document.querySelector(".heart").classList.add("is-active")
+        addToLikes(e)
+        bool = true;
+    } else {
+        document.querySelector(".heart").classList.remove("is-active")
+        bool = false;
+    }
+})

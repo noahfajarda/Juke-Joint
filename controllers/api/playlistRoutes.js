@@ -8,6 +8,7 @@ router.post("/", async (req, res) => {
             trackName: req.body.trackName,
             trackArtist: req.body.trackArtist,
             trackArt: req.body.trackArt,
+            userId: req.body.userId,
         })
             .then((playlistData) => {
                 res.json(playlistData);
@@ -21,16 +22,18 @@ router.post("/", async (req, res) => {
     }
 });
 
-router.get("/playlist", async (req, res) => {
-    console.log("GETTING PLAYLIST TEST");
+router.get("/playlist/:id", async (req, res) => {
+    console.log(req.params.id);
     try {
         console.log("TEST FOR TRY BLOVK");
         Playlist.findAll({
-            // where: {
-            //     trackName: {
-            //         [Op.not]: null,
-            //     }
-            // },
+            where: {
+                userId: req.params.id,
+                // DON'T KNOW IF WE'LL STILL NEED THIS
+                // trackName: {
+                //     [Op.not]: null,
+                // }
+            },
         })
             .then((playlistData) => {
                 const filteredData = playlistData.map((playlist) =>

@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="/css/track.css" />
 <section class="content-section">
     {{>sidebar}}
-    <button id="go-back-home">Homepage</button>
     <button id="addToPlaylist">Add to Playlist</button>
     <button id="addToLikes">Like</button>
 
@@ -15,16 +14,14 @@
     <h1>Track:</h1>
     <h1 id="track-name">{{trackName}}</h1>
     <h1 id="track-artist">{{trackArtist}}</h1>
-    {{!-- <style>
-        iframe {
-            border-radius: 200px;
-            background-color: transparent;
-            
-        }
-        iframe:hover {
-            border-radius: 0px;
-        }
-    </style> --}}
+    <div class="text-box">
+      <h1 class="heading-primary">
+        <span class="heading-primary-main">Track</span>
+        <span id="track-name" class="heading-primary-sub">{{trackName}}</span>
+        <span id="track-artist" class="heading-primary-sub">{{trackArtist}}</span>
+      </h1>
+    </div>
+
     <iframe
         src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
         width="100%"
@@ -64,6 +61,16 @@
             </div>
         </div>
     </div>
+
+
+    <form>
+        <textarea
+          name="text"
+          class="feedback-input"
+          placeholder="Comment"
+        ></textarea>
+        <input type="submit" value="SUBMIT" />
+      </form>
 
     {{! comment }}
     <h1 style="color: red;">Add a comment about the song!:</h1>
@@ -119,6 +126,10 @@
 {{else}}
     No album art
 {{/if}}
+
+<div class="placement">
+    <div class="heart"></div>
+</div>
 
 <script src="/js/back-to-home.js"></script>
 <script src="/js/render-lyrics.js"></script>

@@ -13,13 +13,12 @@ router.post("/", async (req, res) => {
         const song_get = await getSong(
             req.body.trackName,
             req.body.trackArtist,
-            "pwUpWRQwegLyPxG9hbfzkmhpGCYexXSF4LxV_8r2dxGSss6ThUkHNNdOMV4E0ZpI"
+            process.env.GENIUS_LYRICS_API_KEY
         );
         // console.log to check if the first song in the list of songs is the one you want
         console.log(song_get);
         if (song_get.length > 0) {
             const songURL = song_get[0].url;
-            console.log("SUCCESS");
             // lyrics is a string
             let lyrics = await getLyrics(songURL);
             lyrics = lyrics.split("\n");
