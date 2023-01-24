@@ -931,15 +931,23 @@ a:hover {
   .side-container.middle {
     display: flex;
     flex-direction: row;
+    
   }
-  /*
-  .side-bar:hover .side-button::before {
-    bottom: 6%;
-    transition: 0.33s ease, bottom 0.25s 0.15s ease;
+  .side-button {
+    height: 30px;
+    margin: 5px 0;
+    background-color: red;
+    cursor: none;
+    width: 30px;
   }
-  .side-bar:hover .hover-svg {
-    height: 130px;
-    width: 130px;
-  } */
+  .side-button.home::before {
+    content: "Home";
+  }
+  .side-button.home:after {
+      background: url("../images/home-icon.png")
+      no-repeat center;
+      height: 46px;
+      width: 41px;
+  } 
 }
 
