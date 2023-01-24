@@ -43,12 +43,8 @@ const sess = {
 app.use(session(sess));
 app.use(router);
 
-// change to { force: false } once we figure out our database strucutre
-// { force: true } used for development and testing database structure
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () =>
-        console.log(`App listening at http://localhost:${PORT} 🚀`)
+        console.log(`App listening at 🚀🚀🚀 http://localhost:${PORT} 🚀🚀🚀`)
     );
 });
-
-//Comment for testing

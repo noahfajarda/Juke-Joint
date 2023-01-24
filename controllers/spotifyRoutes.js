@@ -16,14 +16,7 @@ const testData = [
     { track: "i kendrick lamar", endpoint: "http://localhost:3001/track" },
 ];
 
-// middleware check for log in
-function checkIfLoggedInReroute(req, res, next) {
-    //if they not logged in, go to login page
-    if (!req.session.userId) {
-        return res.redirect("/login");
-    }
-    next();
-}
+const checkIfLoggedInReroute = require("../utils/checkIfLoggedInReroute");
 
 // main route
 router.get("/", async (req, res) => {
@@ -75,7 +68,7 @@ async function fetch_track_data(accessToken, track) {
     const trackRes = await search_for_track(accessToken, track);
     const trackData = await trackRes.json();
     // extract necessary track data
-    const trackArt = trackData.tracks.items[0].album.images[2].url;
+    const trackArt = trackData.tracks.items[0].album.images[0].url;
     const trackName = trackData.tracks.items[0].name;
     const trackArtist = trackData.tracks.items[0].artists[0].name;
     const trackId = trackData.tracks.items[0].id;
@@ -248,34 +241,15 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
         SearchedSong.create(specificTrack).then(
             console.log("Added to the 'Searched Song' table in the DB!")
         );
-        // console.log(req.params.track);
-        // console.log(comments);
-
-        // console.log(req.session.loggedIn);
-        // console.log(req.session.userId);
         specificTrack.userId = req.session.userId;
 
-        // LYRICS!!
-        const song_get = await getSong(
-            specificTrack.trackName,
-            specificTrack.trackArtist,
-            "pwUpWRQwegLyPxG9hbfzkmhpGCYexXSF4LxV_8r2dxGSss6ThUkHNNdOMV4E0ZpI"
-        );
-        if (song_get.length > 0) {
-            const songURL = song_get[0].url;
-            // lyrics is a string
-            const lyrics = await getLyrics(songURL);
-            specificTrack.lyrics = lyrics.split("\n");
-        }
-
-        // console.log(specificTrack);
-
+        // extracted lyrics in separate route
         res.render("track", specificTrack);
     } catch (err) {
         accessTokenExpired();
         console.log(err);
 
-        //instead of sending raw error, show can'tt find song/artists page
+        //instead of sending raw error, show can't find song/artists page
         res.redirect("/");
     }
 });

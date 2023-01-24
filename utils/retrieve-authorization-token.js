@@ -22,12 +22,11 @@ async function getAccessToken() {
         body: "grant_type=client_credentials",
     });
     const filteredResults = await testing.json();
-    console.log(
-        `\n\n\n\n\n ${colors.yellow}Line 24 retrieve-authorizationToken.js:${colors.white}`
-    );
+
+    // RETRIEVING THE ACCESS TOKEN
     console.log(filteredResults); // access_token & expires_in
     const accessToken = filteredResults.access_token;
-    console.log(`${colors.magenta}Access Token ${accessToken}${colors.white}`); // recolor access token
+    console.log(`${colors.magenta}Access Token ${accessToken}${colors.white}\n`); // recolor access token
     return accessToken;
 }
 

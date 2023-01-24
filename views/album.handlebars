@@ -1,8 +1,11 @@
+<link rel="stylesheet" href="/css/homepage.css" />
 <button id="go-back-home">Homepage</button>
 {{! All properties that can be accessed: }}
 {{! albumName, albumArtist, albumId, title, userId }}
 {{! comments }}
 {{! FOR EACH-------- id, searchedItem, body, type, postId, userId, "user.firstname", "user.lastname", "user.username", "user.password" }}
+
+
 
 <!-- album -->
 <h1>Album:</h1>
@@ -23,6 +26,8 @@
     <h2>User Id:</h2>
     <h2 id="user-Id">{{userId}}</h2>
 </div>
+{{>sidebar}}
+
 
 <h1 style="color: red;">Add a comment about the album!:</h1>
 <textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>
@@ -32,7 +37,7 @@
     <h1>Comment Section:</h1>
     <div class="container justify-content-center mt-5 border-left border-right">
         {{#each comments}}
-            <div class="d-flex justify-content-center py-2">
+            <div class="d-flex justify-content-center py-2" id="{{id}}">
                 <div class="second py-2 px-2">
                     <span class="text1">{{body}}</span>
                     <div class="d-flex justify-content-between py-1 pt-2">

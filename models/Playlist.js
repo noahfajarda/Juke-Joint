@@ -9,11 +9,19 @@ Playlist.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        trackId: {
+            type: DataTypes.STRING,
+            // allowNull: false,
+        },
         trackName: {
             type: DataTypes.STRING,
             // allowNull: false,
         },
         trackArtist: {
+            type: DataTypes.STRING,
+            // allowNull: false,
+        },
+        trackArt: {
             type: DataTypes.STRING,
             // allowNull: false,
         },
