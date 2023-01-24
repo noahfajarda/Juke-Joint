@@ -6,15 +6,13 @@ async function addTrackComment(event) {
     const userId = document.querySelector("#user-Id").textContent;
     const trackName = document.querySelector("#track-name").textContent;
     const trackArtist = document.querySelector("#track-artist").textContent;
+    const searchedItem = `${trackName} ${trackArtist}`;
 
     if (commentText == "") {
-        console.log("there's nothing in here!!");
         return;
     }
 
-    const searchedItem = `${trackName} ${trackArtist}`;
-
-    // POST to "/api/post"
+    // POST to "/api/comment"
     const response = await fetch("/api/comment/", {
         method: "POST",
         body: JSON.stringify({
@@ -36,5 +34,3 @@ async function addTrackComment(event) {
 }
 
 addTrackCommentEl.addEventListener("click", addTrackComment);
-
-// try automatic fetch for the spotify widget

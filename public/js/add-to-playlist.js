@@ -9,7 +9,6 @@ document
         const trackId = document.querySelector("#trackId").textContent;
         const userId = document.querySelector("#user-Id").textContent;
 
-
         const song = {
             trackName,
             trackArtist,

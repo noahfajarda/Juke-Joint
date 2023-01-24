@@ -22,3 +22,10 @@ const cursor = document.querySelector(".cursor");
       document.addEventListener("mouseout", () => {
         cursor.style.display = "none";
       });
+
+      document.addEventListener("click", () => {
+        cursor.classList.add("expand")
+        setTimeout(() => cursor.classList.remove("expand"), 500)
+      })
+
+      // document.addEventListener("scroll", (e) => {console.log(e)})

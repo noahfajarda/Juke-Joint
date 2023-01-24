@@ -1,6 +1,5 @@
 async function addToLikes(e) {
     e.preventDefault();
-
     const trackName = document.querySelector("#track-name").textContent;
     const trackArtist = document.querySelector("#track-artist").textContent;
     const trackArt = document.querySelector("#track-art").textContent;
@@ -12,6 +11,7 @@ async function addToLikes(e) {
         trackArt,
         trackId,
     };
+
     const response = await fetch("/api/likes/", {
         method: "POST",
         body: JSON.stringify(song),
@@ -26,9 +26,11 @@ async function addToLikes(e) {
         console.log("Error adding song to likes!");
     }
 }
-
+// account for add to likes button
 document.querySelector("#addToLikes").addEventListener("click", (e) => addToLikes(e))
 
+
+// account for the heart button
 let bool = false;
 document.querySelector(".heart").addEventListener("click", (e) => {
     if (!bool) {

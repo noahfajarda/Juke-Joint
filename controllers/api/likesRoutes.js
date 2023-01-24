@@ -22,9 +22,7 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/likes", async (req, res) => {
-    console.log("GETTING PLAYLIST TEST");
     try {
-        console.log("TEST FOR TRY BLOVK");
         Likes.findAll({
             // where: {
             //     trackName: {
@@ -36,9 +34,6 @@ router.get("/likes", async (req, res) => {
                 const filteredLikesData = likesData.map((likes) =>
                     likes.get({ plain: true })
                 );
-
-                console.log("TESTINGGGGG");
-                console.log(filteredLikesData);
                 res.render("likes", { filteredLikesData });
             })
             .catch((error) => {

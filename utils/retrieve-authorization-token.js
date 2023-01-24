@@ -2,14 +2,12 @@
 
 // import terminal colors
 const { colors } = require("./fetch-API-data-&-colors");
-// use req.session somehow
-const session = require("express-session");
 require("dotenv").config();
+
 // set spotify API credentials
 const client_id = process.env.CLIENT_ID; // Spotify Client_ID
 const client_secret = process.env.CLIENT_SECRET; // Spotify Client_Secret
-// musixmatch credentials
-const musixmatch_api_key = process.env.MUSIXMATCH_API_KEY; // Spotify Musixmatch API key
+
 // "retrieve ACCESS TOKEN" function
 async function getAccessToken() {
     const testing = await fetch("https://accounts.spotify.com/api/token", {
@@ -24,7 +22,6 @@ async function getAccessToken() {
     const filteredResults = await testing.json();
 
     // RETRIEVING THE ACCESS TOKEN
-    console.log(filteredResults); // access_token & expires_in
     const accessToken = filteredResults.access_token;
     console.log(`${colors.magenta}Access Token ${accessToken}${colors.white}\n`); // recolor access token
     return accessToken;
@@ -36,7 +33,6 @@ function accessTokenExpired() {
     console.log(
         "\x1b[31m" + "Copy the access token again printed from console."
     );
-    // console.log(err);
 }
 
 module.exports = { getAccessToken, accessTokenExpired };

@@ -6,15 +6,13 @@ async function addAlbumComment(event) {
     const userId = document.querySelector("#user-Id").textContent;
     const albumName = document.querySelector("#album-name").textContent;
     const albumArtist = document.querySelector("#album-artist").textContent;
+    const searchedItem = `${albumName} ${albumArtist}`;
 
     if (commentText == "") {
-        console.log("there's nothing in here!!");
         return;
     }
 
-    const searchedItem = `${albumName} ${albumArtist}`;
-
-    // POST to "/api/post"
+    // POST to "/api/comment"
     const response = await fetch("/api/comment/", {
         method: "POST",
         body: JSON.stringify({

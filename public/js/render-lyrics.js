@@ -8,7 +8,6 @@ let lyricsClick = false;
 lyricsButtonEl.addEventListener("click", () => {
     if (!lyricsClick) {
         lyricsClick = true;
-        console.log(trackNameEl.textContent, trackArtistEl.textContent)
         // TRY TO DO AN EVENTLISTENER, AND THEN RENDER THE LYRICS
         fetch("/api/lyrics/", {
             method: "POST",

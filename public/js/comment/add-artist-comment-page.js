@@ -7,11 +7,10 @@ async function addArtistComment(event) {
     const artistName = document.querySelector("#artist-name").textContent;
 
     if (commentText == "") {
-        console.log("there's nothing in here!!");
         return;
     }
 
-    // POST to "/api/post"
+    // POST to "/api/comment"
     const response = await fetch("/api/comment/", {
         method: "POST",
         body: JSON.stringify({

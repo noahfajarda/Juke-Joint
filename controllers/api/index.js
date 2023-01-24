@@ -17,7 +17,6 @@ router.use("/likes", likesRoutes);
 router.use("/data", dataRoutes);
 
 router.post("/search", async (req, res) => {
-    console.log(req.body.keyword);
     const matches = await Artists.findAll({
         where: {
             name: {
