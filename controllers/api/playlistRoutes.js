@@ -45,7 +45,15 @@ router.get('/playlist', async (req,res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-
 })
+
+
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    Playlist.findByIdAndDelete(id)
+      .then(() => res.json({ success: true }))
+      .catch(err => res.status(404).json({ success: false }));
+  });
+
 
 module.exports = router;
