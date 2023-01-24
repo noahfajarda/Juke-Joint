@@ -1,21 +1,12 @@
 const router = require("express").Router();
+const checkIfLoggedInReroute = require("../utils/checkIfLoggedInReroute");
 
-// middleware check for log in
-function checkIfLoggedInReroute(req, res, next) {
-    //if they not logged in, go to login page
-    if (req.session.userId) {
-        return res.redirect("/");
-    }
-    next();
-    // res.render("homepage", { ...req.session });
-}
-
-router.get("/login", checkIfLoggedInReroute, async (req, res) => {
+router.get("/login", async (req, res) => {
     res.render("login");
 });
 
 router.get("/signup", async (req, res) => {
-    res.render("signup");
+    res.render("login");
 });
 
 // route to test autocomplete

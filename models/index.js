@@ -29,31 +29,6 @@ Comment.belongsTo(User, {
     onDelete: "CASCADE",
 });
 
-// Users can have many playlists
-User.hasMany(ListOfPlaylists, {
-    foreignKey: "userId",
-    onDelete: "CASCADE"
-});
-
-// ListOfPlaylists belongs to a user
-ListOfPlaylists.belongsTo(User, {
-    foreignKey: "userId",
-    onDelete: "CASCADE"
-});
-
-// ListOfPlaylists can have many playlists
-ListOfPlaylists.hasMany(Playlist, {
-    foreignKey: "playlistId",
-    onDelete: "CASCADE"
-});
-
-// Playlist belongs to a ListOfPlaylists
-Playlist.belongsTo(ListOfPlaylists, {
-    foreignKey: "playlistId",
-    onDelete: "CASCADE"
-});
-
-
 //exports all 3 models as a module
 module.exports = {
     User,

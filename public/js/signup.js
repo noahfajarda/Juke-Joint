@@ -26,9 +26,29 @@ const signupFormHandler = async function (event) {
     if (response.ok) {
         document.location.replace("/");
     } else {
-        alert("Failed to sign up");
+        invalidUserSignUp();
+        firstNameEl.value = "";
+        lastNameEl.value = "";
+        usernameEl.value = "";
+        passwordEl.value = "";
     }
 };
+
+// display message for user input error
+function invalidUserSignUp() {
+    const failedLoginEl = document.querySelector("#failed-login");
+    var timeLeft = 2;
+    failedLoginEl.style.color = "white";
+    failedLoginEl.textContent = "Failed To Sign Up Please Try Again";
+    var timeInterval = setInterval(function () {
+        timeLeft--;
+        if (timeLeft === -1) {
+            clearInterval(timeInterval);
+            failedLoginEl.textContent = "";
+        }
+        return;
+    }, 1000);
+}
 
 document
     .querySelector("#signup-form")
