@@ -272,9 +272,9 @@ textarea {
   background-color: transparent;
   box-shadow: 4px 0px 25px -1px rgba(0, 0, 0, 0.5);
   font-family: "Raleway";
-  color: #c0dddd;
-  font-weight: 100;
+  font-weight: 600;
   font-size: 18px;
+  color: #c0dddd;
   line-height: 24px;
   letter-spacing: 2px;
   text-transform: uppercase;

@@ -52,18 +52,16 @@ p {
   font-style: italic;
   font-family: "Playfair Display", serif;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
   height: 200px;
   width: 600px;
   display: block;
   position: absolute;
   color: white;
-  top: 700;
-  bottom: -25%;
-  left: 0;
-  right: 1200;
-  margin: auto;
+  left: 100;
+  right: 0;
+  top: 30%;
 }
 .console-underscore {
   display: inline-block;
@@ -997,14 +995,14 @@ ul li ul li a:hover {
   content: "Playlists";
 }
 .side-button.facebook:after {
-  background: url("./2298406_doodle_melody_music_music\ note_musical_icon.png")
+  background: url("./images/2298406_doodle_melody_music_music\ note_musical_icon.png")
     no-repeat center;
 }
 .side-button.twitter::before {
-  content: "Twitter";
+  content: "Likes";
 }
 .side-button.twitter:after {
-  background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_Twitter-07-128.png")
+  background: url("images/9160654_heart3_love_romance_shape_likes_icon.png")
     no-repeat center;
 }
 .side-button.instagram::before {
@@ -1029,9 +1027,9 @@ ul li ul li a:hover {
     no-repeat center;
 }
 .side-button.pinterest::before {
-  content: "Pinterest";
+  content: "Logout";
 }
 .side-button.pinterest:after {
-  background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_Pinterest-23-128.png")
-    no-repeat center;
+  background: url("./images/9218459_quit_exit_close_door_icon.png") no-repeat
+    center;
 }
