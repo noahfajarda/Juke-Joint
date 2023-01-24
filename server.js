@@ -52,3 +52,4 @@ sequelize.sync({ force: false }).then(() => {
 // Comment for testing
 //test
 // Another comment for testing
+// another test
