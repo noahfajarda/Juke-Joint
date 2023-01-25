@@ -313,7 +313,7 @@ button:hover {
   }
 }
 .cursor {
-  z-index: 999;
+  z-index: 9999;
   position: fixed;
   background: #2696e8;
   width: 20px;

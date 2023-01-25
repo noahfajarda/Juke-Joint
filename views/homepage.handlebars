@@ -22,7 +22,7 @@
         <div class="content">
             <h2 class="title">Search by Artist</h2>
             <p class="copy">
-                This list contains the most-streamed artists on the
+                Search for the most-streamed artists on the
                 audio streaming platform Spotify.
             </p>
             <form name="new-post" id="artist-post">
@@ -36,7 +36,7 @@
         <div class="content">
             <h2 class="title">Search by Album</h2>
             <p class="copy">
-                Finding albums from your favorite artists is very
+                Finding albums from your favorite artists can't be any more
                 simple.
             </p>
             <form name="new-post" id="album-post">
@@ -46,14 +46,13 @@
             
         </div>
     </div>
-    
     <div class="card">
         <div class="content">
             <h2 class="title">Meet the Team</h2>
-            <button class="btn member">Ranjit Saini</button>
-            <button class="btn member">Noah Fajarda</button>
-            <button class="btn member">Amr Moubasher</button>
-            <button class="btn member">Anas Qazza</button>
+            <a class="btn member" href="#open-modal-Noah">Noah Fajarda</a>
+            <a class="btn member" href="#open-modal-Amr">Amr Moubasher</a>
+            <a class="btn member" href="#open-modal-Ranjit">Ranjit Saini</a>
+            <a class="btn member" href="#open-modal-Anas">Anas Qazza</a>
         </div>
     </div>
 </section>
@@ -63,6 +62,8 @@
     <div class="wave"></div>
     <div class="wave"></div>
 </div>
+{{>about-us}}
+
 
 <button type="button" id="search-artist">
     Discover New Artists With Our Beta Feature!
