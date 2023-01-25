@@ -1,5 +1,9 @@
 <link rel="stylesheet" href="/css/homepage.css" />
 <h1 id="welcome-text">Welcome <span id="user-name">{{firstname}} {{lastname}}</span>!</h1>
+<div id="large-console-container">
+    <div class='console-container' style="height:40px;"><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
+    <div class='console-container' style="height:40px;"><span id='text2'></span><div class='console-underscore' id='console2'>&#95;</div></div>
+</div>
 {{#if loggedIn}}
     <button id="logout-btn">Log out</button>
 {{/if}}
@@ -63,4 +67,6 @@
 </div>
 {{>about-us}}
 
-<script src="./js/homepage.js"></script>
+
+<script src="/js/homepage/console-text.js"></script>
+<script src="./js/homepage/homepage.js"></script>
