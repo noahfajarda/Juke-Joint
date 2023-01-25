@@ -1,10 +1,11 @@
 function get_auth_header(token) {
-  return {
-    // Authorization: `Bearer ${token}`,
-    // FIGURE OUT THIS BEARER TOKEN
-    // FOR NOW, JUST REPLACE THIS TOKEN WITH WHATEVER IS IN THE CONSOLE.LOG
-    Authorization: `Bearer ${token}`,
-  };
+    return {
+        // Authorization: `Bearer ${token}`,
+        // FIGURE OUT THIS BEARER TOKEN
+        // FOR NOW, JUST REPLACE THIS TOKEN WITH WHATEVER IS IN THE CONSOLE.LOG
+        Authorization: `Bearer ${token}`,
+        //test
+    };
 }
 
 function search_for_track(token, track_name) {
