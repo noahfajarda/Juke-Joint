@@ -1,135 +1,157 @@
 .text-box {
-    position: absolute;
-    top: 10%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.heading-primary {
+  font-family: "Playfair Display", serif;
+  color: rgba(253, 253, 253, 0.87);
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  font-family: "Playfair Display", serif;
+  text-decoration: underline rgb(40, 77, 199);
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 2px;
+
+  animation-name: moveInleft;
+  animation-duration: 2s;
+}
+
+.heading-primary-sub {
+  margin-top: 50px;
+  display: block;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 20px;
+
+  animation-name: moveInRight;
+  animation-duration: 2s;
+}
+
+@keyframes moveInleft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
   }
 
-  .heading-primary {
-    color: rgba(253, 253, 253, 0.87);
-    text-transform: uppercase;
+  80% {
+    transform: translateX(10px);
   }
-  
-  .heading-primary-main {
-    text-decoration: underline rgb(40, 77, 199);
-    display: block;
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: 2px;
-  
-    animation-name: moveInleft;
-    animation-duration: 2s;
+  100% {
+    opacity: 1;
+    transform: translate(0);
   }
-  
-  .heading-primary-sub {
-    margin-top: 50px;
-    display: block;
-    font-size: 25px;
-    font-weight: 700;
-    letter-spacing: 20px;
-  
-    animation-name: moveInRight;
-    animation-duration: 2s;
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
   }
 
-  @keyframes moveInleft {
-    0% {
-      opacity: 0;
-      transform: translateX(-100px);
-    }
-  
-    80% {
-      transform: translateX(10px);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(0);
-    }
-  }
-  
-  @keyframes moveInRight {
-    0% {
-      opacity: 0;
-      transform: translateX(100px);
-    }
-  
-    80% {
-      transform: translateX(-10px);
-    }
-  
-    100% {
-      opacity: 1;
-      transform: translate(0);
-    }
+  80% {
+    transform: translateX(-10px);
   }
 
-  .feedback-input {
-    cursor: none;
-    color: white;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    border-radius: 5px;
-    line-height: 22px;
-    background-color: transparent;
-    border: 2px solid #cc6666;
-    transition: all 0.3s;
-    padding: 13px;
-    margin-bottom: 15px;
-    width: 100%;
-    box-sizing: border-box;
-    outline: 0;
+  100% {
+    opacity: 1;
+    transform: translate(0);
   }
-  
-  .feedback-input:focus {
-    border: 2px solid #4977cc;
-  }
+}
 
-  textarea {
-    cursor: none;
-    height: 150px;
-    line-height: 150%;
-    resize: vertical;
-  }
-  
-  [type="submit"] {
-    cursor: none;
-    font-family: "Montserrat", Arial, Helvetica, sans-serif;
-    width: 100%;
-    background: #4973cc;
-    border-radius: 5px;
-    border: 0;
-    cursor: pointer;
-    color: white;
-    font-size: 24px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    transition: all 0.3s;
-    margin-top: -4px;
-    font-weight: 700;
-  }
-  [type="submit"]:hover {
-    cursor: none;
-    background: #3641dd;
-  }
+#addToPlaylist {
+  background-color: #7be692b7;
+  border-radius: 2rem;
+  border-style: groove;
+  width: 10%;
+  height: 5%;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+#addToPlaylist:active {
+  background-color: rgb(153, 10, 10);
+}
+#addToPlaylist:hover {
+  background-color: green;
+}
+.feedback-input {
+  cursor: none;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border: 2px solid #cc6666;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: 0;
+}
 
-  .placement {
-    position: absolute;
-    top: 80;
-    right: 100;
-  }
-  .heart {
-    width: 100px;
-    height: 100px;
-    background: url("https://cssanimation.rocks/images/posts/steps/heart.png")
-      no-repeat;
-    background-position: 0 0;
-    cursor: none;
-    transition: background-position 1s steps(28);
-    transition-duration: 0s;
-  }
-  .heart.is-active {
-    transition-duration: 1s;
-    background-position: -2800px 0;
-  }
+.feedback-input:focus {
+  border: 2px solid #4977cc;
+}
+
+textarea {
+  cursor: none;
+  height: 150px;
+  line-height: 150%;
+  resize: vertical;
+}
+
+[type="submit"] {
+  cursor: none;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  width: 100%;
+  background: #4973cc;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.3s;
+  margin-top: -4px;
+  font-weight: 700;
+}
+[type="submit"]:hover {
+  cursor: none;
+  background: #3641dd;
+}
+
+/* .placement {
+  position: absolute;
+  top: 80;
+  right: 100;
+} */
+.heart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 90px;
+  height: 90px;
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png")
+    no-repeat;
+  background-position: 0 0;
+  cursor: none;
+  transition: background-position 1s steps(28);
+  transition-duration: 0s;
+}
+.heart.is-active {
+  transition-duration: 1s;
+  background-position: -2800px 0;
+}

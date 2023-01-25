@@ -3,7 +3,8 @@
 <section class="content-section">
     {{>sidebar}}
     <button id="addToPlaylist">Add to Playlist</button>
-    <button id="addToLikes">Like</button>
+    
+    {{!-- <button id="addToLikes"></button> --}}
 
     {{! All properties that can be accessed: }}
     {{! trackName, trackArtist, trackId, trackArt, title, userId, lyrics }}
@@ -11,9 +12,9 @@
     {{! FOR EACH-------- id, searchedItem, body, type, postId, userId, "user.firstname", "user.lastname", "user.username", "user.password" }}
 
     <!-- album -->
-    <h1>Track:</h1>
+    {{!-- <h1>Track:</h1>
     <h1 id="track-name">{{trackName}}</h1>
-    <h1 id="track-artist">{{trackArtist}}</h1>
+    <h1 id="track-artist">{{trackArtist}}</h1> --}}
     <div class="text-box">
       <h1 class="heading-primary">
         <span class="heading-primary-main">Track</span>
@@ -63,17 +64,10 @@
     </div>
 
 
-    <form>
-        <textarea
-          name="text"
-          class="feedback-input"
-          placeholder="Comment"
-        ></textarea>
-        <input type="submit" value="SUBMIT" />
-      </form>
+
 
     {{! comment }}
-    <h1 style="color: red;">Add a comment about the song!:</h1>
+    <h1 style="color: #c89666;">Drop a comment</h1>
     <div id="user-Id-container" style="display:none">
         <h2>User Id:</h2>
         <h2 id="user-Id">{{userId}}</h2>
@@ -86,9 +80,16 @@
         rows="8"
     ></textarea>
     <button id="add-track-comment">Add Comment</button>
-
+    {{!-- <form>
+        <textarea
+          name="text"
+          class="feedback-input"
+          placeholder="Comment"
+        ></textarea>
+        <input type="submit" value="SUBMIT" />
+      </form> --}}
     {{#if comments}}
-        <h1>Comment Section:</h1>
+        {{!-- <h1>Comment Section:</h1> --}}
         <div
             class="container justify-content-center mt-5 border-left border-right"
         >
@@ -120,15 +121,15 @@
 </section>
 
 {{! test from genius lyrics api }}
-{{#if trackArt}}
+{{!-- {{#if trackArt}}
     <img src="{{trackArt}}" height="100px" width="100px" alt="test" />
     <div id="track-art" style="display: none">{{trackArt}}</div>
 {{else}}
     No album art
-{{/if}}
+{{/if}} --}}
 
 <div class="placement">
-    <div class="heart"></div>
+    <div class="heart" id="addToLikes"></div>
 </div>
 
 <script src="/js/back-to-home.js"></script>
