@@ -1,8 +1,9 @@
-//     // retrieve apiKey from here: https://genius.com/api-clients
-//     optimizeQuery: true,
-const song = "homecoming";
-const artist = "kanye";
+// retrieve apiKey from here: https://genius.com/api-clients
 const token = process.env.GENIUS_LYRICS_API_KEY;
+// npm i axios to retrieve data from urls
+// npm i cheerio to fetch the data
+const axios = require("axios");
+const cheerio = require("cheerio");
 
 // searchSong
 async function getSongData(song, artist) {
@@ -17,11 +18,8 @@ async function getSongData(song, artist) {
         }
     );
     let songData = await data.json();
-    // console.log(songData);
-    // console.log(song);
-    // console.log(artist);
     songData = songData.response.hits.map((val) => {
-        // destructure to retrieve specific variables
+        // destructure to retrieve specific variables we want
         const {
             full_title,
             title,
@@ -42,16 +40,9 @@ async function getSongData(song, artist) {
     return songData;
 }
 
-// get lyrics by web scraping genius
+// get lyrics by web scraping song lyrics URL from 'genius'
+// i.e.: https://genius.com/J-cole-wet-dreamz-lyrics
 async function getLyrics(url) {
-    // npm i axios to retrieve data from urls
-    // npm i cheerio to fetch the data
-    const axios = require("axios");
-    const cheerio = require("cheerio");
-
-    // get from here: https://genius.com/J-cole-wet-dreamz-lyrics
-    console.log(url);
-
     // webscraping
     // tutorial found on here: https://www.youtube.com/watch?v=4ty0VzIagW4
 
@@ -60,20 +51,20 @@ async function getLyrics(url) {
     // fetch the data from the site
     const $ = cheerio.load(data);
     // decide where to go and get the data from the site's structure
-    // the element with class='lyrics'
-    // just retrieve text & trim off any extra space
+    // just retrieve text from element: class='lyrics', & trim off any extra space
     let lyrics = $('div[class="lyrics"]').text().trim();
     if (!lyrics) {
         lyrics = "";
+        // go through each line of the lyrics
         $('div[class^="Lyrics__Container"]').each((i, elem) => {
-            // go through
             if ($(elem).text().length !== 0) {
                 // retrieve some of the lyrics
-                // .replace == replace every instance of "<br>" with "\n"
-                // .replace == replace every tag & in-between until next text with nothing (start with end of tag, end with the last char leading toward next text)
                 let snippet = $(elem)
                     .html()
+                    // .replace == replace every instance of "<br>" with "\n"
                     .replace(/<br>/g, "\n")
+                    // .replace == replace every tag & in-between until next text with nothing (start with end of tag, 
+                    // end with the last char leading toward next text)
                     .replace(/<(?!\s*br\s*\/?)[^>]+>/gi, "");
 
                 // add the snippet to lyrics
@@ -84,29 +75,11 @@ async function getLyrics(url) {
     return lyrics.trim();
 }
 
-// getSong
+// getSong data
 async function getSong(song, artist, token) {
     const results = await getSongData(song, artist, token);
     return results;
 }
-
-async function main() {
-    try {
-        // const songData = await getSongData(song, artist, token);
-        // console.log("SONG DATA: ");
-        // console.log(songData);
-        // const song_get = await getSong(song, artist, token);
-        // console.log("SONG GET: ");
-        // console.log(song_get);
-        // const songURL = song_get[0].url;
-        // const lyrics = await getLyrics(songURL);
-        // console.log(lyrics);
-    } catch (err) {
-        console.log(err);
-    }
-}
-
-main();
 
 module.exports = {
     getSong,

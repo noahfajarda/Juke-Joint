@@ -3,8 +3,9 @@ const cursor = document.querySelector(".cursor");
 
       //follow cursor on mousemove
       document.addEventListener("mousemove", (e) => {
+        console.log(e)
         let x = e.pageX;
-        let y = e.pageY;
+        let y = e.y;
 
         cursor.style.top = y + "px";
         cursor.style.left = x + "px";
@@ -22,3 +23,8 @@ const cursor = document.querySelector(".cursor");
       document.addEventListener("mouseout", () => {
         cursor.style.display = "none";
       });
+
+      document.addEventListener("click", () => {
+        cursor.classList.add("expand")
+        setTimeout(() => cursor.classList.remove("expand"), 500)
+      })

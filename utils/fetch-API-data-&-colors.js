@@ -1,13 +1,12 @@
+// set authorization as header for API call
 function get_auth_header(token) {
     return {
-        // Authorization: `Bearer ${token}`,
-        // FIGURE OUT THIS BEARER TOKEN
-        // FOR NOW, JUST REPLACE THIS TOKEN WITH WHATEVER IS IN THE CONSOLE.LOG
         Authorization: `Bearer ${token}`,
         //test
     };
 }
 
+// API call for tracks
 function search_for_track(token, track_name) {
   return fetch(
     `https://api.spotify.com/v1/search?q=${track_name}&type=track&limit=1`,
@@ -17,6 +16,7 @@ function search_for_track(token, track_name) {
   );
 }
 
+// API call for albums
 function search_for_album(token, album_name) {
   return fetch(
     `https://api.spotify.com/v1/search?q=${album_name}&type=album&limit=1`,
@@ -26,6 +26,7 @@ function search_for_album(token, album_name) {
   );
 }
 
+// API call for artists
 function search_for_artist(token, artist_name) {
   return fetch(
     `https://api.spotify.com/v1/search?q=${artist_name}&type=artist&limit=1`,
@@ -35,6 +36,7 @@ function search_for_artist(token, artist_name) {
   );
 }
 
+<<<<<<< HEAD
 function retrieve_lyrics(track, artist) {
   // documentation: https://developer.musixmatch.com/documentation
   return fetch(
@@ -47,6 +49,8 @@ function retrieve_lyrics(track, artist) {
   );
 }
 
+=======
+>>>>>>> origin/noah-branch
 // colors to easily differentiate terminal:
 const colors = {
   black: "\x1b[30m",
@@ -68,10 +72,18 @@ const colors = {
 };
 
 module.exports = {
+<<<<<<< HEAD
   get_auth_header,
   search_for_track,
   search_for_album,
   search_for_artist,
   retrieve_lyrics,
   colors,
+=======
+    get_auth_header,
+    search_for_track,
+    search_for_album,
+    search_for_artist,
+    colors,
+>>>>>>> origin/noah-branch
 };

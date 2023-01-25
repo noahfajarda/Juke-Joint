@@ -4,6 +4,7 @@ document.querySelector("#track-post").addEventListener("submit", async (e) => {
     // actual user input
     trackEl.value = trackEl.value.trim();
 
+    // retrieve data for the user input
     const data = await fetch(`/api/data/${trackEl.value}`, {
         method: 'POST',
         body: JSON.stringify({
@@ -18,8 +19,10 @@ document.querySelector("#track-post").addEventListener("submit", async (e) => {
 
     // input == user inputted track
     // output == ACTUAL track name & artist
+    // because some songs have a '/', it must be replaced to avoid URL error
     data1.trackName = data1.trackName.replace("/", " ")
     data1.trackArtist = data1.trackArtist.replace("/", " ")
+    // replace the URL with data retrieved from fetch
     location.replace(`/track/${data1.trackName} ${data1.trackArtist}`);
 });
 
@@ -28,6 +31,7 @@ document.querySelector("#artist-post").addEventListener("submit", async (e) => {
     const artistEl = document.querySelector("#artist_search");
     artistEl.value = artistEl.value.trim();
 
+    // retrieve data for the user input
     const data = await fetch(`/api/data/${artistEl.value}`, {
         method: 'POST',
         body: JSON.stringify({
@@ -40,6 +44,7 @@ document.querySelector("#artist-post").addEventListener("submit", async (e) => {
     // retrieved data input
     const data1 = await data.json();
 
+    // replace the URL with data retrieved from fetch
     location.replace(`/artist/${data1.artistName}`);
 });
 
@@ -48,6 +53,7 @@ document.querySelector("#album-post").addEventListener("submit", async (e) => {
     const albumEl = document.querySelector("#album_search");
     albumEl.value = albumEl.value.trim();
 
+    // retrieve data for the user input
     const data = await fetch(`/api/data/${albumEl.value}`, {
         method: 'POST',
         body: JSON.stringify({
@@ -60,6 +66,7 @@ document.querySelector("#album-post").addEventListener("submit", async (e) => {
     // retrieved data input
     const data1 = await data.json();
 
+    // replace the URL with data retrieved from fetch
     location.replace(`/album/${data1.albumName} ${data1.albumArtist}`);
 });
 
@@ -76,7 +83,6 @@ const handleLogout = async () => {
     const response = await fetch("/api/user/logout", {
         method: "POST",
     });
-
     response.ok && document.location.replace("/login");
 };
 

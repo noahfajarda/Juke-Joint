@@ -29,10 +29,6 @@ router.get("/playlist/:id", async (req, res) => {
         Playlist.findAll({
             where: {
                 userId: req.params.id,
-                // DON'T KNOW IF WE'LL STILL NEED THIS
-                // trackName: {
-                //     [Op.not]: null,
-                // }
             },
         })
             .then((playlistData) => {
@@ -40,8 +36,6 @@ router.get("/playlist/:id", async (req, res) => {
                     playlist.get({ plain: true })
                 );
 
-                console.log("TESTINGGGGG");
-                console.log(filteredData);
                 res.render("playlist", { filteredData });
             })
             .catch((error) => {
