@@ -3,13 +3,6 @@ require("dotenv").config();
 console.log(process.env.DB_NAME);
 
 // create connection to our db, JAWSDB_URL env variable is provided by heroku in production environment
-<<<<<<< Updated upstream
-const sequelize = new Sequelize("music_db", "root", "root", {
-  host: "localhost",
-  dialect: "mysql",
-  port: 3306,
-});
-=======
 const sequelize = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USER,
@@ -20,6 +13,5 @@ const sequelize = new Sequelize(
     port: 3306,
   }
 );
->>>>>>> Stashed changes
 
 module.exports = sequelize;
