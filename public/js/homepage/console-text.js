@@ -1,8 +1,8 @@
 consoleText(
     [
       "Find your music",
+      "Ice Cube",
       "Kendrick Lamar",
-      "Taylor Swift",
       "Ed Sheeran",
       "Pink Floyd",
       "Queen",
@@ -15,7 +15,7 @@ consoleText(
       "The Rolling Stones",
       "Frank Sinatra",
       "Elvis Presley",
-      "Ice Cube",
+      "Anderson .Paak",
       "The Beach Boys",
       "Red Hot Chili Peppers",
       "Jimi Hendrix",
@@ -35,7 +35,7 @@ consoleText(
       consoleText(
     [
       "Find your music",
-      "Kendrick Lamar",
+      "Childish Gambino",
       "Taylor Swift",
       "Ed Sheeran",
       "Pink Floyd",
@@ -63,7 +63,7 @@ consoleText(
       "goldenrod",
       "tomato",
       "darkseagreen",
-    ], "console2", 116
+    ], "console2", 80
   );
   
   function consoleText(words, id, colors, element, interval) {

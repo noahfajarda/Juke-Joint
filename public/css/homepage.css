@@ -94,28 +94,6 @@ html {
 #user-name {
   color: #ef7878;
 }
-#logout-btn {
-  position: absolute;
-  top: 3%;
-  right: 2%;
-  width: 150px;
-  height: 50px;
-  border-radius: 20px;
-  background-color: red;
-  cursor: none;
-  transition: 0.3s ease-in;
-}
-#logout-btn:hover {
-  background-color: rgb(217, 79, 79);
-  color: black;
-}
-@media (max-width: 1290px) {
-  #logout-btn {
-    position: relative;
-    display: block;
-    margin-bottom: 30px;
-  }
-}
 .search-bar {
   cursor: none;
   font-size: 10px;
@@ -340,6 +318,7 @@ main {
 #submit {
   width: 100%;
   border-radius: 20px;
+  padding-top: 6px;
   margin-top: 20px;
 }
 .member {

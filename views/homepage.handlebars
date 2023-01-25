@@ -4,9 +4,6 @@
     <div class='console-container' style="height:40px;"><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
     <div class='console-container' style="height:40px;"><span id='text2'></span><div class='console-underscore' id='console2'>&#95;</div></div>
 </div>
-{{#if loggedIn}}
-    <button id="logout-btn">Log out</button>
-{{/if}}
 {{>sidebar}}
 <section id="search-container">
     <div class="card">
@@ -30,7 +27,7 @@
                 audio streaming platform Spotify.
             </p>
             <form name="new-post" id="artist-post">
-                <input class="search-bar" type="text" name="artist_search" id="artist_search" placeholder="The Weeknd" />
+                <input class="search-bar" type="text" name="artist_search" id="artist_search" placeholder="Childish Gambino" />
                 <button type="submit" id="submit" class="submit">Search Artist</button>
             </form>
             
