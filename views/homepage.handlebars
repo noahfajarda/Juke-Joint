@@ -3,7 +3,7 @@
 {{#if loggedIn}}
     <button id="logout-btn">Log out</button>
 {{/if}}
-
+{{>sidebar}}
 <section id="search-container">
     <div class="card">
         <div class="content">
@@ -56,17 +56,11 @@
         </div>
     </div>
 </section>
-{{>sidebar}}
 <div>
     <div class="wave"></div>
     <div class="wave"></div>
     <div class="wave"></div>
 </div>
 {{>about-us}}
-
-
-<button type="button" id="search-artist">
-    Discover New Artists With Our Beta Feature!
-</button>
 
 <script src="./js/homepage.js"></script>

@@ -13,66 +13,84 @@
         <div id="viewHome" class="rela-block side-button home"></div>
         <div id="viewPlaylist" class="rela-block side-button playlists"></div>
         <div id="viewLikes" class="rela-block side-button likes"></div>
-        <div class="rela-block side-button instagram"></div>
-        <div class="rela-block side-button soundcloud"></div>
-        <div class="rela-block side-button linked-in"></div>
+        <div id="search-artist" class="rela-block side-button auto"></div>
+        <div class="rela-block side-button contact"></div>
+        <div class="rela-block side-button log-out"></div>
     </div>
 </div>
 
-<nav>
-    <div class="logo">Web Biginner</div>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Feedback</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-</nav>
+<div id="nav-container">
+    <nav id="nav-box">
+        <ul id="nav-items">
+            <li><a href="#" id="viewHome" class="nav-item">Home</a></li>
+            <li><a href="#" class="nav-item">Playlists</a></li>
+            <li><a href="#" class="nav-item">Likes</a></li>
+            <li><a href="#" class="nav-item">Contact Us</a></li>
+            <li><a href="#" class="nav-item">Log Out</a></li>
+        </ul>
+    </nav>
+</div>
 <style>
-    nav {
-        position: fixed;
-        bottom: 0;
-        left: 0;
+    #nav-container {
         width: 100%;
-        height: 100px;
-        padding: 10px 90px;
-        box-sizing: border-box;
-        background: rgba(0,0,0,0.6);
-        border-top: 1px solid #fff;
-    }
-    nav.logo {
-        padding: 22px 20px;
-        height: 80px;
-        float: left;
-        font-size: 24px;
-        font-weight: bold;
-        text-transform: uppercase;
-        color: #fff;
-    }
-    nav ul {
-        list-style: none;
-        float: right;
-        margin: 0;
-        padding: 0;
+        height: 103px;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 5%;
+        background: rgba(0,0,0,0.2);
+        background-color: rgba(255, 255, 255, 0.558);
+        box-shadow: 4px 0px 25px -1px rgb(0 0 0 / 50%);
+        color: white;
+        padding: 10px;
+        position: sticky;
+        top: 92%;
+        left: 0;
+        margin: 1em 0;
+        z-index: 3;
     }
-    nav ul li a {
-        line-height: 80px;
+    nav li {
+        display: inline-block;
+        list-style: none;
+        padding: 0px 20px;
+    }
+    #nav-box {
+        width: 100%;
+    }
+    .nav-item {
+        color: black;
+        font-size: 25px;
+    }
+    #nav-items {
+        margin-bottom: 0px;
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        color: black;
+    }
+    a,button {
+        font-size: 16px;
+        font-weight: 500;
         color: #fff;
-        padding: 12px 30px;
         text-decoration: none;
-        font-size: 13px;
-        font-wdith: bold;
-        text-transform: uppercase;
+        cursor: none;
     }
-    nav ul li a:hover {
-        background: rgba(0,0,0,0.7);
-        border-radius: 6px;
+    button {
+        background: rgba(0,0,0,0.2);
+        border: 2px solid #fd5e53;
+        border-radius: 50px;
+        padding: 9px 25px;
+    }
+    nav li a:hover {
+        color: #fd5e53;
+        transition: all 0.4s ease 0s;
+    }
+    button:hover {
+        background-color: #fd5e53;
+        transition: all 0.4s ease 0s;
     }
     @media only screen and (min-width: 1290px) {
-        nav {
+        #nav-container {
             display: none;
         }
     }

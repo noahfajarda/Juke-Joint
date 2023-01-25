@@ -1,6 +1,3 @@
-
-
-
 @import url("https://fonts.googleapis.com/css?family=Rajdhani:300&display=swap");
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
@@ -54,7 +51,7 @@ html {
   cursor: none;
 }
 .cursor {
-  z-index: 999;
+  z-index: 99999;
   position: fixed;
   background: #2696e8;
   width: 20px;
@@ -482,27 +479,33 @@ main {
     height: 46px;
     width: 41px;
 }
-.side-button.instagram::before {
-  content: "Instagram";
+.side-button.auto::before {
+  content: "Auto-Artist";
 }
-.side-button.instagram:after {
+.side-button.auto:after {
   /* overlay another element with an opaque thing */
-  background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_Instagram-128.png")
-    no-repeat center;
+  background: url("../images/lightning-icon.png")
+  no-repeat center;
+  height: 46px;
+  width: 41px;
 }
-.side-button.soundcloud::before {
-  content: "Soundcloud";
+.side-button.contact::before {
+  content: "Contact Us";
 }
-.side-button.soundcloud:after {
-  background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_SoundCloud-128.png")
-    no-repeat center;
+.side-button.contact:after {
+  background: url("../images/contact-icon.png")
+  no-repeat center;
+  height: 46px;
+  width: 41px;
 }
-.side-button.linked-in::before {
-  content: "LinkedIn";
+.side-button.log-out::before {
+  content: "Log Out";
 }
-.side-button.linked-in:after {
-  background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_LinkedIn-128.png")
-    no-repeat center;
+.side-button.log-out:after {
+  background: url("../images/logout-icon.png")
+  no-repeat center;
+  height: 46px;
+  width: 41px;
 }
 
 
