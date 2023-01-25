@@ -89,33 +89,4 @@ router.post("/:userInput", async (req, res) => {
         res.redirect("/");
     }
 });
-<<<<<<< HEAD
 module.exports = router;
-
-
-
-
-
-
-
-// async function test() {
-//     const type = "Album";
-//     const specifics = {
-//         "Album": async () => {
-//             const specificAlbum = await fetch_album_data(
-//                 accessToken,
-//                 "Ye"
-//             );
-//             specificAlbum.title = "Album";
-//             return specificAlbum;
-//         }
-//     }
-
-//     const accessToken = await getAccessToken();
-//     console.log(await specifics[type]())
-// }
-// test();
-// TEST
-=======
-module.exports = router;
->>>>>>> origin/noah-branch
