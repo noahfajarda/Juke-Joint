@@ -1,5 +1,4 @@
-consoleText(
-  [
+const array1 = [
     "Find your music",
     "NIKI",
     "Bruno Mars",
@@ -85,19 +84,8 @@ consoleText(
     "Aaliyah",
     "Michael Jackson",
     "Bruce Springsteen",
-  ],
-    "text",
-    [
-      "dodgerblue",
-      "lightsalmon",
-      "lightblue",
-      "goldenrod",
-      "tomato",
-      "darkseagreen",
-    ], "console", 80
-);
-consoleText(
-  [
+];
+const array2 = [
     "Find your music",
     "Ice Cube",
     "BLACKPINK",
@@ -181,61 +169,18 @@ consoleText(
     "Lana Del Rey",
     "New Edition",
     "Folklore",
-  ],
-  "text2",
-  [
-    "dodgerblue",
-    "tomato",
-    "goldenrod",
-    "lightblue",
-    "lightsalmon",
-    "darkseagreen",
-  ], "console2", 80
-);
+];
 
-function consoleText(words, id, colors, element, interval) {
-  if (colors === undefined) colors = ["#fff"];
-  var visible = true;
-  var con = document.getElementById(element);
-  var letterCount = 1;
-  var x = 1;
-  var waiting = false;
-  var target = document.getElementById(id);
-  target.setAttribute("style", "color:" + colors[0]);
-  window.setInterval(function () {
-    if (letterCount === 0 && waiting === false) {
-      waiting = true;
-      target.innerHTML = words[0].substring(0, letterCount);
-      window.setTimeout(function () {
-        var usedColor = colors.shift();
-        colors.push(usedColor);
-        var usedWord = words.shift();
-        words.push(usedWord);
-        x = 1;
-        target.setAttribute("style", "color:" + colors[0]);
-        letterCount += x;
-        waiting = false;
-      }, 1000);
-    } else if (letterCount === words[0].length + 1 && waiting === false) {
-      waiting = true;
-      window.setTimeout(function () {
-        x = -1;
-        letterCount += x;
-        waiting = false;
-      }, 1000);
-    } else if (waiting === false) {
-      target.innerHTML = words[0].substring(0, letterCount);
-      letterCount += x;
-    }
-  }, interval);
-  window.setInterval(function () {
-    if (visible === true) {
-      con.className = "console-underscore hidden";
-      visible = false;
-    } else {
-      con.className = "console-underscore";
-
-      visible = true;
-    }
-  }, 400);
+let result = 0;
+const newArray = [];
+for (let i = 0; i < array1.length; i++) {
+    result += array1[i].length;
 }
+console.log(result);
+
+let result2 = 0;
+const newArray2 = [];
+for (let i = 0; i < array2.length; i++) {
+    result2 += array2[i].length;
+}
+console.log(result2);
