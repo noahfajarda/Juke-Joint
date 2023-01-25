@@ -25,18 +25,18 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 //session configuration object, refer to express-session documentation to modify configs
 const sess = {
-    secret: "Super secret secret",
-    cookie: {
-        maxAge: 60 * 60 * 1000, // user session reload time is 1 hour, adjust if you need to
-        httpOnly: true,
-        secure: false,
-        sameSite: "strict",
-    },
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize,
-    }),
+  secret: "Super secret secret",
+  cookie: {
+    maxAge: 60 * 60 * 1000, // user session reload time is 1 hour, adjust if you need to
+    httpOnly: true,
+    secure: false,
+    sameSite: "strict",
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 };
 
 //apply session middleware
@@ -48,8 +48,3 @@ sequelize.sync({ force: false }).then(() => {
         console.log(`App listening at 🚀🚀🚀 http://localhost:${PORT} 🚀🚀🚀`)
     );
 });
-
-// Comment for testing
-//test
-// Another comment for testing
-// another test
