@@ -1,9 +1,9 @@
 // set authorization as header for API call
 function get_auth_header(token) {
-    return {
-        Authorization: `Bearer ${token}`,
-        //test
-    };
+  return {
+    Authorization: `Bearer ${token}`,
+    //test
+  };
 }
 
 // API call for tracks
@@ -36,21 +36,6 @@ function search_for_artist(token, artist_name) {
   );
 }
 
-<<<<<<< HEAD
-function retrieve_lyrics(track, artist) {
-  // documentation: https://developer.musixmatch.com/documentation
-  return fetch(
-    `https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=json&callback=callback&q_track=${track}&q_artist=${artist}&apikey=${musixmatch_api_key}`,
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
-}
-
-=======
->>>>>>> origin/noah-branch
 // colors to easily differentiate terminal:
 const colors = {
   black: "\x1b[30m",
@@ -72,18 +57,9 @@ const colors = {
 };
 
 module.exports = {
-<<<<<<< HEAD
   get_auth_header,
   search_for_track,
   search_for_album,
   search_for_artist,
-  retrieve_lyrics,
   colors,
-=======
-    get_auth_header,
-    search_for_track,
-    search_for_album,
-    search_for_artist,
-    colors,
->>>>>>> origin/noah-branch
 };
