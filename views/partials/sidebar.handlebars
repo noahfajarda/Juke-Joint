@@ -1,0 +1,38 @@
+<div class="side-bar">
+    <div class="side-container top">
+    <h2 id="user-Id" style="display:none;">{{userId}}</h2>
+        <svg viewbox="0 0 120 120" class="hover-svg">
+            <path D="M 60 25 L 20 95 L 100 95 Z" />
+            <path D="M 36 67 L 53 95" />
+            <path D="M 33 72 L 47 95" />
+            <path D="M 30 78 L 41 95" />
+            <path D="M 27 83 L 35 95" />
+        </svg>
+    </div>
+    <div class="side-container middle">
+        <div id="viewHome" class="rela-block side-button home"></div>
+        <div id="viewPlaylist" class="rela-block side-button playlists"></div>
+        <div id="viewLikes" class="rela-block side-button likes"></div>
+        <div id="search-artist" class="rela-block side-button auto"></div>
+        <div class="rela-block side-button contact"></div>
+        <div id="logout-btn" class="rela-block side-button log-out"></div>
+    </div>
+</div>
+
+<div id="nav-container">
+    <nav id="nav-box">
+        <ul id="nav-items">
+            <li><a href="/" id="viewHome" class="nav-item">Home</a></li>
+            <li><a href="/api/playlist/playlist/{{userId}}" class="nav-item">Playlists</a></li>
+            <li><a href="#" class="nav-item">Likes</a></li>
+            <li><a href="#" class="nav-item">Contact Us</a></li>
+            <li><a href="#" id="resize-logout-btn" class="nav-item">Log Out</a></li>
+        </ul>
+    </nav>
+</div>
+<style>
+
+
+</style>
+
+<script src="/js/side-bar.js"></script>

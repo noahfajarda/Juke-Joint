@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // var images = [
 //   "image1",
 //   "image2",
@@ -27,3 +28,10 @@
 // }
 
 // fadeInNext();
+=======
+$(function () {
+  $(".heart").on("click", function () {
+    $(this).toggleClass("is-active");
+  });
+});
+>>>>>>> 2b527e2b515c55601c8ae7cb0072bba02982534b

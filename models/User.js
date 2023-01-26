@@ -20,14 +20,15 @@ User.init(
         },
         firstname: {
             type: DataTypes.STRING,
-            // allowNull: false,
+            allowNull: false,
         },
         lastname: {
             type: DataTypes.STRING,
-            // allowNull: false,
+            allowNull: false,
         },
         username: {
             type: DataTypes.STRING,
+            unique: true,
             allowNull: false,
         },
         password: {
@@ -60,7 +61,7 @@ User.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: "user",
+        modelName: "User",
     }
 );
 
