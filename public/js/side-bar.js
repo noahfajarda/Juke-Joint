@@ -25,3 +25,13 @@ document.querySelector("#viewHome").addEventListener("click", async (e) => {
     e.preventDefault();
     document.location.replace(`/`);
 });
+
+const handleLogout = async () => {
+    const response = await fetch("/api/user/logout", {
+        method: "POST",
+    });
+    response.ok && document.location.replace("/login");
+};
+
+document.querySelector("#logout-btn").addEventListener("click", handleLogout);
+document.querySelector("#resize-logout-btn").addEventListener("click", handleLogout);

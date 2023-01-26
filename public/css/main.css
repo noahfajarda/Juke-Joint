@@ -6,21 +6,12 @@
   --font-sans: "Rubik", sans-serif;
   --font-serif: "Cardo", serif;
 }
-
-/* * {
-  box-sizing: border-box;
-} */
-/* html,
-body {
-  height: 100%;
-} */
 body {
   display: grid;
   place-items: center;
   background-color: rgba(151, 98, 19, 0.253);
 
   margin: auto;
-  font-family: "Rajdhani", sans-serif;
   overflow: auto;
   cursor: none;
   background: linear-gradient(
@@ -358,4 +349,75 @@ button:hover {
   opacity: 0.2;
   transform: translate(-30%, -30%);
   border-radius: 50%;
+}
+#nav-container {
+  width: 100%;
+  height: 103px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 5%;
+  background: rgba(0,0,0,0.2);
+  background-color: rgba(255, 255, 255, 0.558);
+  box-shadow: 4px 0px 25px -1px rgb(0 0 0 / 50%);
+  color: white;
+  padding: 10px;
+  position: sticky;
+  top: 92%;
+  left: 0;
+  margin: 1em 0;
+  z-index: 3;
+}
+nav li {
+  display: inline-block;
+  list-style: none;
+  padding: 0px 20px;
+}
+#nav-box {
+  width: 100%;
+}
+.nav-item {
+  color: black;
+  font-size: 3vw;
+  text-decoration: none;
+}
+#nav-items {
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  color: black;
+}
+a,button {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  cursor: none;
+}
+button {
+  background: rgba(0,0,0,0.2);
+  border: 2px solid #fd5e53;
+  border-radius: 50px;
+  padding: 9px 25px;
+}
+nav li a:hover {
+  color: #fd5e53;
+  transition: all 0.4s ease 0s;
+}
+#main-title-text {
+  color: white;
+  transition: all 0.4s ease 0s;
+}
+#main-title-text:hover {
+  color: rgb(195, 195, 195);
+}
+.submit:hover {
+  background-color: #fd5e53;
+  transition: all 0.4s ease 0s;
+}
+@media only screen and (min-width: 1290px) {
+  #nav-container {
+      display: none;
+  }
 }

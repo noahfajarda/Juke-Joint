@@ -1,9 +1,10 @@
 <link rel="stylesheet" href="/css/homepage.css" />
 <h1 id="welcome-text">Welcome <span id="user-name">{{firstname}} {{lastname}}</span>!</h1>
-{{#if loggedIn}}
-    <button id="logout-btn">Log out</button>
-{{/if}}
-
+<div id="large-console-container">
+    <div class='console-container' style="height:40px;"><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
+    <div class='console-container' style="height:40px;"><span id='text2'></span><div class='console-underscore' id='console2'>&#95;</div></div>
+</div>
+{{>sidebar}}
 <section id="search-container">
     <div class="card">
         <div class="content">
@@ -26,7 +27,7 @@
                 audio streaming platform Spotify.
             </p>
             <form name="new-post" id="artist-post">
-                <input class="search-bar" type="text" name="artist_search" id="artist_search" placeholder="The Weeknd" />
+                <input class="search-bar" type="text" name="artist_search" id="artist_search" placeholder="Childish Gambino" />
                 <button type="submit" id="submit" class="submit">Search Artist</button>
             </form>
             
@@ -56,7 +57,6 @@
         </div>
     </div>
 </section>
-{{>sidebar}}
 <div>
     <div class="wave"></div>
     <div class="wave"></div>
@@ -65,8 +65,5 @@
 {{>about-us}}
 
 
-<button type="button" id="search-artist">
-    Discover New Artists With Our Beta Feature!
-</button>
-
-<script src="./js/homepage.js"></script>
+<script src="/js/homepage/console-text.js"></script>
+<script src="./js/homepage/homepage.js"></script>

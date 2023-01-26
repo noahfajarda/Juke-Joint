@@ -2,9 +2,33 @@
 <link rel="stylesheet" href="/css/track.css" />
 <section class="content-section">
     {{>sidebar}}
-    <button id="addToPlaylist">Add to Playlist</button>
-    
-    {{!-- <button id="addToLikes"></button> --}}
+
+{{!-- big container --}}
+    <div class="d-flex justify-content-center">
+        <div style="position:relative; top:20%; left:-20%;">
+            <div class="text-box">
+                <h1 class="heading-primary">
+                    <span class="heading-primary-main">Track</span>
+                    <span id="track-name" class="heading-primary-sub">{{trackName}}</span>
+                    <span id="track-artist" class="heading-primary-sub">{{trackArtist}}</span>
+                </h1>
+            </div>
+        </div>
+        <iframe
+            src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
+            width="100%"
+            height="380"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+        ></iframe>
+        <div>
+            <button id="addToPlaylist">Add to Playlist</button>
+            <button id="addToLikes">Like</button>
+        </div>
+    </div>
+
 
     {{! All properties that can be accessed: }}
     {{! trackName, trackArtist, trackId, trackArt, title, userId, lyrics }}
@@ -12,9 +36,9 @@
     {{! FOR EACH-------- id, searchedItem, body, type, postId, userId, "user.firstname", "user.lastname", "user.username", "user.password" }}
 
     <!-- album -->
-    {{!-- <h1>Track:</h1>
+    <h1>Track:</h1>
     <h1 id="track-name">{{trackName}}</h1>
-    <h1 id="track-artist">{{trackArtist}}</h1> --}}
+    <h1 id="track-artist">{{trackArtist}}</h1>
     <div class="text-box">
       <h1 class="heading-primary">
         <span class="heading-primary-main">Track</span>
@@ -79,7 +103,7 @@
 </div>
 
 <script src="/js/back-to-home.js"></script>
-<script src="/js/render-lyrics.js"></script>
 <script src="/js//comment/add-track-comment-page.js"></script>
-<script src="/js/add-to-playlist.js"></script>
-<script src="/js/add-to-likes.js"></script>
+<script src="/js/track/render-lyrics.js"></script>
+<script src="/js/track/add-to-playlist.js"></script>
+<script src="/js/track/add-to-likes.js"></script>
