@@ -42,3 +42,15 @@ document.querySelector(".heart").addEventListener("click", (e) => {
         bool = false;
     }
 })
+
+// document
+//     .querySelector("#delete-from-likes")
+//     .addEventListener("click", async (e) => { 
+//         e.preventDefault();
+//         const response = await fetch("api/likes/:id", {
+//             method: "DELETE"
+//         });
+//         if (response.ok) {
+//             console.log("Song deleted from likes!");
+//         };
+//     });

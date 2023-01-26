@@ -3,7 +3,7 @@ const cursor = document.querySelector(".cursor");
 
       //follow cursor on mousemove
       document.addEventListener("mousemove", (e) => {
-        console.log(e)
+        
         let x = e.pageX;
         let y = e.y;
 
