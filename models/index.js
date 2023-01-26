@@ -5,6 +5,7 @@ const Comment = require("./Comment");
 const SearchedSong = require("./SearchedSong");
 const Artists = require("./Artists");
 const Playlist = require("./Playlist");
+const Likes = require("./Likes");
 
 //Comments will also have a userId field connecting to the user table's id column
 //If a user gets deleted, all their comments will be deleted as well
@@ -20,6 +21,17 @@ User.hasMany(Playlist, {
 })
 
 Playlist.belongsTo(User, {
+    foreignKey: "userId",
+    onDelete: "CASCADE"
+})
+
+// USER/LIKES == ONE-TO-MANY
+User.hasMany(Likes, {
+    foreignKey: "userId",
+    onDelete: "CASCADE"
+})
+
+Likes.belongsTo(User, {
     foreignKey: "userId",
     onDelete: "CASCADE"
 })

@@ -23,7 +23,7 @@
   }
   
   .heading-primary-sub {
-    margin-top: 50px;
+    margin-top: 30px;
     display: block;
     font-size: 25px;
     font-weight: 700;
@@ -86,6 +86,10 @@
     border: 2px solid #4977cc;
   }
 
+  #track-name {
+    color:rgb(170, 179, 105)
+  }
+
   textarea {
     cursor: none;
     height: 150px;
@@ -115,7 +119,8 @@
   }
 
   .placement {
-    position: absolute;
+    display: flex;
+    justify-content: center;
     top: 80;
     right: 100;
   }
@@ -132,4 +137,10 @@
   .heart.is-active {
     transition-duration: 1s;
     background-position: -2800px 0;
+  }
+  .add-to-playlist {
+    background: url("../images/playlist-icon.png")
+    no-repeat center;
+    height: 52px;
+    width: 52px;
   }
