@@ -1,63 +1,48 @@
 <link rel="stylesheet" href="/css/homepage.css" />
 <link rel="stylesheet" href="/css/track.css" />
-<section class="content-section">
-    {{>sidebar}}
 
+{{! All properties that can be accessed: }}
+{{! trackName, trackArtist, trackId, trackArt, title, userId, lyrics }}
+{{! comments }}
+{{! FOR EACH-------- id, searchedItem, body, type, postId, userId, "user.firstname", "user.lastname", "user.username", "user.password" }}
+
+{{>sidebar}}
+<section class="content-section" style="width:80%;">
 {{!-- big container --}}
-    <div class="d-flex justify-content-center">
-        <div style="position:relative; top:20%; left:-20%;">
-            <div class="text-box">
-                <h1 class="heading-primary">
-                    <span class="heading-primary-main">Track</span>
-                    <span id="track-name" class="heading-primary-sub">{{trackName}}</span>
-                    <span id="track-artist" class="heading-primary-sub">{{trackArtist}}</span>
-                </h1>
+    <div class="d-flex justify-content-between" style="width:100%;">
+        <div style="width: 25%;">
+            <div style="position:relative; top: 45%; left: 30%;">
+                <div class="text-box">
+                    <h1 class="heading-primary">
+                        <span class="heading-primary-main">Track</span>
+                        <span id="track-name" class="heading-primary-sub">{{trackName}}</span>
+                        <span id="track-artist" class="heading-primary-sub">{{trackArtist}}</span>
+                    </h1>
+                </div>
             </div>
         </div>
-        <iframe
-            src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
-            width="100%"
-            height="380"
-            frameborder="0"
-            allowfullscreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-        ></iframe>
-        <div>
-            <button id="addToPlaylist">Add to Playlist</button>
-            <button id="addToLikes">Like</button>
+        <div style="width: 75%">
+            <iframe
+            style="border-radius: 5px"
+                src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
+                width="100%"
+                height="380"
+                frameborder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+            ></iframe>
+            <div class="d-flex flex-row justify-content-end">
+                <div class="placement">
+                    <div id="addToLikes" class="heart"></div>
+                </div>
+                <div class="placement d-flex align-items-center" style="padding: 0px 20px;">
+                    <div id="addToPlaylist" class="rela-block add-to-playlist"></div>
+                </div>
+            </div>
         </div>
+        <div id="trackId" style="display: none">{{trackId}}</div>
     </div>
-
-
-    {{! All properties that can be accessed: }}
-    {{! trackName, trackArtist, trackId, trackArt, title, userId, lyrics }}
-    {{! comments }}
-    {{! FOR EACH-------- id, searchedItem, body, type, postId, userId, "user.firstname", "user.lastname", "user.username", "user.password" }}
-
-    <!-- album -->
-    <h1>Track:</h1>
-    <h1 id="track-name">{{trackName}}</h1>
-    <h1 id="track-artist">{{trackArtist}}</h1>
-    <div class="text-box">
-      <h1 class="heading-primary">
-        <span class="heading-primary-main">Track</span>
-        <span id="track-name" class="heading-primary-sub">{{trackName}}</span>
-        <span id="track-artist" class="heading-primary-sub">{{trackArtist}}</span>
-      </h1>
-    </div>
-
-    <iframe
-        src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
-        width="100%"
-        height="380"
-        frameborder="0"
-        allowfullscreen=""
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"
-    ></iframe>
-    <div id="trackId" style="display: none">{{trackId}}</div>
-
     {{! Lyrics }}
     <div class="accordion accordion" id="accordionExample">
         <div class="accordion-item">
@@ -98,9 +83,8 @@
     No album art
 {{/if}}
 
-<div class="placement">
-    <div class="heart" id="addToLikes"></div>
-</div>
+
+
 
 <script src="/js/back-to-home.js"></script>
 <script src="/js//comment/add-track-comment-page.js"></script>

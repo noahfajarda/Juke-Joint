@@ -21,6 +21,16 @@ document.querySelector("#viewLikes").addEventListener("click", async (e) => {
         document.location.replace(`/api/likes/likes/`);
     }
 });
+document.querySelector("#viewLikes2").addEventListener("click", async (e) => {
+    e.preventDefault();
+    const response = await fetch(`/api/likes/likes/`, {
+        method: "GET",
+    });
+
+    if (response) {
+        document.location.replace(`/api/likes/likes/`);
+    }
+});
 document.querySelector("#viewHome").addEventListener("click", async (e) => {
     e.preventDefault();
     document.location.replace(`/`);
