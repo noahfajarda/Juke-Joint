@@ -47,4 +47,17 @@ router.get("/playlist/:id", async (req, res) => {
     }
 });
 
+router.delete("/api/playlist/:id", async (req, res) => {
+    try {
+        const playlistData = await Playlist.destroy({
+            where: {
+                id: req.params.id,
+            },
+        });
+        res.status(200).json(playlistData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;

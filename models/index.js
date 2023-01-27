@@ -4,6 +4,7 @@ const User = require("./User");
 const Comment = require("./Comment");
 const SearchedSong = require("./SearchedSong");
 const Artists = require("./Artists");
+const ListOfPlaylists = require("./ListOfPlaylists");
 const Playlist = require("./Playlist");
 const Likes = require("./Likes");
 
@@ -42,4 +43,6 @@ module.exports = {
     Comment,
     SearchedSong,
     Artists,
+    ListOfPlaylists,
+    Playlist
 };

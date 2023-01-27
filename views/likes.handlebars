@@ -5,6 +5,7 @@
 
 <iframe
     id="player"
+
     src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
     width="100%"
     height="380"
@@ -12,13 +13,13 @@
     allowfullscreen=""
     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
     loading="lazy"
-></iframe>
+></iframe> 
 
 <div style="display: flex; flex-direction: row;">
 {{#each filteredLikesData}}
     <a
         {{!-- href="/track/{{trackName}} {{trackArtist}}" --}}
-        style="display: flex; flex-direction: column;"
+         style="display: flex; flex-direction: column;"
     >
         <img id="{{trackId}}"
             src="{{trackArt}}"
@@ -32,6 +33,8 @@
     </a>
         <h1 id="track-id" style="display:none">{{trackId}}</h1>
     <br />
+    {{!-- <h1 id=`{{SearchedSongId}}`>{{SearchedSongId}}</h1>
+    <button id="delete-from-likes">Remove song</button> --}}
 {{/each}}
 </div>
 
@@ -52,3 +55,4 @@
 </script>
 
 <script src="/js/back-to-home.js"></script>
+<script src="/js/delete-likes.js"></script>
