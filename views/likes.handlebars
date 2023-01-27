@@ -1,9 +1,19 @@
 <button id="go-back-home">Homepage</button>
+{{>sidebar}}
 
 <h1>Your Likes:</h1>
 
+<<<<<<< HEAD
+{{#each filteredLikesData}}
+<a href="/track/{{trackName}} {{trackArtist}}">{{trackName}} By: {{trackArtist}}</a>
+{{/each}}
+
+{{!-- <iframe
+    style="border-radius: 12px"
+=======
 <iframe
     id="player"
+>>>>>>> 1cb236c33043b466a4bcdcd183fb5205b27037bb
     src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
     width="100%"
     height="380"

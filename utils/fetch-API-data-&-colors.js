@@ -2,6 +2,7 @@
 function get_auth_header(token) {
   return {
     Authorization: `Bearer ${token}`,
+    //test
   };
 }
 
