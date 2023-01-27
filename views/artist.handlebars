@@ -1,25 +1,38 @@
-<button id="go-back-home">Homepage</button>
 <link rel="stylesheet" href="/css/homepage.css" />
+<link rel="stylesheet" href="/css/track.css" />
 {{! artistName, artistId, title, userId }}
 
-<!-- artist -->
-<h1>Artist:</h1>
-<h1 id="artist-name">{{artistName}}</h1>
-<iframe
-    style="border-radius: 12px"
-    src="https://open.spotify.com/embed/artist/{{artistId}}?utm_source=generator"
-    width="100%"
-    height="380"
-    frameborder="0"
-    allowfullscreen=""
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-    loading="lazy"
-></iframe>
-<h1>artist ID used: {{artistId}}</h1>
-<div id="user-Id-container" style="display:none">
-    <h2>User Id:</h2>
-    <h2 id="user-Id">{{userId}}</h2>
-</div>
+{{>sidebar}}
+<section class="content-section" style="width:80%;">
+{{!-- big container --}}
+    <div class="d-flex justify-content-between" style="width:100%;">
+        <div style="width: 25%;">
+            <div style="position:relative; top: 45%; left: 30%;">
+                <div class="text-box">
+                    <h1 class="heading-primary">
+                        <span class="heading-primary-main">Artist</span>
+                        <span id="artist-name" class="heading-primary-sub">{{artistName}}</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div style="width: 75%">
+            <iframe
+            style="border-radius: 5px"
+                src="https://open.spotify.com/embed/artist/{{artistId}}?utm_source=generator"
+                width="100%"
+                height="380"
+                frameborder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+            ></iframe>
+        </div>
+    </div>
+    <div id="user-Id-container" style="display:none">
+        <h2>User Id:</h2>
+        <h2 id="user-Id">{{userId}}</h2>
+    </div>
 
 <h1 style="color: red;">Add a comment about the artist!:</h1>
 <textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>

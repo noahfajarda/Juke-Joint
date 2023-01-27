@@ -1,4 +1,5 @@
 <button id="go-back-home">Homepage</button>
+{{>sidebar}}
 
 <h1>Your playlist:</h1>
 
@@ -38,15 +39,4 @@
 
 
 <script src="/js/back-to-home.js"></script>
-<script>
-    const playerEl = document.querySelector('#player');
-    const trackIdEl =document.querySelector('#track-id');
-    playerEl.style="border-radius: 50px";
-    
-    document.addEventListener("click", (e) => {
-        const target = e.target;
-        if (target.id) {
-            playerEl.src=`https://open.spotify.com/embed/track/${target.id}?utm_source=generator`;
-        }
-    })
-</script>
+<script src="/js/playlist.js"></script>

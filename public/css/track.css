@@ -5,26 +5,24 @@
   transform: translate(-50%, -50%);
   text-align: center;
 }
+
 .heading-primary {
-  font-family: "Playfair Display", serif;
   color: rgba(253, 253, 253, 0.87);
   text-transform: uppercase;
 }
 
 .heading-primary-main {
-  font-family: "Playfair Display", serif;
   text-decoration: underline rgb(40, 77, 199);
   display: block;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 2px;
-
   animation-name: moveInleft;
   animation-duration: 2s;
 }
 
 .heading-primary-sub {
-  margin-top: 50px;
+  margin-top: 30px;
   display: block;
   font-size: 25px;
   font-weight: 700;
@@ -65,24 +63,6 @@
   }
 }
 
-#addToPlaylist {
-  background-color: #7be692b7;
-  border-radius: 2rem;
-  border-style: groove;
-  width: 10%;
-  height: 5%;
-  position: absolute;
-  top: 10%;
-  right: 10%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-#addToPlaylist:active {
-  background-color: rgb(153, 10, 10);
-}
-#addToPlaylist:hover {
-  background-color: green;
-}
 .feedback-input {
   cursor: none;
   color: white;
@@ -103,6 +83,14 @@
 
 .feedback-input:focus {
   border: 2px solid #4977cc;
+}
+
+#track-name {
+  color: rgb(170, 179, 105);
+}
+
+#lyrics-button {
+  cursor: none;
 }
 
 textarea {
@@ -133,17 +121,15 @@ textarea {
   background: #3641dd;
 }
 
-/* .placement {
-  position: absolute;
+.placement {
+  display: flex;
+  justify-content: center;
   top: 80;
   right: 100;
-} */
+}
 .heart {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   background: url("https://cssanimation.rocks/images/posts/steps/heart.png")
     no-repeat;
   background-position: 0 0;
@@ -154,4 +140,31 @@ textarea {
 .heart.is-active {
   transition-duration: 1s;
   background-position: -2800px 0;
+}
+.add-to-playlist {
+  background: url("../images/playlist-icon.png") no-repeat center;
+  background-color: red;
+  animation-name: added-playlist;
+  animation-duration: 2s;
+  height: 68px;
+  width: 68px;
+  border-radius: 20px;
+}
+
+@keyframes added-playlist {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: red;
+  }
+}
+
+@keyframes removed-playlist {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: transparent;
+  }
 }

@@ -13,70 +13,22 @@
         <div id="viewHome" class="rela-block side-button home"></div>
         <div id="viewPlaylist" class="rela-block side-button playlists"></div>
         <div id="viewLikes" class="rela-block side-button likes"></div>
-        <div class="rela-block side-button instagram"></div>
-        <div class="rela-block side-button soundcloud"></div>
-        <div class="rela-block side-button linked-in"></div>
+        <div id="search-artist" class="rela-block side-button auto"></div>
+        <div class="rela-block side-button contact"></div>
+        <div id="logout-btn" class="rela-block side-button log-out"></div>
     </div>
 </div>
 
-<nav>
-    <div class="logo">Web Biginner</div>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Feedback</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-</nav>
-<style>
-    nav {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100px;
-        padding: 10px 90px;
-        box-sizing: border-box;
-        background: rgba(0,0,0,0.6);
-        border-top: 1px solid #fff;
-    }
-    nav.logo {
-        padding: 22px 20px;
-        height: 80px;
-        float: left;
-        font-size: 24px;
-        font-weight: bold;
-        text-transform: uppercase;
-        color: #fff;
-    }
-    nav ul {
-        list-style: none;
-        float: right;
-        margin: 0;
-        padding: 0;
-        display: flex;
-    }
-    nav ul li a {
-        line-height: 80px;
-        color: #fff;
-        padding: 12px 30px;
-        text-decoration: none;
-        font-size: 13px;
-        font-wdith: bold;
-        text-transform: uppercase;
-    }
-    nav ul li a:hover {
-        background: rgba(0,0,0,0.7);
-        border-radius: 6px;
-    }
-    @media only screen and (min-width: 1290px) {
-        nav {
-            display: none;
-        }
-    }
-
-</style>
+<div id="nav-container">
+    <nav id="nav-box">
+        <ul id="nav-items">
+            <li><a href="/" id="viewHome" class="nav-item">Home</a></li>
+            <li><a href="/api/playlist/playlist/{{userId}}" class="nav-item">Playlists</a></li>
+            <li><a id="viewLikes2" class="nav-item">Likes</a></li>
+            <li><a href="#" class="nav-item">Contact Us</a></li>
+            <li><a href="#" id="resize-logout-btn" class="nav-item">Log Out</a></li>
+        </ul>
+    </nav>
+</div>
 
 <script src="/js/side-bar.js"></script>
