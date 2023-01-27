@@ -25,7 +25,6 @@ router.post("/", async (req, res) => {
 router.get("/playlist/:id", async (req, res) => {
     console.log(req.params.id);
     try {
-        console.log("TEST FOR TRY BLOVK");
         Playlist.findAll({
             where: {
                 userId: req.params.id,

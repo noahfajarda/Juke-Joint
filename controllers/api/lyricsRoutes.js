@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
             process.env.GENIUS_LYRICS_API_KEY
         );
         // console.log to check if the first song in the list of songs is the one you want
-        console.log(song_get);
+        // console.log(song_get);
         if (song_get.length > 0) {
             const songURL = song_get[0].url;
             // lyrics is a string
