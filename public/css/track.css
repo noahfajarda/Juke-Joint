@@ -107,15 +107,13 @@
 .feedback-input:focus {
   border: 2px solid #4977cc;
 }
-
+#lyrics-button {
+  cursor:none;
+  margin:0px;
+}
 #track-name {
   color:rgb(170, 179, 105)
 }
-
-#lyrics-button {
-  cursor:none;
-}
-
 textarea {
   cursor: none;
   height: 150px;
