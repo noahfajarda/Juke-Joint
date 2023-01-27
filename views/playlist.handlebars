@@ -25,7 +25,10 @@
                 height="200px"
                 width="200px"
                 alt="{{trackName}}"
-                class="rounded-circle"
+                x-off="50px"
+                y-off="50px"
+                time="5s"
+                class="bub"
             />
 
             {{trackName}}<br />{{trackArtist}}
@@ -35,8 +38,36 @@
         <h1 id="track-id" style="display:none">{{trackId}}</h1>
         <br />
     {{/each}}
+
+    {{!-- bubble --}}
+    <img x-off="10px" y-off="10px" time="1s" class="bub" src="https://e1.pngegg.com/pngimages/910/200/png-clipart-spotify-macos-style-round-black-and-green-spotify-logo-thumbnail.png" alt="">
+    {{!-- bubble --}}
 </div>
 
+<style>
+    :root {
+        --x-trans-sm: 5px;
+--y-trans-sm: 5px;
+    }
+    .bub {
+        border-radius: 100%;
+        animation: updown attr(time) infinite ease-in-out;
+    }
 
+    @keyframes updown {
+        0% {
+            transform: translateY(0px) translateX(0px);
+        }
+
+
+        50% {
+            transform: translateY(var(--y-trans-sm)) translateX(var(--x-trans-sm)) ;
+        }
+
+        100% {
+           transform: translateY(0px) translateX(0px);
+        }
+    }
+</style>
 <script src="/js/back-to-home.js"></script>
 <script src="/js/playlist.js"></script>

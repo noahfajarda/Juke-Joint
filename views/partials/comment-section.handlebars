@@ -6,7 +6,7 @@
             placeholder="Comment"
             id="comment-box"
         ></textarea>
-        <input id="add-track-comment" type="submit" value="ADD COMMENT" />
+        <div id="add-track-comment" class="h-fit" type="submit">ADD COMMENT</div>
     </form>
 
     {{#if comments}}
@@ -15,7 +15,7 @@
             class="container justify-content-center mt-5 border-left border-right"
         >
             {{#each comments}}
-                <div class="d-flex justify-content-center py-2" id="{{id}}">
+                <div class="d-flex w-100 justify-content-center py-2" id="{{id}}">
                     <div class="second py-2 px-2">
                         <span class="text1">{{body}}</span>
                         <div class="d-flex justify-content-between py-1 pt-2">
