@@ -89,6 +89,7 @@
 
   #lyrics-button {
     cursor:none;
+    margin:0px;
   }
 
   textarea {
