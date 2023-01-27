@@ -43,36 +43,40 @@
         </div>
         <div id="trackId" style="display: none">{{trackId}}</div>
     </div>
-    {{! Lyrics }}
-    <div class="accordion accordion" id="accordionExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingOne">
-                <button
-                    id="lyrics-button"
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseOne"
-                    aria-expanded="false"
-                    aria-controls="flush-collapseOne"
+    <div class="d-flex" style="width:100%;">
+        {{! Lyrics }}
+        <div class="accordion accordion" id="accordionExample" style="width:50%; margin-right:10px;">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button
+                        id="lyrics-button"
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseOne"
+                    >
+                        Lyrics
+                    </button>
+                </h2>
+                <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample"
                 >
-                    Lyrics
-                </button>
-            </h2>
-            <div
-                id="flush-collapseOne"
-                class="accordion-collapse collapse"
-                aria-labelledby="flush-headingOne"
-                data-bs-parent="#accordionFlushExample"
-            >
-                <div class="accordion-body" id="lyrics">
-                    Loading...
+                    <div class="accordion-body" id="lyrics">
+                        Loading...
+                    </div>
                 </div>
             </div>
         </div>
+        <div style="width:50%; margin-left:10px;">
+            {{>comment-section}}
+        </div>
     </div>
 
-    {{>comment-section}}
 </section>
 
 {{! test from genius lyrics api }}
