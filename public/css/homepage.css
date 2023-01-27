@@ -175,6 +175,27 @@ main {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),
     0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1),
     0 16px 16px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 2s ease 0s 1 normal forwards;
+  opacity: 0;
+}
+.card:nth-child(2) {
+  animation-delay: .4s;
+}
+.card:nth-child(3) {
+  animation-delay: .8s;
+}
+.card:nth-child(4) {
+  animation-delay: 1.2s;
+}
+@keyframes fadeIn {
+  0% {
+    transform: translateY(250px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 @media (min-width: 600px) {
   .card {

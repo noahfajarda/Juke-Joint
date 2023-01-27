@@ -10,6 +10,12 @@ router.post("/", async (req, res) => {
                 req.body.trackName.indexOf("(")
             );
         }
+        if (req.body.trackName.includes("-")) {
+            req.body.trackName = req.body.trackName.slice(
+                0,
+                req.body.trackName.indexOf("-")
+            );
+        }
         const song_get = await getSong(
             req.body.trackName,
             req.body.trackArtist,

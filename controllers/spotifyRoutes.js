@@ -1,10 +1,10 @@
 const router = require("express").Router();
 // prettier-ignore
-const {getAccessToken, accessTokenExpired} = require("../utils/retrieve-authorization-token.js");
+const { getAccessToken, accessTokenExpired } = require("../utils/retrieve-authorization-token.js");
 // prettier-ignore
-const {search_for_track, search_for_album, search_for_artist, colors} = require("../utils/fetch-API-data-&-colors");
+const { search_for_track, search_for_album, search_for_artist, colors } = require("../utils/fetch-API-data-&-colors");
 // prettier-ignore
-const {getSong, getLyrics} = require("../utils/retrieve-lyrics")
+const { getSong, getLyrics } = require("../utils/retrieve-lyrics")
 
 // Import models
 const { User, Comment, Post, SearchedSong, Artists } = require("../models");
