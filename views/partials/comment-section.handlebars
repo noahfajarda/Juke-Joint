@@ -1,27 +1,13 @@
 
     <form>
         <textarea
-          name="text"
-          class="feedback-input"
-          placeholder="Comment"
+            name="text"
+            class="feedback-input"
+            placeholder="Comment"
+            id="comment-box"
         ></textarea>
-        <input type="submit" value="SUBMIT" />
-      </form>
-
-    {{! comment }}
-    <h1 style="color: red;">Add a comment about the song!:</h1>
-    <div id="user-Id-container" style="display:none">
-        <h2>User Id:</h2>
-        <h2 id="user-Id">{{userId}}</h2>
-    </div>
-    <textarea
-        name="comment"
-        class="rounded"
-        id="comment-box"
-        cols="50"
-        rows="8"
-    ></textarea>
-    <button id="add-track-comment">Add Comment</button>
+        <input id="add-track-comment" type="submit" value="ADD COMMENT" />
+    </form>
 
     {{#if comments}}
         <h1>Comment Section:</h1>
