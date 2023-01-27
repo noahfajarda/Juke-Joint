@@ -30,3 +30,15 @@ document
             console.log("Error adding song to playlist");
         }
     });
+
+// document
+//     .querySelector("#delete-from-playlist")
+//     .addEventListener("click", async (e) => {
+//         e.preventDefault();
+//         const response = await fetch("api/playlist/:id", {
+//             method: "DELETE"
+//         });
+//         if (response.ok) {
+//             console.log("Song deleted from playlist!");
+//         };
+//     });

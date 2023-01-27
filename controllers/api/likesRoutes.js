@@ -78,4 +78,24 @@ router.get("/likes", async (req, res) => {
     }
 });
 
+router.delete("/", async (req, res) => {
+    try {
+        console.log("The route was hit")
+        Likes.destroy({
+            where: {
+                id: req.params.id,
+            },
+        })
+        .then((likesData) => {
+            const filteredLikesData = likesData.map((likes) =>
+                likes.get({ plain: true })
+            );
+            res.render("likes", { filteredLikesData });
+        })
+        res.status(200).json(likesData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;
