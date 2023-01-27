@@ -17,7 +17,6 @@
     font-size: 18px;
     font-weight: 400;
     letter-spacing: 2px;
-  
     animation-name: moveInleft;
     animation-duration: 2s;
   }
@@ -90,6 +89,10 @@
     color:rgb(170, 179, 105)
   }
 
+  #lyrics-button {
+    cursor:none;
+  }
+
   textarea {
     cursor: none;
     height: 150px;
@@ -141,6 +144,21 @@
   .add-to-playlist {
     background: url("../images/playlist-icon.png")
     no-repeat center;
-    height: 52px;
-    width: 52px;
+    background-color: red;
+    animation-name: added-playlist;
+    animation-duration: 2s;
+    height: 68px;
+    width: 68px;
+    border-radius: 20px;
   }
+
+  @keyframes added-playlist {
+    from {background-color: transparent;}
+    to {background-color: red;}
+  }
+
+  @keyframes removed-playlist {
+    from {background-color: red;}
+    to {background-color: transparent;}
+  }
+
