@@ -8,7 +8,7 @@ document.querySelector("#viewPlaylist").addEventListener("click", async (e) => {
     });
 
     if (response) {
-        // document.location.replace(`/api/playlist/playlist/${userId}`);
+        document.location.replace(`/api/playlist/playlist/${userId}`);
     }
 });
 
