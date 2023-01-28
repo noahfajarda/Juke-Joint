@@ -226,9 +226,12 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
         });
         specificTrack.comments = comments.reverse();
 
-        SearchedSong.create(specificTrack).then(
-            console.log("Added to the 'Searched Song' table in the DB!")
-        );
+        // account for weird error by hardcoding
+        if (specificTrack.trackName != "Slide" && specificTrack.trackName != "BabyDrill") {
+            SearchedSong.create(specificTrack).then(
+                console.log("Added to the 'Searched Song' table in the DB!")
+            );
+        }
         specificTrack.userId = req.session.userId;
         specificTrack.type = "track";
 
