@@ -1,36 +1,35 @@
+<form>
+    <textarea
+        name="text"
+        class="feedback-input"
+        placeholder="Comment"
+        id="comment-box"
+    ></textarea>
+    <div id="add-{{type}}-comment" class="h-fit" type="submit">ADD COMMENT</div>
+</form>
 
-    <form>
-        <textarea
-            name="text"
-            class="feedback-input"
-            placeholder="Comment"
-            id="comment-box"
-        ></textarea>
-        <div id="add-{{type}}-comment" class="h-fit" type="submit">ADD COMMENT</div>
-    </form>
-
-    {{#if comments}}
-        <h1 style="color: white">Comment Section:</h1>
-        <div
-            class="container justify-content-center mt-5 border-left border-right"
-        >
-            {{#each comments}}
-                <div class="d-flex w-100 justify-content-center py-2" id="{{id}}">
-                    <div class="second py-2 px-2">
-                        <span class="text1">{{body}}</span>
-                        <div class="d-flex justify-content-between py-1 pt-2">
-                            <div><img
-                                    src="https://i.imgur.com/AgAC1Is.jpg"
-                                    width="18"
-                                /><span class="text2">{{"User.firstname"}}
-                                    {{"User.lastname"}}</span><span
-                                    class="text2"
-                                >@{{"User.username"}}</span></div>
-                        </div>
+{{#if comments}}
+    <h1 style="color: white">Comment Section:</h1>
+    <div
+        class="container justify-content-center mt-5 border-left border-right mb-5"
+    >
+        {{#each comments}}
+            <div class="d-flex w-100 justify-content-center py-2" id="{{id}}">
+                <div class="second py-2 px-2">
+                    <span class="text1">{{body}}</span>
+                    <div class="d-flex justify-content-between py-1 pt-2">
+                        <div><img
+                                src="https://i.imgur.com/AgAC1Is.jpg"
+                                width="18"
+                            /><span class="text2">{{"User.firstname"}}
+                                {{"User.lastname"}}</span><span
+                                class="text2"
+                            >@{{"User.username"}}</span></div>
                     </div>
                 </div>
-            {{/each}}
-        </div>
-    {{/if}}
+            </div>
+        {{/each}}
+    </div>
+{{/if}}
 
-    <link rel="stylesheet" href="/css/comment.css" />
+<link rel="stylesheet" href="/css/comment.css" />
