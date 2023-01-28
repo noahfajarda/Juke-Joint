@@ -189,7 +189,7 @@ main {
 }
 @keyframes fadeIn {
   0% {
-    transform: translateY(250px);
+    transform: translateY(85px);
     opacity: 0;
   }
   100% {
