@@ -166,7 +166,7 @@ textarea {
 .add-to-playlist {
   background: url("../images/playlist-icon.png")
   no-repeat center;
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.317);
   animation-name: added-playlist;
   animation-duration: 2s;
   height: 68px;
@@ -176,10 +176,16 @@ textarea {
 
 @keyframes added-playlist {
   from {background-color: transparent;}
-  to {background-color: red;}
+  to {
+    background-color: rgba(255, 0, 0, 0.317);
+
+  }
 }
 
 @keyframes removed-playlist {
-  from {background-color: red;}
+  from {
+    background-color: rgba(255, 0, 0, 0.317);
+  
+  }
   to {background-color: transparent;}
 }

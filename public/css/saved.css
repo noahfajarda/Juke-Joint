@@ -7,6 +7,13 @@
     color: white;
     margin: 0px;
 }
+p {
+    color: white;
+    transition: 0.3s;
+}
+p:hover {
+    color: rgb(144, 144, 144)
+}
 iframe {
     margin-top: 30px;
 }

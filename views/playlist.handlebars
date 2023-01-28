@@ -6,9 +6,15 @@
     <h2 id="user-Id">{{userId}}</h2>
 </div>
 
-<h1>Your playlist:</h1>
-<p class="saved-text">Click On A Song To Listen!</p>
-<p class="saved-text">Click On The Song Title To Go Directly To the Song!</p>
+<h1 class="saved-text">Your playlist:</h1>
+
+{{#if filteredData}}
+    <p class="saved-text">Click On A Song To Listen!</p>
+    <p class="saved-text">Click On The Song Title To Go Directly To the Song!</p>
+{{else}}
+    <p class="saved-text">You Haven't Added Any Songs To Your Playlist Yet 🙁</p>
+    <p class="saved-text">Add Some Songs, Then Come Back Here To View Them!</p>
+{{/if}}
 
 <div style="width:80%">
     <iframe
@@ -24,7 +30,7 @@
     ></iframe> 
 </div>
 
-<div style="display: flex; flex-direction: row;">
+<div style="display: flex; flex-direction: row; margin-bottom: 30px;">
     {{#each filteredData}}
         <div class="bub" style="display: flex; flex-direction: column; align-items: center; padding: 30px;">
             {{!-- image --}}
@@ -50,7 +56,5 @@
 
 <link rel="stylesheet" href="/css/saved.css">
 
-
-
 <script src="/js/back-to-home.js"></script>
-<script src="/js/playlist.js"></script>
+<script src="/js/saved.js"></script>
