@@ -1,4 +1,3 @@
-<button id="go-back-home">Homepage</button>
 <link rel="stylesheet" href="/css/homepage.css" />
 
 {{>sidebar}}
@@ -7,23 +6,26 @@
     <h2 id="user-Id">{{userId}}</h2>
 </div>
 
-<h1>Your Likes:</h1>
+<h1 class="saved-text">Likes</h1>
+<p class="saved-text">Click On A Song To Listen!</p>
+<p class="saved-text">Click On The Song Title To Go Directly To the Song!</p>
 
-<iframe
-    id="player"
+<div style="width:80%">
+    <iframe
+        id="player"
 
-    src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
-    width="100%"
-    height="380"
-    frameborder="0"
-    allowfullscreen=""
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-    loading="lazy"
-></iframe> 
+        src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
+        width="100%"
+        height="380"
+        frameborder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+    ></iframe> 
+</div>
 
-<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center;">
+<div class="song-container">
     {{#each filteredLikesData}}
-                {{!-- href="/track/{{trackName}} {{trackArtist}}" --}}
         <div class="bub" style="display: flex; flex-direction: column; align-items: center; padding: 30px;">
             {{!-- image --}}
             <img id="{{trackId}}"
@@ -34,7 +36,7 @@
                 class="rounded-circle"
             />
             {{!-- text --}}
-            <a style="width:170px;" href="/track/10k hours">
+            <a id="song-info" href="/track/{{trackName}} {{trackArtist}}">
                 <p style="width: 170px;">
                     {{trackName}}<br />{{trackArtist}}
                 </p>
@@ -49,12 +51,15 @@
 <link rel="stylesheet" href="/css/saved.css">
 
 
+
 <script>
     const playerEl = document.querySelector('#player');
     const trackIdEl =document.querySelector('#track-id');
     playerEl.style="border-radius: 50px";
+    playerEl.style.display = "none";
     
     document.addEventListener("click", (e) => {
+        playerEl.style.display = "block";
         const target = e.target;
         if (target.id) {
             playerEl.src=`https://open.spotify.com/embed/track/${target.id}?utm_source=generator`;

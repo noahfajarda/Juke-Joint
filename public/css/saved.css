@@ -1,6 +1,25 @@
 .bub {
     border-radius: 100%;
     animation: updown 2s infinite ease-in-out;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.saved-text {
+    color: white;
+    margin: 0px;
+}
+iframe {
+    margin-top: 30px;
+}
+.song-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%; 
+    margin: 40px;
+}
+#song-info {
+    width:170px;
 }
 .bub:nth-child(4) {
     animation-delay: 0.4s;
@@ -131,12 +150,9 @@
     0% {
         transform: translateY(0px) translateX(0px);
     }
-
-
     50% {
         transform: translateY(5px) translateX(5px);
     }
-
     100% {
        transform: translateY(0px) translateX(0px);
     }
