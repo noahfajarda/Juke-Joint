@@ -1,5 +1,8 @@
 <button id="go-back-home">Homepage</button>
+<link rel="stylesheet" href="/css/homepage.css" />
+
 {{>sidebar}}
+
 
 <h1>Your playlist:</h1>
 
@@ -18,7 +21,7 @@
     {{#each filteredData}}
         <a
             {{!-- href="/track/{{trackName}} {{trackArtist}}" --}}
-            style="display: flex; flex-direction: column;"
+            style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
         >
             <img id="{{trackId}}"
                 src="{{trackArt}}"

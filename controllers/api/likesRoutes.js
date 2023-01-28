@@ -4,7 +4,7 @@ const Likes = require("../../models/Likes");
 router.post("/checkLike", async (req, res) => {
     try {
         let likedSong;
-        Likes.findAll({where: { trackId: req.body.trackId, userId: req.body.userId}})
+        Likes.findAll({ where: { trackId: req.body.trackId, userId: req.body.userId } })
             .then((data) => {
                 if (data.length != 0) {
                     res.status(200).json(data)
@@ -41,7 +41,7 @@ router.post("/add", async (req, res) => {
 
 router.post("/remove", async (req, res) => {
     try {
-        Likes.destroy({where: {trackId: req.body.trackId}})
+        Likes.destroy({ where: { trackId: req.body.trackId } })
             .then((likesData) => {
                 res.json(likesData);
             })
@@ -56,18 +56,13 @@ router.post("/remove", async (req, res) => {
 
 router.get("/likes", async (req, res) => {
     try {
-        Likes.findAll({
-            // where: {
-            //     trackName: {
-            //         [Op.not]: null,
-            //     }
-            // },
-        })
+        Likes.findAll({})
             .then((likesData) => {
                 const filteredLikesData = likesData.map((likes) =>
                     likes.get({ plain: true })
                 );
-                res.render("likes", { filteredLikesData });
+
+                res.render("likes", { filteredLikesData, userId: req.params.id });
             })
             .catch((error) => {
                 console.log(error);
@@ -86,12 +81,12 @@ router.delete("/", async (req, res) => {
                 id: req.params.id,
             },
         })
-        .then((likesData) => {
-            const filteredLikesData = likesData.map((likes) =>
-                likes.get({ plain: true })
-            );
-            res.render("likes", { filteredLikesData });
-        })
+            .then((likesData) => {
+                const filteredLikesData = likesData.map((likes) =>
+                    likes.get({ plain: true })
+                );
+                res.render("likes", { filteredLikesData });
+            })
         res.status(200).json(likesData);
     } catch (err) {
         res.status(500).json(err);

@@ -1,5 +1,6 @@
 document.querySelector("#viewPlaylist").addEventListener("click", async (e) => {
     const userId = document.querySelector("#user-Id").textContent;
+    console.log(userId);
 
     e.preventDefault();
     const response = await fetch(`/api/playlist/playlist/${userId}`, {
@@ -7,7 +8,7 @@ document.querySelector("#viewPlaylist").addEventListener("click", async (e) => {
     });
 
     if (response) {
-        document.location.replace(`/api/playlist/playlist/${userId}`);
+        // document.location.replace(`/api/playlist/playlist/${userId}`);
     }
 });
 
@@ -45,3 +46,12 @@ const handleLogout = async () => {
 
 document.querySelector("#logout-btn").addEventListener("click", handleLogout);
 document.querySelector("#resize-logout-btn").addEventListener("click", handleLogout);
+
+document
+    .querySelector("#search-artist")
+    .addEventListener("click", async (e) => {
+        e.preventDefault();
+        if (true) {
+            document.location.replace(`/search/`);
+        }
+    });

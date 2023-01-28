@@ -36,42 +36,10 @@
         <h2>User Id:</h2>
         <h2 id="user-Id">{{userId}}</h2>
     </div>
-</section>
-
-
-
-
-
-<h1 style="color: red;">Add a comment about the album!:</h1>
-<textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>
-<button id="add-album-comment">Add Comment</button>
-
-{{#if comments}}
-    <h1>Comment Section:</h1>
-    <div class="container justify-content-center mt-5 border-left border-right">
-        {{#each comments}}
-            <div class="d-flex justify-content-center py-2" id="{{id}}">
-                <div class="second py-2 px-2">
-                    <span class="text1">{{body}}</span>
-                    <div class="d-flex justify-content-between py-1 pt-2">
-                        <div><img
-                                src="https://i.imgur.com/AgAC1Is.jpg"
-                                width="18"
-                            /><span class="text2">{{"user.firstname"}}
-                                {{"user.lastname"}}</span><span
-                                class="text2"
-                            >@{{"user.username"}}</span></div>
-                        <div><span class="text3">Upvote?</span><span
-                                class="thumbup"
-                            ><i class="fa fa-thumbs-o-up"></i></span><span
-                                class="text4"
-                            >3</span></div>
-                    </div>
-                </div>
-            </div>
-        {{/each}}
+    <div style="width:50%; margin-left:10px;">
+        {{>comment-section}}
     </div>
-{{/if}}
+</section>
 
 <link rel="stylesheet" href="/css/comment.css" />
 

@@ -34,8 +34,10 @@ router.get("/playlist/:id", async (req, res) => {
                 const filteredData = playlistData.map((playlist) =>
                     playlist.get({ plain: true })
                 );
+                console.log(filteredData);
 
-                res.render("playlist", { filteredData });
+
+                res.render("playlist", { filteredData, userId: req.params.id });
             })
             .catch((error) => {
                 console.log(error);

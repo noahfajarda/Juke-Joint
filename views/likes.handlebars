@@ -1,5 +1,11 @@
 <button id="go-back-home">Homepage</button>
+<link rel="stylesheet" href="/css/homepage.css" />
+
 {{>sidebar}}
+<div id="user-Id-container" style="display:none">
+    <h2>User Id:</h2>
+    <h2 id="user-Id">{{userId}}</h2>
+</div>
 
 <h1>Your Likes:</h1>
 
@@ -15,28 +21,32 @@
     loading="lazy"
 ></iframe> 
 
-<div style="display: flex; flex-direction: row;">
-{{#each filteredLikesData}}
-    <a
-        {{!-- href="/track/{{trackName}} {{trackArtist}}" --}}
-         style="display: flex; flex-direction: column;"
-    >
-        <img id="{{trackId}}"
-            src="{{trackArt}}"
-            height="200px"
-            width="200px"
-            alt="{{trackName}}"
-            class="rounded-circle"
-        />
+<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center;">
+    {{#each filteredLikesData}}
+                {{!-- href="/track/{{trackName}} {{trackArtist}}" --}}
+        <div class="bub" style="display: flex; flex-direction: column; align-items: center; padding: 30px;">
+            {{!-- image --}}
+            <img id="{{trackId}}"
+                src="{{trackArt}}"
+                height="200px"
+                width="200px"
+                alt="{{trackName}}"
+                class="rounded-circle"
+            />
+            {{!-- text --}}
+            <a style="width:170px;" href="/track/10k hours">
+                <p style="width: 170px;">
+                    {{trackName}}<br />{{trackArtist}}
+                </p>
+            </a>
+        </div>
 
-        {{trackName}}<br />{{trackArtist}}
-    </a>
         <h1 id="track-id" style="display:none">{{trackId}}</h1>
-    <br />
-    {{!-- <h1 id=`{{SearchedSongId}}`>{{SearchedSongId}}</h1>
-    <button id="delete-from-likes">Remove song</button> --}}
-{{/each}}
+        <br />
+    {{/each}}
 </div>
+
+<link rel="stylesheet" href="/css/saved.css">
 
 
 <script>

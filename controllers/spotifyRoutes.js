@@ -116,6 +116,7 @@ router.get("/artist/:artist", checkIfLoggedInReroute, async (req, res) => {
         });
         specificArtist.comments = comments.reverse();
         specificArtist.userId = req.session.userId;
+        specificArtist.type = "artist";
 
         res.render("artist", specificArtist);
     } catch (err) {
@@ -167,6 +168,8 @@ router.get("/album/:album", checkIfLoggedInReroute, async (req, res) => {
         });
         specificAlbum.comments = comments.reverse();
         specificAlbum.userId = req.session.userId;
+        specificAlbum.type = "album";
+
 
         res.render("album", specificAlbum);
     } catch (err) {
@@ -227,6 +230,7 @@ router.get("/track/:track", checkIfLoggedInReroute, async (req, res) => {
             console.log("Added to the 'Searched Song' table in the DB!")
         );
         specificTrack.userId = req.session.userId;
+        specificTrack.type = "track";
 
         // extracted lyrics in separate route
         res.render("track", specificTrack);

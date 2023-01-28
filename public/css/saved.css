@@ -1,0 +1,143 @@
+.bub {
+    border-radius: 100%;
+    animation: updown 2s infinite ease-in-out;
+}
+.bub:nth-child(4) {
+    animation-delay: 0.4s;
+}
+.bub:nth-child(7) {
+    animation-delay: 0.8s;
+}
+.bub:nth-child(10) {
+    animation-delay: 1.2s;
+}
+.bub:nth-child(13) {
+    animation-delay: 1.6s;
+}
+.bub:nth-child(16) {
+    animation-delay: 2.0s;
+}
+.bub:nth-child(19) {
+    animation-delay: 0.8s;
+}
+.bub:nth-child(22) {
+    animation-delay: 1.2s;
+}
+.bub:nth-child(25) {
+    animation-delay: 1.6s;
+}
+.bub:nth-child(28) {
+    animation-delay: 2.0s;
+}
+.bub:nth-child(31) {
+    animation-delay: 0.8s;
+}
+.bub:nth-child(34) {
+    animation-delay: 1.2s;
+}
+.bub:nth-child(37) {
+    animation-delay: 1.6s;
+}
+.bub:nth-child(40) {
+    animation-delay: 2.0s;
+}
+.bub:nth-child(43) {
+    animation-delay: 0.8s;
+}
+.bub:nth-child(46) {
+    animation-delay: 1.2s;
+}
+.bub:nth-child(49) {
+    animation-delay: 1.6s;
+}
+.bub:nth-child(52) {
+    animation-delay: 2.0s;
+}
+.bub:nth-child(55) {
+    animation-delay: 0.8s;
+}
+.bub:nth-child(58) {
+    animation-delay: 1.2s;
+}
+.bub:nth-child(61) {
+    animation-delay: 1.6s;
+}
+.bub:nth-child(64) {
+    animation-delay: 2.0s;
+}
+.bub:nth-child(67) {
+    animation-delay: 0.8s;
+}
+.bub:nth-child(70) {
+    animation-delay: 1.2s;
+}
+.bub:nth-child(73) {
+    animation-delay: 1.6s;
+}
+.bub:nth-child(76) {
+    animation-delay: 2.0s;
+}
+.bub:nth-child(79) {
+    animation-delay: 0.8s;
+}
+.bub:nth-child(82) {
+    animation-delay: 1.2s;
+}
+.bub:nth-child(85) {
+    animation-delay: 1.6s;
+}
+.bub:nth-child(88) {
+    animation-delay: 2.0s;
+}
+.bub:nth-child(91) {
+    animation-delay: 0.8s;
+}
+.bub:nth-child(94) {
+    animation-delay: 1.2s;
+}
+.bub:nth-child(97) {
+    animation-delay: 1.6s;
+}
+.bub:nth-child(100) {
+    animation-delay: 2.0s;
+}
+.bub:nth-child(103) {
+    animation-delay: 0.8s;
+}
+.bub:nth-child(106) {
+    animation-delay: 1.2s;
+}
+.bub:nth-child(109) {
+    animation-delay: 1.6s;
+}
+.bub:nth-child(112) {
+    animation-delay: 2.0s;
+}
+.bub:nth-child(115) {
+    animation-delay: 0.8s;
+}
+.bub:nth-child(118) {
+    animation-delay: 1.2s;
+}
+.bub:nth-child(121) {
+    animation-delay: 1.6s;
+}
+.bub:nth-child(124) {
+    animation-delay: 2.0s;
+}
+
+
+@keyframes updown {
+    0% {
+        transform: translateY(0px) translateX(0px);
+    }
+
+
+    50% {
+        transform: translateY(5px) translateX(5px);
+    }
+
+    100% {
+       transform: translateY(0px) translateX(0px);
+    }
+}
