@@ -62,7 +62,7 @@ router.get("/likes", async (req, res) => {
                     likes.get({ plain: true })
                 );
 
-                res.render("likes", { filteredLikesData, userId: req.params.id });
+                res.render("likes", { filteredLikesData, userId: req.session.userId });
             })
             .catch((error) => {
                 console.log(error);
