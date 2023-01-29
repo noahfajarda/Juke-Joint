@@ -61,7 +61,7 @@ router.get("/likes", async (req, res) => {
                 const filteredLikesData = likesData.map((likes) =>
                     likes.get({ plain: true })
                 );
-
+                filteredLikesData.reverse();
                 res.render("likes", { filteredLikesData, userId: req.session.userId });
             })
             .catch((error) => {
