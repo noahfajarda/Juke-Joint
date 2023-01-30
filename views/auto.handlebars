@@ -24,13 +24,21 @@
         display: flex;
         flex-direction: column;
         padding-bottom: 70px;
+        width: 50%;
     }
     #auto-complete-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100%;
         height: 100%;
         opacity: 0;
         animation: fadeUp 2s ease 0s 1 normal forwards;
-
+    }
+    .auto-choice:hover {
+        border-radius: 10px;
+        background-color: red;
     }
     @keyframes fadeUp {
         0% {
