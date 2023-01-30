@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Playlist = require("../../models/Playlist");
+const User = require("../../models/User");
 
 router.post("/", async (req, res) => {
     try {
@@ -25,6 +26,7 @@ router.post("/", async (req, res) => {
 router.get("/playlist/:id", async (req, res) => {
     try {
         Playlist.findAll({
+            include: [{ model: User }],
             where: {
                 userId: req.params.id,
             },
@@ -34,7 +36,15 @@ router.get("/playlist/:id", async (req, res) => {
                     playlist.get({ plain: true })
                 );
                 filteredData.reverse();
-                res.render("playlist", { filteredData, userId: req.params.id });
+
+                const filteredPlaylistData = {
+                    filteredData,
+                    userId: req.params.id,
+                    firstName: filteredData[0].User.firstname,
+                    lastName: filteredData[0].User.lastname
+                }
+
+                res.render("playlist", filteredPlaylistData);
             })
             .catch((error) => {
                 console.log(error);
