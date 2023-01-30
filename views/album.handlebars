@@ -6,8 +6,8 @@
 {{! FOR EACH-------- id, searchedItem, body, type, postId, userId, "user.firstname", "user.lastname", "user.username", "user.password" }}
 {{>sidebar}}
 <section class="content-section" style="width:80%;">
-    <div class="d-flex justify-content-between" style="width:100%;">
-        <div style="width: 25%;">
+    <div class="d-flex justify-content-between info-container">
+        <div class="title-container">
             <div style="position:relative; top: 45%; left: 30%;">
                 <div class="text-box">
                     <h1 class="heading-primary">
@@ -35,7 +35,7 @@
         <h2>User Id:</h2>
         <h2 id="user-Id">{{userId}}</h2>
     </div>
-    <div style="width:50%; margin-left:10px; margin-top: 30px;">
+    <div class="comment-section">
         {{>comment-section}}
     </div>
 </section>

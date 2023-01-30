@@ -9,8 +9,8 @@
 {{>sidebar}}
 <section class="content-section" style="width:80%;">
 {{!-- big container --}}
-    <div class="d-flex justify-content-between" style="width:100%;">
-        <div style="width: 25%;">
+    <div class="d-flex justify-content-between info-container">
+        <div class="title-container">
             <div style="position:relative; top: 45%; left: 30%;">
                 <div class="text-box">
                     <h1 class="heading-primary">
@@ -23,7 +23,7 @@
         </div>
         <div style="width: 75%">
             <iframe
-            style="border-radius: 5px"
+                style="border-radius: 5px"
                 src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
                 width="100%"
                 height="380"
@@ -43,9 +43,9 @@
         </div>
         <div id="trackId" style="display: none">{{trackId}}</div>
     </div>
-    <div class="d-flex" style="width:90%; margin-bottom: 5%;">
+    <div id="lyric-comment-container">
         {{! Lyrics }}
-        <div class="accordion accordion" id="accordionExample" style="width:50%; margin-right:10px;">
+        <div class="accordion accordion" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOne">
                     <button
@@ -94,7 +94,7 @@
                 </div>
             </div>
         </div>
-        <div style="width:50%; margin-left:10px;">
+        <div id="track-comment-section">
             {{>comment-section}}
         </div>
     </div>
