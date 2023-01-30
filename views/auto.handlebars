@@ -1,8 +1,45 @@
-<button id="go-back-home">Homepage</button>
-<input type="text" id="search" />
-<div id="choices"></div>
 {{>sidebar}}
+
+<div id="auto-complete-container">
+    <input type="text" id="search" />
+    <div id="choices"></div>
+</div>
 
 
 <script src="/js/search.js"></script>
-<script src="/js/back-to-home.js"></script>
+<link rel="stylesheet" href="/css/homepage.css">
+<style>
+    .twelve {
+        height: 95px;
+        padding-top: 0px;
+    }
+    #search {
+        font-size: 69px;
+        height: 80px;
+    }
+    #choices {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 70px;
+    }
+    #auto-complete-container {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        animation: fadeUp 2s ease 0s 1 normal forwards;
+
+    }
+    @keyframes fadeUp {
+        0% {
+            transform: translateY(300px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+
+
+</style>

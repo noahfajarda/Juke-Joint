@@ -1,58 +1,63 @@
-<button id="go-back-home">Homepage</button>
+<link rel="stylesheet" href="/css/homepage.css" />
+
 {{>sidebar}}
-
-<h1>Your Likes:</h1>
-
-<iframe
-    id="player"
-
-    src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
-    width="100%"
-    height="380"
-    frameborder="0"
-    allowfullscreen=""
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-    loading="lazy"
-></iframe> 
-
-<div style="display: flex; flex-direction: row;">
-{{#each filteredLikesData}}
-    <a
-        {{!-- href="/track/{{trackName}} {{trackArtist}}" --}}
-         style="display: flex; flex-direction: column;"
-    >
-        <img id="{{trackId}}"
-            src="{{trackArt}}"
-            height="200px"
-            width="200px"
-            alt="{{trackName}}"
-            class="rounded-circle"
-        />
-
-        {{trackName}}<br />{{trackArtist}}
-    </a>
-        <h1 id="track-id" style="display:none">{{trackId}}</h1>
-    <br />
-    {{!-- <h1 id=`{{SearchedSongId}}`>{{SearchedSongId}}</h1>
-    <button id="delete-from-likes">Remove song</button> --}}
-{{/each}}
+<div id="user-Id-container" style="display:none">
+    <h2>User Id:</h2>
+    <h2 id="user-Id">{{userId}}</h2>
 </div>
 
+<h1 class="saved-text">Likes</h1>
 
-<script>
-    const playerEl = document.querySelector('#player');
-    const trackIdEl =document.querySelector('#track-id');
-    playerEl.style="border-radius: 50px";
-    
-    document.addEventListener("click", (e) => {
-        const target = e.target;
-        if (target.id) {
-            playerEl.src=`https://open.spotify.com/embed/track/${target.id}?utm_source=generator`;
-        }
-    })
-    // then possibly do a fetch for /api/lyrics/ to get lyrics an populate in a lyrics container.
-    // fetch is found in 'lyricRoutes'.
-</script>
+{{#if filteredLikesData}}
+    <p class="saved-text">Listen To Our Community's Favorites!</p>
+    <p class="saved-text">Click On A Song To Listen!</p>
+    <p class="saved-text">Click On Any Song Title To Go Directly To the Song!</p>
+{{else}}
+    <p class="saved-text">There Haven't Been Any Likes Yet 🙁</p>
+    <p class="saved-text">Like Some Songs, Then Come Back Here To View Them!</p>
+{{/if}}
 
+<div style="width:80%">
+    <iframe
+        id="player"
+        src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
+        width="100%"
+        height="380"
+        frameborder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+    ></iframe> 
+</div>
+
+<div class="song-container">
+    {{#each filteredLikesData}}
+        <div class="bub" style="display: flex; flex-direction: column; align-items: center; padding: 30px;">
+            {{!-- image --}}
+            <img id="{{trackId}}"
+                src="{{trackArt}}"
+                height="200px"
+                width="200px"
+                alt="{{trackName}}"
+                class="rounded-circle"
+            />
+            {{!-- text --}}
+            <a id="song-info" href="/track/{{trackName}} {{trackArtist}}">
+                <p style="width: 170px;">
+                    {{trackName}}<br />{{trackArtist}}
+                </p>
+            </a>
+        </div>
+
+        <h1 id="track-id" style="display:none">{{trackId}}</h1>
+        <br />
+    {{/each}}
+</div>
+
+<link rel="stylesheet" href="/css/saved.css">
+
+
+
+<script src="/js/saved.js"></script>
 <script src="/js/back-to-home.js"></script>
 <script src="/js/delete-likes.js"></script>

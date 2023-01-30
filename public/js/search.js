@@ -28,12 +28,13 @@ const search = async (keyword) => {
         renderChoices(data);
     }
 };
-let timeout;
+
+let newTimeout;
 const debounceTime = 200;
 document.querySelector("#search").addEventListener("keyup", function () {
     //add debounce to prevent too many network calls
-    timeout && clearTimeout(timeout);
-    timeout = setTimeout(() => search(this.value), debounceTime);
+    newTimeout && clearTimeout(newTimeout);
+    newTimeout = setTimeout(() => search(this.value), debounceTime);
     if (this.value.length == 0) {
         const choicesEl = document.querySelector("#choices");
         choicesEl.innerHTML = "";

@@ -1,74 +1,60 @@
-<button id="go-back-home">Homepage</button>
+<link rel="stylesheet" href="/css/homepage.css" />
+
 {{>sidebar}}
+<div id="user-Id-container" style="display:none">
+    <h2>User Id:</h2>
+    <h2 id="user-Id">{{userId}}</h2>
+</div>
 
-<h1>Your playlist:</h1>
+<h1 class="saved-text">Your playlist:</h1>
 
-<iframe
-    id="player"
-    src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
-    width="100%"
-    height="380"
-    frameborder="0"
-    allowfullscreen=""
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-    loading="lazy"
-></iframe>
+{{#if filteredData}}
+    <p class="saved-text">Click On A Song To Listen!</p>
+    <p class="saved-text">Click On Any Song Title To Go Directly To the Song!</p>
+{{else}}
+    <p class="saved-text">You Haven't Added Any Songs To Your Playlist Yet 🙁</p>
+    <p class="saved-text">Add Some Songs, Then Come Back Here To View Them!</p>
+{{/if}}
 
-<div style="display: flex; flex-direction: row;">
+<div style="width:80%">
+    <iframe
+        id="player"
+
+        src="https://open.spotify.com/embed/track/{{trackId}}?utm_source=generator"
+        width="100%"
+        height="380"
+        frameborder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+    ></iframe> 
+</div>
+
+<div style="display: flex; flex-direction: row; margin-bottom: 30px;">
     {{#each filteredData}}
-        <a
-            {{!-- href="/track/{{trackName}} {{trackArtist}}" --}}
-            style="display: flex; flex-direction: column;"
-        >
+        <div class="bub" style="display: flex; flex-direction: column; align-items: center; padding: 30px;">
+            {{!-- image --}}
             <img id="{{trackId}}"
                 src="{{trackArt}}"
                 height="200px"
                 width="200px"
                 alt="{{trackName}}"
-                x-off="50px"
-                y-off="50px"
-                time="5s"
-                class="bub"
+                class="rounded-circle"
             />
+            {{!-- text --}}
+            <a id="song-info" href="/track/{{trackName}} {{trackArtist}}">
+                <p style="width: 170px;">
+                    {{trackName}}<br />{{trackArtist}}
+                </p>
+            </a>
+        </div>
 
-            {{trackName}}<br />{{trackArtist}}
-            <a href="/track/{{trackName}} {{trackArtist}}">{{trackName}}<br />{{trackArtist}}</a>
-
-        </a>
         <h1 id="track-id" style="display:none">{{trackId}}</h1>
         <br />
-        {{!-- <button id="delete-from-playlist">Remove song</button> --}}
     {{/each}}
-
-    {{!-- bubble --}}
-    <img x-off="10px" y-off="10px" time="1s" class="bub" src="https://e1.pngegg.com/pngimages/910/200/png-clipart-spotify-macos-style-round-black-and-green-spotify-logo-thumbnail.png" alt="">
-    {{!-- bubble --}}
 </div>
 
-<style>
-    :root {
-        --x-trans-sm: 5px;
---y-trans-sm: 5px;
-    }
-    .bub {
-        border-radius: 100%;
-        animation: updown attr(time) infinite ease-in-out;
-    }
+<link rel="stylesheet" href="/css/saved.css">
 
-    @keyframes updown {
-        0% {
-            transform: translateY(0px) translateX(0px);
-        }
-
-
-        50% {
-            transform: translateY(var(--y-trans-sm)) translateX(var(--x-trans-sm)) ;
-        }
-
-        100% {
-           transform: translateY(0px) translateX(0px);
-        }
-    }
-</style>
 <script src="/js/back-to-home.js"></script>
-<script src="/js/playlist.js"></script>
+<script src="/js/saved.js"></script>

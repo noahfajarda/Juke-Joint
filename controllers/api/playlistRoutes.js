@@ -23,7 +23,6 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/playlist/:id", async (req, res) => {
-    console.log(req.params.id);
     try {
         Playlist.findAll({
             where: {
@@ -34,8 +33,8 @@ router.get("/playlist/:id", async (req, res) => {
                 const filteredData = playlistData.map((playlist) =>
                     playlist.get({ plain: true })
                 );
-
-                res.render("playlist", { filteredData });
+                filteredData.reverse();
+                res.render("playlist", { filteredData, userId: req.params.id });
             })
             .catch((error) => {
                 console.log(error);

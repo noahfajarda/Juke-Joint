@@ -1,9 +1,9 @@
 // set authorization as header for API call
 function get_auth_header(token) {
-    return {
-        Authorization: `Bearer ${token}`,
-        //test
-    };
+  return {
+    Authorization: `Bearer ${token}`,
+    //test
+  };
 }
 
 // API call for tracks
@@ -57,9 +57,9 @@ const colors = {
 };
 
 module.exports = {
-    get_auth_header,
-    search_for_track,
-    search_for_album,
-    search_for_artist,
-    colors,
+  get_auth_header,
+  search_for_track,
+  search_for_album,
+  search_for_artist,
+  colors,
 };
