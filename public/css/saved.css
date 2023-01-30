@@ -8,6 +8,14 @@
     color: white;
     margin: 0px;
 }
+.bub img {
+    animation: notenlarge 0.2s ease-in-out;
+}
+.bub:hover img {
+    animation: enlarge 0.2s ease-in-out;
+    height: 210px;
+    width: 210px;
+}
 p {
     color: white;
     transition: 0.3s;
@@ -272,7 +280,6 @@ iframe {
 .bub:nth-child(244) {
     animation-delay: 2.0s;
 }
-
 .bub:nth-child(247) {
     animation-delay: 0.8s;
 }
@@ -341,5 +348,25 @@ iframe {
     }
     100% {
        transform: translateY(0px) translateX(0px);
+    }
+}
+@keyframes enlarge {
+    0% {
+        height: 200px;
+        width: 200px;
+    }
+    100% {
+        height: 210px;
+        width: 210px;
+    }
+}
+@keyframes notenlarge {
+    0% {
+        height: 210px;
+        width: 210px;
+    }
+    100% {
+        height: 200px;
+        width: 200px;
     }
 }
