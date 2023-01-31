@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 const exphbs = require("express-handlebars-hotreload");
 // hotreload
 exphbs.hotreload();
-const hbs = exphbs.create({ hotreload: true });
+const hbs = exphbs.create({ hotreload: process.env.NODE_ENV != "production" });
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 // routes linking to 'controllers'
@@ -44,9 +44,9 @@ app.use(session(sess));
 app.use(router);
 
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () =>
-        console.log(`App listening at 🚀🚀🚀 http://localhost:${PORT} 🚀🚀🚀`)
-    );
+  app.listen(PORT, () =>
+    console.log(`App listening at 🚀🚀🚀 http://localhost:${PORT} 🚀🚀🚀`)
+  );
 });
 
 

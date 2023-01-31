@@ -16,7 +16,8 @@
         "json2csv": "^5.0.7",
         "mysql2": "^2.3.3",
         "query-string": "^6.11.0",
-        "sequelize": "^6.28.0"
+        "sequelize": "^6.28.0",
+        "express-handlebars-hotreload": "^0.0.6"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,7 +26,6 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "express-handlebars-hotreload": "^0.0.6",
         "webpack": "^4.41.6",
         "webpack-cli": "^3.3.11"
     }
