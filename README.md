@@ -27,14 +27,14 @@ The app functions off of Spotify API which allows user to search their music as 
 
 ## Visuals
 
-![Screen shot of album search results](https://github.com/noahfajarda/Project-2-Juke-Joint/blob/noah-branch/assets/screenshots/for-README/Album%20search.png)
-![Screen shot of artist search results](https://github.com/noahfajarda/Project-2-Juke-Joint/blob/noah-branch/assets/screenshots/for-README/Artist%20search2.png)
 ![Screen shot of the home page](https://github.com/noahfajarda/Project-2-Juke-Joint/blob/noah-branch/assets/screenshots/for-README/Homepage.png)
-![Screen shot of likes page](https://github.com/noahfajarda/Project-2-Juke-Joint/blob/noah-branch/assets/screenshots/for-README/Likes%20page2.png)
 ![Screen shot of the login page](https://github.com/noahfajarda/Project-2-Juke-Joint/blob/noah-branch/assets/screenshots/for-README/Login%20Page.png)
+![Screen shot of track search results](https://github.com/noahfajarda/Project-2-Juke-Joint/blob/noah-branch/assets/screenshots/for-README/Track%20search2.png)
+![Screen shot of artist search results](https://github.com/noahfajarda/Project-2-Juke-Joint/blob/noah-branch/assets/screenshots/for-README/Artist%20search2.png)
+![Screen shot of album search results](https://github.com/noahfajarda/Project-2-Juke-Joint/blob/noah-branch/assets/screenshots/for-README/Album%20search.png)
+![Screen shot of likes page](https://github.com/noahfajarda/Project-2-Juke-Joint/blob/noah-branch/assets/screenshots/for-README/Likes%20page2.png)
 ![Screen shot of the playlist page](https://github.com/noahfajarda/Project-2-Juke-Joint/blob/noah-branch/assets/screenshots/for-README/Playlist%20page2.png)
 ![Screen shot of the lyrics and comments](https://github.com/noahfajarda/Project-2-Juke-Joint/blob/noah-branch/assets/screenshots/for-README/Song%20search%20with%20lyrics%20and%20comments2.png)
-![Screen shot of track search results](https://github.com/noahfajarda/Project-2-Juke-Joint/blob/noah-branch/assets/screenshots/for-README/Track%20search2.png)
 
 ## Licensing
 
