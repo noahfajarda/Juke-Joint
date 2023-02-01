@@ -41,7 +41,7 @@ The app functions off of Spotify API which allows user to search their music as 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# Link To Deployed Application
+## Link To Deployed Application
 
 Click [here](https://juke-joint.herokuapp.com/) to view our deployed application.
 
