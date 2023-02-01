@@ -18,7 +18,7 @@ Juke Joint was built on the concept of sharing music with others. The app allows
 
 The app functions off of Spotify Api which allows user to search their music as they regulairly would, but with socail twist allowing users to leave comments and likes based on what they find to a great track.
 
-![Screen shot of the login page]()
+![Screen shot of the login page](https://github.com/noahfajarda/Project-2-Juke-Joint/blob/noah-branch/assets/screenshots/for-README/Login%20Page.png)
 ![Screen shot of the main page]()
 ![Screen shot of the main page with open nav bar]()
 ![Screen shot of track search results]()
