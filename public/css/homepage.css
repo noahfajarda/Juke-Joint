@@ -8,9 +8,9 @@
   --font-sans: "Rubik", sans-serif;
   --font-serif: "Cardo", serif;
 }
-  * {
-    box-sizing: border-box;
-  }
+* {
+  box-sizing: border-box;
+}
 .twelve {
   padding-top: 50px;
 }
@@ -74,14 +74,14 @@ html {
   border-radius: 50%;
 }
 .expand {
-  animation: cursorAnim3 .5s forwards;
+  animation: cursorAnim3 0.5s forwards;
 }
 @keyframes cursorAnim3 {
   0% {
-    transform: scale(1)
+    transform: scale(1);
   }
   50% {
-    transform: scale(6)
+    transform: scale(6);
   }
   100% {
     transform: scale(1);
@@ -179,10 +179,10 @@ main {
   opacity: 0;
 }
 .card:nth-child(2) {
-  animation-delay: .4s;
+  animation-delay: 0.4s;
 }
 .card:nth-child(3) {
-  animation-delay: .8s;
+  animation-delay: 0.8s;
 }
 .card:nth-child(4) {
   animation-delay: 1.2s;
@@ -251,8 +251,7 @@ main {
   background-image: url(https://i.scdn.co/image/ab67616d0000b2735393e463f3276a39be578aa2);
   background-position: center;
   background-repeat: no-repeat;
-  background-color:rgba(0, 0, 0);
-
+  background-color: rgba(0, 0, 0);
 }
 .card:nth-child(2):before {
   /* childish gambino */
@@ -265,13 +264,13 @@ main {
   background-image: url(https://www.sleek-mag.com/wp-content/uploads/2016/08/AlbumCovers_Blonde.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  top:-9px;
+  top: -9px;
 }
 .card:nth-child(4):before {
   background-image: url(https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/streams/2012/August/120813/401372-tdy-120810-tih-abbey-orig.jpg);
   background-position: center -15px;
   background-repeat: no-repeat;
-} 
+}
 #search-container {
   display: flex;
   justify-content: space-around;
@@ -280,7 +279,7 @@ main {
   .card {
     display: block;
     width: 100%;
-    margin-bottom: 20px
+    margin-bottom: 20px;
   }
   #search-container {
     height: 100%;
@@ -294,47 +293,44 @@ main {
   }
   .card:nth-child(4):before {
     background-position: center -130px;
-  } 
+  }
 }
-
-
-
 
 @media (hover: hover) and (min-width: 600px) {
+  .card:after {
+    transform: translateY(0);
+  }
 
-.card:after {
-  transform: translateY(0);
-}
+  .card:hover,
+  .card:focus-within {
+    align-items: center;
+  }
+  .card:hover:before,
+  .card:focus-within:before {
+    transform: translateY(-4%);
+  }
+  .card:hover:after,
+  .card:focus-within:after {
+    transform: translateY(-50%);
+  }
+  .card:hover .content,
+  .card:focus-within .content {
+    transform: translateY(0);
+  }
+  .card:hover .content > *:not(.title),
+  .card:focus-within .content > *:not(.title) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--d) / 8);
+  }
 
-.card:hover,
-.card:focus-within {
-  align-items: center;
+  .card:focus-within:before,
+  .card:focus-within:after,
+  .card:focus-within .content,
+  .card:focus-within .content > *:not(.title) {
+    transition-duration: 0s;
+  }
 }
-.card:hover:before,
-.card:focus-within:before {
-  transform: translateY(-4%);
-}
-.card:hover:after,
-.card:focus-within:after {
-  transform: translateY(-50%);
-}
-.card:hover .content,
-.card:focus-within .content {
-  transform: translateY(0);
-}
-.card:hover .content > *:not(.title),
-.card:focus-within .content > *:not(.title) {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: calc(var(--d) / 8);
-}
-
-.card:focus-within:before,
-.card:focus-within:after,
-.card:focus-within .content,
-.card:focus-within .content > *:not(.title) {
-  transition-duration: 0s;
-}}
 /* EDIT LATER */
 #submit {
   width: 100%;
@@ -351,12 +347,12 @@ main {
   transition: 0.3s ease-in;
 }
 .submit:hover {
-  cursor:none;
+  cursor: none;
 }
 .member:hover {
   background-color: black;
   border-radius: 10px;
-  cursor:none;
+  cursor: none;
 }
 .rela-block {
   display: block;
@@ -374,7 +370,6 @@ main {
   left: 0;
   background-color: transparent;
   box-shadow: 4px 0px 25px -1px rgba(0, 0, 0, 0.5);
-  /* font-family: "Raleway"; */
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
@@ -456,36 +451,32 @@ main {
   content: "Home";
 }
 .side-button.home:after {
-    background: url("../images/home-icon.png")
-    no-repeat center;
-    height: 46px;
-    width: 41px;
-} 
+  background: url("../images/home-icon.png") no-repeat center;
+  height: 46px;
+  width: 41px;
+}
 .side-button.playlists::before {
   content: "Playlists";
 }
 .side-button.playlists:after {
-    background: url("../images/playlist-icon.png")
-    no-repeat center;
-    height: 46px;
-    width: 41px;
+  background: url("../images/playlist-icon.png") no-repeat center;
+  height: 46px;
+  width: 41px;
 }
 .side-button.likes::before {
   content: "Likes";
 }
 .side-button.likes:after {
-    background: url("../images/heart-icon.png")
-    no-repeat center;
-    height: 46px;
-    width: 41px;
+  background: url("../images/heart-icon.png") no-repeat center;
+  height: 46px;
+  width: 41px;
 }
 .side-button.auto::before {
   content: "Auto-Artist";
 }
 .side-button.auto:after {
   /* overlay another element with an opaque thing */
-  background: url("../images/lightning-icon.png")
-  no-repeat center;
+  background: url("../images/lightning-icon.png") no-repeat center;
   height: 46px;
   width: 41px;
 }
@@ -493,8 +484,7 @@ main {
   content: "Contact Us";
 }
 .side-button.contact:after {
-  background: url("../images/contact-icon.png")
-  no-repeat center;
+  background: url("../images/contact-icon.png") no-repeat center;
   height: 46px;
   width: 41px;
 }
@@ -502,12 +492,10 @@ main {
   content: "Log Out";
 }
 .side-button.log-out:after {
-  background: url("../images/logout-icon.png")
-  no-repeat center;
+  background: url("../images/logout-icon.png") no-repeat center;
   height: 46px;
   width: 41px;
 }
-
 
 /* add another nav bar */
 @media only screen and (max-width: 1290px) {
@@ -516,11 +504,7 @@ main {
   }
 }
 
-
-
-
 /* for modal */
-
 
 .modal-window {
   position: fixed;
@@ -547,7 +531,7 @@ main {
   opacity: 1;
   pointer-events: auto;
 }
-.modal-window  > div {
+.modal-window > div {
   width: 400px;
   position: absolute;
   top: 50%;
@@ -572,7 +556,8 @@ main {
   color: black;
 }
 /* Demo Styles */
-html, body {
+html,
+body {
   height: 100%;
 }
 .container {
@@ -617,17 +602,17 @@ small {
 }
 
 #large-console-container {
-    display: none;
-    width:100%;
-    display: flex;
-    justify-content: space-around;
+  display: none;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 @media only screen and (max-width: 1290px) {
   .side-bar {
     display: none;
   }
-#large-console-container {
-  display: none;
-}
+  #large-console-container {
+    display: none;
+  }
 }
